@@ -1,0 +1,122 @@
+{
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free",
+      "price": {
+        "monthly": 0,
+        "yearly": 0
+      },
+      "description": "Perfect for testing",
+      "features": [
+        "100 minutes/month",
+        "5 languages",
+        "Basic compliance",
+        "Email support",
+        "API access (read-only)"
+      ],
+      "limits": {
+        "minutes": 100,
+        "languages": 5,
+        "countries": 3,
+        "integrations": 1
+      },
+      "cta": "Start Free",
+      "popular": false
+    },
+    {
+      "id": "core",
+      "name": "Core",
+      "price": {
+        "monthly": 299,
+        "yearly": 2990
+      },
+      "description": "For growing teams",
+      "features": [
+        "1,000 minutes/month",
+        "20 languages",
+        "Full compliance (15 countries)",
+        "Priority support",
+        "Full API access",
+        "3 integrations",
+        "Analytics dashboard"
+      ],
+      "limits": {
+        "minutes": 1000,
+        "languages": 20,
+        "countries": 15,
+        "integrations": 3
+      },
+      "cta": "Start Core",
+      "popular": true
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "price": {
+        "monthly": 799,
+        "yearly": 7990
+      },
+      "description": "For global operations",
+      "features": [
+        "Unlimited minutes",
+        "40+ voices, 100+ UI languages",
+        "Full compliance (45+ countries)",
+        "Dedicated support",
+        "Custom integrations",
+        "White-label options",
+        "Advanced analytics",
+        "SLA 99.9%"
+      ],
+      "limits": {
+        "minutes": -1,
+        "languages": -1,
+        "countries": 45,
+        "integrations": -1
+      },
+      "cta": "Start Pro",
+      "popular": false
+    }
+  ],
+  "addons": [
+    {
+      "id": "extra-minutes",
+      "name": "Extra Minutes",
+      "price": {
+        "per1000": 50
+      },
+      "description": "Additional call minutes"
+    },
+    {
+      "id": "extra-languages",
+      "name": "Extra Languages",
+      "price": {
+        "per10": 99
+      },
+      "description": "Add 10 more voice languages"
+    },
+    {
+      "id": "extra-countries",
+      "name": "Extra Countries",
+      "price": {
+        "per5": 199
+      },
+      "description": "Add compliance for 5 more countries"
+    },
+    {
+      "id": "dedicated-support",
+      "name": "Dedicated Support",
+      "price": {
+        "monthly": 299
+      },
+      "description": "24/7 dedicated support team"
+    }
+  ],
+  "currency": "USD",
+  "billing": {
+    "monthly": "monthly",
+    "yearly": "yearly",
+    "yearlyDiscount": 17
+  }
+}
+

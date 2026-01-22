@@ -1,0 +1,74 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/i18n-sync.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@portabletext/react": "^3.2.1",
+    "@prisma/client": "^6.18.0",
+    "@react-three/drei": "^10.7.3",
+    "@react-three/fiber": "^9.3.0",
+    "@sanity/client": "^6",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3",
+    "@tanstack/react-query": "^5.90.12",
+    "@types/d3": "^7.4.3",
+    "@types/gsap": "^1.20.2",
+    "@types/three": "^0.181.0",
+    "@types/topojson-client": "^3.1.5",
+    "clsx": "^2.1.1",
+    "d3": "^7.9.0",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^11.18.2",
+    "gsap": "^3.13.0",
+    "lucide-react": "^0.539.0",
+    "next": "15.4.8",
+    "next-intl": "^4.3.4",
+    "next-sanity": "^9",
+    "next-seo": "^6.8.0",
+    "nodemailer": "^6.9.13",
+    "prisma": "^6.18.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-globe.gl": "^2.37.0",
+    "sanity": "^3",
+    "tailwind-merge": "^2.6.0",
+    "three": "^0.179.1",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/d3-geo": "^3.1.0",
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "d3-geo": "^3.1.1",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "next-sitemap": "^4.2.3",
+    "tailwindcss": "^4",
+    "topojson-client": "^3.1.0",
+    "typescript": "^5"
+  },
+  "browserslist": {
+    "production": [
+      "chrome >= 90",
+      "firefox >= 88",
+      "safari >= 14",
+      "edge >= 90"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

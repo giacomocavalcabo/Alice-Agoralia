@@ -1,0 +1,116 @@
+{
+  "product": {
+    "label": "Product",
+    "children": [
+      {
+        "href": "/product",
+        "label": "Overview",
+        "description": "Complete product overview"
+      },
+      {
+        "href": "/product/voice-agents",
+        "label": "Voice Agents",
+        "description": "AI-powered voice agents"
+      },
+      {
+        "href": "/product/coaching-qa",
+        "label": "Coaching & QA",
+        "description": "BANT scoring and quality assurance"
+      },
+      {
+        "href": "/product/integrations",
+        "label": "Integrations",
+        "description": "Connect with your stack"
+      },
+      {
+        "href": "/product/compliance",
+        "label": "Compliance",
+        "description": "Built-in compliance for 45+ countries"
+      },
+      {
+        "href": "/language-availability",
+        "label": "Language Availability",
+        "description": "100+ UI, 40+ voices"
+      }
+    ]
+  },
+  "solutions": {
+    "label": "Solutions",
+    "children": [
+      {
+        "href": "/solutions/exporters-suppliers",
+        "label": "Exporters / Suppliers",
+        "description": "Solutions for exporters"
+      },
+      {
+        "href": "/solutions/buyers-distributors",
+        "label": "Buyers / Distributors",
+        "description": "Solutions for buyers"
+      },
+      {
+        "href": "/solutions/marketplaces",
+        "label": "Marketplaces",
+        "description": "B2B marketplace solutions"
+      },
+      {
+        "href": "/solutions/pilot-playbooks",
+        "label": "Pilot Playbooks",
+        "description": "Implementation guides"
+      }
+    ]
+  },
+  "resources": {
+    "label": "Resources",
+    "children": [
+      {
+        "href": "/resources/guides",
+        "label": "Guides",
+        "description": "Step-by-step guides"
+      },
+      {
+        "href": "/resources/glossary",
+        "label": "Glossary",
+        "description": "Terminology and definitions"
+      },
+      {
+        "href": "/resources/changelog",
+        "label": "Changelog",
+        "description": "Product updates"
+      },
+      {
+        "href": "/resources/security",
+        "label": "Security",
+        "description": "Security and compliance"
+      },
+      {
+        "href": "/compliance",
+        "label": "Compliance Center",
+        "description": "Compliance resources"
+      }
+    ]
+  },
+  "direct": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/pricing",
+      "label": "Pricing"
+    },
+    {
+      "href": "/contact",
+      "label": "Contact"
+    },
+    {
+      "href": "/early-access",
+      "label": "Early Access"
+    },
+    {
+      "href": "/try-call",
+      "label": "Try a Call",
+      "highlight": true
+    }
+  ]
+}
+

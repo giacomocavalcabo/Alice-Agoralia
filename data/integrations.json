@@ -1,0 +1,117 @@
+{
+  "available": [
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "logo": "/logos/hubspot.svg",
+      "category": "crm",
+      "setupTime": "2 clicks",
+      "status": "live",
+      "description": "Sync leads, contacts, and deals automatically",
+      "apiDocs": "https://api.agoralia.com/docs/hubspot"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "logo": "/logos/salesforce.svg",
+      "category": "crm",
+      "setupTime": "2 clicks",
+      "status": "live",
+      "description": "Real-time sync with Salesforce objects",
+      "apiDocs": "https://api.agoralia.com/docs/salesforce"
+    },
+    {
+      "id": "zoho",
+      "name": "Zoho CRM",
+      "logo": "/logos/zoho.svg",
+      "category": "crm",
+      "setupTime": "2 clicks",
+      "status": "live",
+      "description": "Complete Zoho integration",
+      "apiDocs": "https://api.agoralia.com/docs/zoho"
+    },
+    {
+      "id": "odoo",
+      "name": "Odoo",
+      "logo": "/logos/odoo.svg",
+      "category": "erp",
+      "setupTime": "2 clicks",
+      "status": "live",
+      "description": "ERP integration for quotes and orders",
+      "apiDocs": "https://api.agoralia.com/docs/odoo"
+    },
+    {
+      "id": "google",
+      "name": "Google Workspace",
+      "logo": "/logos/google.svg",
+      "category": "productivity",
+      "setupTime": "2 clicks",
+      "status": "live",
+      "description": "Calendar and email integration",
+      "apiDocs": "https://api.agoralia.com/docs/google"
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "logo": "/logos/slack.svg",
+      "category": "communication",
+      "setupTime": "2 clicks",
+      "status": "live",
+      "description": "Get call notifications in Slack",
+      "apiDocs": "https://api.agoralia.com/docs/slack"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft 365",
+      "logo": "/logos/microsoft.svg",
+      "category": "productivity",
+      "setupTime": "2 clicks",
+      "status": "live",
+      "description": "Teams and Outlook integration",
+      "apiDocs": "https://api.agoralia.com/docs/microsoft"
+    },
+    {
+      "id": "webhook",
+      "name": "Custom Webhook",
+      "logo": "/logos/webhook.svg",
+      "category": "custom",
+      "setupTime": "5 min",
+      "status": "live",
+      "description": "Connect anything via REST webhooks",
+      "apiDocs": "https://api.agoralia.com/docs/webhooks"
+    }
+  ],
+  "comingSoon": [
+    {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "logo": "/logos/pipedrive.svg",
+      "category": "crm",
+      "eta": "Q2 2026",
+      "description": "Pipedrive CRM integration"
+    },
+    {
+      "id": "monday",
+      "name": "Monday.com",
+      "logo": "/logos/monday.svg",
+      "category": "project",
+      "eta": "Q2 2026",
+      "description": "Project management integration"
+    }
+  ],
+  "categories": {
+    "crm": 4,
+    "erp": 1,
+    "productivity": 2,
+    "communication": 1,
+    "custom": 1
+  },
+  "api": {
+    "baseUrl": "https://api.agoralia.com/v1",
+    "auth": "Bearer token",
+    "webhooks": true,
+    "rest": true,
+    "graphql": false
+  }
+}
+

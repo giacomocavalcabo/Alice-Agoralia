@@ -1,0 +1,45 @@
+{
+  "projects": [
+    {
+      "id": "site",
+      "name": "Sito",
+      "basePath": "src/i18n",
+      "sourceFile": "en-gb.json",
+      "sourceLocale": "en-GB",
+      "filePattern": "{locale}.json",
+      "snapshotPattern": "{locale}.snapshot.json",
+      "memoryFile": "../scripts/translation_memory.json"
+    },
+    {
+      "id": "app",
+      "name": "App Desktop",
+      "basePath": "../Agoralia/frontend/src/locales",
+      "sourceFile": "en-GB/pages.json",
+      "sourceLocale": "en-GB",
+      "filePattern": "{locale}/pages.json",
+      "snapshotPattern": "{locale}/pages.snapshot.json",
+      "memoryFile": "../scripts/translation_memory_app.json",
+      "files": [
+        {
+          "pattern": "{locale}/pages.json",
+          "snapshotPattern": "{locale}/pages.snapshot.json"
+        },
+        {
+          "pattern": "{locale}/email.json",
+          "snapshotPattern": "{locale}/email.snapshot.json"
+        }
+      ]
+    },
+    {
+      "id": "kb",
+      "name": "Knowledge Base",
+      "basePath": "../Agoralia/frontend/src/locales",
+      "sourceFile": "en-GB/compliance.json",
+      "sourceLocale": "en-GB",
+      "filePattern": "{locale}/compliance.json",
+      "snapshotPattern": "{locale}/compliance.snapshot.json",
+      "memoryFile": "../scripts/translation_memory_kb.json"
+    }
+  ]
+}
+
