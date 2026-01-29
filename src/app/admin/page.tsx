@@ -42,9 +42,27 @@ export default async function Admin() {
 
       <section className="grid md:grid-cols-2 gap-6">
         <div className="rounded-2xl border p-4">
+          <h2 className="font-medium mb-2">💰 Prezzi Dinamici</h2>
+          <p className="text-sm text-muted-foreground">Gestisci prezzi per tier e paesi</p>
+          <Link className="mt-3 inline-block rounded-lg bg-black text-white px-3 py-2" href="/admin/pricing">Apri Pricing</Link>
+        </div>
+
+        <div className="rounded-2xl border p-4">
           <h2 className="font-medium mb-2">🌍 Traduzioni i18n</h2>
           <p className="text-sm text-muted-foreground">Gestisci traduzioni e lingue</p>
           <Link className="mt-3 inline-block rounded-lg bg-black text-white px-3 py-2" href="/admin/i18n">Apri Dashboard i18n</Link>
+        </div>
+
+        <div className="rounded-2xl border p-4">
+          <h2 className="font-medium mb-2">📊 Finance</h2>
+          <p className="text-sm text-muted-foreground">Revenue, expenses, MRR, ARPU</p>
+          <Link className="mt-3 inline-block rounded-lg bg-black text-white px-3 py-2" href="/admin/finance">Apri Finance</Link>
+        </div>
+
+        <div className="rounded-2xl border p-4">
+          <h2 className="font-medium mb-2">📞 Chiamate Attive</h2>
+          <p className="text-sm text-muted-foreground">Monitora chiamate in corso realtime</p>
+          <Link className="mt-3 inline-block rounded-lg bg-black text-white px-3 py-2" href="/admin/calls">Apri Calls</Link>
         </div>
 
         <div className="rounded-2xl border p-4">

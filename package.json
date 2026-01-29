@@ -37,6 +37,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-globe.gl": "^2.37.0",
+    "recharts": "^2.15.0",
     "sanity": "^3",
     "tailwind-merge": "^2.6.0",
     "three": "^0.179.1",
