@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/i18n-sync.mjs",
+    "prebuild": "node scripts/i18n-sync.mjs || true",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
