@@ -13,11 +13,14 @@ from models import Base
 from redis_client import redis_client, publish_event
 from routes import pricing, i18n, finance, admin, realtime
 
-# Wait for database on startup
-wait_for_database()
-
-# Create tables (in production use Alembic migrations)
-Base.metadata.create_all(bind=engine)
+# Wait for database on startup (non-blocking in development)
+try:
+    wait_for_database(max_retries=3, retry_interval=1)
+    # Create tables (in production use Alembic migrations)
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"⚠ Database not available: {e}")
+    print("⚠ Service will start but database features will be unavailable")
 
 app = FastAPI(
     title="Agoralia Config Service",
@@ -38,7 +41,7 @@ app.add_middleware(
 app.include_router(pricing.router, prefix="/pricing", tags=["pricing"])
 app.include_router(i18n.router, prefix="/i18n", tags=["i18n"])
 app.include_router(finance.router, prefix="/finance", tags=["finance"])
-app.include_router(admin.router, prefix="/admin", tags=["admin"])
+# admin.py contiene solo utility functions, non un router
 app.include_router(realtime.router, prefix="/realtime", tags=["realtime"])
 
 

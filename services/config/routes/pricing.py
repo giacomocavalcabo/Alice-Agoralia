@@ -77,10 +77,15 @@ async def get_pricing(
     if cached:
         return PricingResponse(**cached)
     
-    # Get latest pricing config
-    latest_config = db.query(PricingConfig).order_by(
-        PricingConfig.version.desc()
-    ).first()
+    # Get latest pricing config (handle DB errors gracefully)
+    latest_config = None
+    try:
+        latest_config = db.query(PricingConfig).order_by(
+            PricingConfig.version.desc()
+        ).first()
+    except Exception as e:
+        print(f"⚠ Database query failed: {e}")
+        # Continue with default pricing
     
     if not latest_config:
         # Use default pricing

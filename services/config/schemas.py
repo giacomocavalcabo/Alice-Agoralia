@@ -46,7 +46,7 @@ class FinancialTransactionCreate(BaseModel):
     provider: str
     status: str
     transaction_type: str
-    metadata: Optional[Dict[str, Any]] = None
+    metadata_json: Optional[Dict[str, Any]] = None
 
 
 class ExpenseCreate(BaseModel):
@@ -57,7 +57,7 @@ class ExpenseCreate(BaseModel):
     currency: str = "USD"
     description: Optional[str] = None
     provider: Optional[str] = None
-    metadata: Optional[Dict[str, Any]] = None
+    metadata_json: Optional[Dict[str, Any]] = None
 
 
 class RevenueStats(BaseModel):

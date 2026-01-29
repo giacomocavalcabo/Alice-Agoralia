@@ -1,6 +1,7 @@
 """Configuration settings"""
 
 import os
+from pydantic import field_validator
 from pydantic_settings import BaseSettings
 
 
@@ -22,7 +23,17 @@ class Settings(BaseSettings):
     
     # Environment
     environment: str = os.getenv("ENVIRONMENT", "development")
-    railway_environment: bool = bool(os.getenv("RAILWAY_ENVIRONMENT"))
+    railway_environment: bool = False
+    
+    @field_validator('railway_environment', mode='before')
+    @classmethod
+    def parse_railway_environment(cls, v):
+        """Parse railway_environment from env var"""
+        if isinstance(v, bool):
+            return v
+        if isinstance(v, str):
+            return v.lower() in ('true', '1', 'yes')
+        return bool(v)
     
     # CORS
     cors_origins: list[str] = [

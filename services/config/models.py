@@ -52,7 +52,7 @@ class FinancialTransaction(Base):
     provider = Column(String(50), nullable=False)  # 'stripe', 'dlocal', etc.
     status = Column(String(50), nullable=False, index=True)  # 'completed', 'pending', 'failed', 'refunded'
     transaction_type = Column(String(50), nullable=False)  # 'subscription', 'topup', 'one_time'
-    metadata = Column(JSONB, nullable=True)  # dati aggiuntivi dal provider
+    metadata_json = Column("metadata", JSONB, nullable=True)  # dati aggiuntivi dal provider
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
     
     # Index per analytics
@@ -73,7 +73,7 @@ class Expense(Base):
     currency = Column(String(3), nullable=False, default='USD')
     description = Column(Text, nullable=True)
     provider = Column(String(100), nullable=True)  # 'railway', 'openai', 'elevenlabs', etc.
-    metadata = Column(JSONB, nullable=True)  # dati aggiuntivi
+    metadata_json = Column("metadata", JSONB, nullable=True)  # dati aggiuntivi
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     
     # Index per analytics

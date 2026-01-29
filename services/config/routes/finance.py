@@ -34,7 +34,7 @@ async def create_transaction(
         provider=transaction.provider,
         status=transaction.status,
         transaction_type=transaction.transaction_type,
-        metadata=transaction.metadata,
+        metadata=transaction.metadata_json,
     )
     
     db.add(db_transaction)
@@ -83,11 +83,11 @@ async def get_revenue_stats(
     breakdown_by_country = {}
     
     for t in transactions:
-        if t.metadata:
-            tier = t.metadata.get("tier", "unknown")
+        if t.metadata_json:
+            tier = t.metadata_json.get("tier", "unknown")
             breakdown_by_tier[tier] = breakdown_by_tier.get(tier, 0) + t.amount_cents
             
-            country = t.metadata.get("country_code", "unknown")
+            country = t.metadata_json.get("country_code", "unknown")
             breakdown_by_country[country] = breakdown_by_country.get(country, 0) + t.amount_cents
     
     # Calculate MRR (Monthly Recurring Revenue) for subscriptions
@@ -136,7 +136,7 @@ async def create_expense(
         currency=expense.currency,
         description=expense.description,
         provider=expense.provider,
-        metadata=expense.metadata,
+        metadata=expense.metadata_json,
     )
     
     db.add(db_expense)
