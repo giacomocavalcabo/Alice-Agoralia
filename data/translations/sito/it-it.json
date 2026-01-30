@@ -1,0 +1,1579 @@
+{
+  "nav": {
+    "home": "Home",
+    "product": "Prodotto",
+    "productOverview": "Panoramica Prodotto",
+    "voiceAgents": "Agenti Vocali",
+    "coaching": "QA e Coaching",
+    "compliance": "Conformità",
+    "integrations": "Integrazioni",
+    "languageAvailability": "Disponibilità Linguistica",
+    "solutions": "Soluzioni",
+    "playbooks": "Playbook",
+    "useCases": "Casi d'uso",
+    "resources": "Risorse",
+    "guides": "Guide",
+    "glossary": "Glossario",
+    "changelog": "Registro Modifiche",
+    "security": "Sicurezza",
+    "complianceCenter": "Centro Conformità",
+    "company": "Azienda",
+    "about": "Chi Siamo",
+    "contact": "Contatti",
+    "earlyAccess": "Accesso Anticipato",
+    "pricing": "Prezzi",
+    "tryCall": "Prova una Chiamata",
+    "dashboard": "Dashboard",
+    "login": "Accesso",
+    "complianceDatabase": "Database Conformità"
+  },
+  "home": {
+    "heroTitle": "Voice AI per il Commercio Globale",
+    "heroSubtitle": "Trasforma le tue operazioni B2B con agenti vocali alimentati dall'IA",
+    "heroMicroCopy": "Nessuna carta di credito. Nessuna configurazione. Parla e basta.",
+    "globe": {
+      "title": "Partecipanti per paese",
+      "subtitle": "Vedi dove Agoralia viene utilizzato in tutto il mondo in tempo reale",
+      "stats": {
+        "title": "Metriche di Performance",
+        "subtitle": "Risultati reali da aziende che usano Agoralia",
+        "coldCallSuccess": "Tasso di Successo Cold Calling",
+        "coldCallSuccessDesc": "Aumento medio rispetto alle chiamate manuali",
+        "responseTime": "Tempo di Risposta",
+        "responseTimeDesc": "Qualificazione lead più rapida",
+        "conversionRate": "Tasso di Conversione",
+        "conversionRateDesc": "Lead qualificati più alti",
+        "costReduction": "Riduzione dei Costi",
+        "costReductionDesc": "Per lead qualificato"
+      }
+    },
+    "compliance": {
+      "title": "La conformità non è uno slide alla fine. È il motore.",
+      "subtitle": "Paesi diversi, regole diverse per telemarketing, registrazione e disclosure AI. Le strutturiamo in modo che tu possa usarle davvero nelle campagne.",
+      "countries": "Oltre 200 paesi con un profilo di conformità",
+      "rules": "Per ciascuno: regole base su chiamate di marketing, registrazione, orari tranquilli, registri DNC, requisiti di disclosure",
+      "versioned": "Aggiornate e versionate, così sai sempre \"da dove vengono le regole della campagna\"",
+      "example": {
+        "title": "Esempio: Germania",
+        "outboundMarketing": "Outbound marketing: Consentito B2B con consenso",
+        "recording": "Registrazione: Richiesto consenso di due parti",
+        "quietHours": "Orari tranquilli: Nessuna chiamata dopo le 20:00, weekend bloccato",
+        "aiDisclosure": "Disclosure AI: Richiesto"
+      },
+      "features": {
+        "quietHours": {
+          "title": "Orari Consentiti",
+          "description": "Niente chiamate fuori orario: la piattaforma sa quando evitare di disturbare (es. non chiama dopo le 20:00 se vietato in quella nazione)."
+        },
+        "dncConsent": {
+          "title": "DNC e Consensi",
+          "description": "Incrocio automatico col registro delle opposizioni (Do-Not-Call) dove applicabile, e gestione opt-in/opt-out dei contatti."
+        },
+        "aiDisclosure": {
+          "title": "AI Disclosure",
+          "description": "L'agente informa l'interlocutore che è un assistente virtuale se la legge locale lo richiede (es. \"Questa chiamata è automatizzata\")."
+        },
+        "privacySecurity": {
+          "title": "Privacy & Data Security",
+          "description": "Dati vocali e trascrizioni cifrati, hosting in UE conforme GDPR, opzioni di cancellazione automatica dopo X giorni."
+        }
+      },
+      "countriesTitle": "Paesi coperti dalla compliance automatica",
+      "countriesSubtitle": "Ogni chiamata rispetta automaticamente le normative locali",
+      "countriesMore": "E altri paesi in aggiunta. Se il tuo mercato target non è nella lista,",
+      "countriesContactText": "contattaci",
+      "countriesMoreEnd": "per verificare la copertura.",
+      "countries": [
+        { "code": "🇪🇺", "name": "UE (GDPR)", "countries": "27 paesi" },
+        { "code": "🇺🇸", "name": "USA (TCPA)", "countries": "50 stati" },
+        { "code": "🇬🇧", "name": "UK", "countries": "Regno Unito" },
+        { "code": "🇨🇦", "name": "Canada", "countries": "Regole CRTC" },
+        { "code": "🇦🇺", "name": "Australia", "countries": "Do Not Call" },
+        { "code": "🇯🇵", "name": "Giappone", "countries": "Telemarketers Law" },
+        { "code": "🇸🇬", "name": "Singapore", "countries": "PDPA" },
+        { "code": "🇧🇷", "name": "Brasile", "countries": "LGPD" },
+        { "code": "🇲🇽", "name": "Messico", "countries": "LFPDPPP" },
+        { "code": "🇮🇳", "name": "India", "countries": "Telecom Act" },
+        { "code": "🇿🇦", "name": "Sud Africa", "countries": "POPIA" },
+        { "code": "🇦🇪", "name": "UAE", "countries": "UAE telecom" }
+      ]
+    },
+    "languagesVoices": {
+      "title": "Oltre 30 lingue, ottimizzate per il lavoro — non chiacchiere.",
+      "subtitle": "Da un dentista a Roma che ricorda ai pazienti in romeno, a una fabbrica in Germania che chiama distributori in spagnolo.",
+      "voicesDesigned": "Voci progettate per capire e pronunciare nomi, indirizzi, numeri, codici prodotto",
+      "ttsPremium": "Possibilità di usare voci TTS premium (come ElevenLabs / simili)",
+      "toneControl": "Controllo del tono: più \"front office\", più \"back office\", ecc."
+    },
+    "integrations": {
+      "title": "Funziona con gli strumenti che già usi.",
+      "subtitle": "In modo che il tuo team non debba imparare \"un altro dashboard\" se non vuole.",
+      "crm": {
+        "title": "CRM",
+        "count": "4 integrazioni",
+        "description": "Funzionalità: Import leads, scrive note, tagga risultati, aggiorna pipeline o campi personalizzati.",
+        "logos": [
+          { "id": "hubspot", "name": "HubSpot" },
+          { "id": "zoho", "name": "Zoho CRM" },
+          { "id": "freshsales", "name": "Freshsales" },
+          { "id": "agile", "name": "Agile CRM" }
+        ],
+        "note": "Nota: tutte supportano anche funzionalità Calendar."
+      },
+      "calendars": {
+        "title": "Calendar",
+        "count": "7 integrazioni",
+        "description": "Funzionalità: Vede slot disponibili e prenota appuntamenti quando la persona dice \"Sì, vengo martedì alle 15:00\".",
+        "logos": [
+          { "id": "google", "name": "Google Calendar" },
+          { "id": "calcom", "name": "Cal.com" },
+          { "id": "microsoft", "name": "Microsoft Calendar" },
+          { "id": "hubspot", "name": "HubSpot (anche CRM)" },
+          { "id": "zoho", "name": "Zoho (anche CRM)" },
+          { "id": "freshsales", "name": "Freshsales (anche CRM)" },
+          { "id": "agile", "name": "Agile CRM (anche CRM)" }
+        ]
+      },
+      "telephony": {
+        "title": "Telephony",
+        "count": "8 integrazioni",
+        "description": "Funzionalità: Connessione a provider supportati / in arrivo.",
+        "logos": [
+          { "id": "telnyx", "name": "Telnyx" },
+          { "id": "twilio", "name": "Twilio" },
+          { "id": "messagebird", "name": "MessageBird" },
+          { "id": "plivo", "name": "Plivo" },
+          { "id": "vonage", "name": "Vonage" },
+          { "id": "sinch", "name": "Sinch" },
+          { "id": "infobip", "name": "Infobip" },
+          { "id": "bandwidth", "name": "Bandwidth" }
+        ]
+      },
+      "custom": "Se il tuo stack non è qui, possiamo aggiungerlo.",
+      "customQueue": "Più clienti lo chiedono, più sale nella coda."
+    },
+    "playbooks": {
+      "title": "Non partire da zero. Parti da un playbook.",
+      "subtitle": "Ogni settore ha i suoi punti di frizione. Abbiamo playbook pronti per partire in pochi giorni.",
+      "appointmentReminder": {
+        "title": "Promemoria appuntamenti & riprogrammazione",
+        "subtitle": "Studio dentistico / clinica",
+        "item1": "Chiama il giorno prima",
+        "item2": "Conferma o propone nuovo orario",
+        "item3": "Aggiorna il sistema di gestione dello studio o il calendario del medico",
+        "cta": "Usa questo playbook"
+      },
+      "quoteRequests": {
+        "title": "200 richieste di preventivo in una settimana",
+        "subtitle": "Richieste di preventivo massive",
+        "item1": "L'IA chiama fornitori / partner",
+        "item2": "Chiede le informazioni di cui hai bisogno",
+        "item3": "Registra prezzi, condizioni, note in un unico posto",
+        "cta": "Usa questo playbook"
+      },
+      "checkIn": {
+        "title": "Check-in con distributori",
+        "subtitle": "Esportazione & distributori",
+        "item1": "Chiama i distributori periodicamente",
+        "item2": "Controlla stock, problemi, ordini in arrivo",
+        "item3": "Riporta dove intervenire e chi richiamare di persona",
+        "cta": "Usa questo playbook"
+      }
+    },
+    "pricing": {
+      "title": "Prezzi semplici e trasparenti",
+      "subtitle": "Scegli il piano che fa per te",
+      "free": {
+        "title": "Free",
+        "subtitle": "Perfetto per iniziare",
+        "price": "€0",
+        "pricePeriod": "",
+        "badge": "Piano Attuale",
+        "features": [
+          "1 Agente",
+          "0 Workflow",
+          "1 Lingua",
+          "Supporto Community"
+        ],
+        "cta": "Attivo"
+      },
+      "core": {
+        "title": "Core",
+        "subtitle": "Per team che crescono",
+        "description": "Per iniziare a scalare",
+        "price": "€29",
+        "pricePeriod": "/mensile",
+        "badge": "",
+        "features": [
+          "5 Agenti",
+          "3 Workflow",
+          "3 Lingue",
+          "Email prioritario"
+        ],
+        "cta": "Inizia"
+      },
+      "pro": {
+        "title": "Pro",
+        "subtitle": "Per operazioni a pieno regime",
+        "description": "Ruoli & permessi + analytics",
+        "price": "€79",
+        "pricePeriod": "/mensile",
+        "badge": "Più Popolare",
+        "features": [
+          "20 Agenti",
+          "Workflow Illimitati",
+          "Lingue Illimitate",
+          "Ruoli & Permessi"
+        ],
+        "cta": "Inizia"
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "subtitle": "Per grandi organizzazioni",
+        "description": "Sicurezza & compliance avanzata",
+        "price": "Contattaci",
+        "pricePeriod": "",
+        "badge": "",
+        "features": [
+          "Agenti Illimitati",
+          "Workflow Illimitati",
+          "Lingue Illimitate",
+          "SLA Garantito"
+        ],
+        "cta": "Parla con noi"
+      },
+      "disclaimer": "Nessun lock-in annuale obbligatorio. Inizia, testa un caso d'uso, scala quando hai dati."
+    },
+    "useCases": {
+      "subtitle": "Costruito per team che devono parlare con molte persone — non solo in una lingua.",
+      "appointmentReminders": {
+        "title": "Promemoria appuntamenti",
+        "subtitle": "Dentisti, cliniche, studi di bellezza, servizi automobilistici.",
+        "description": "Chiamate automatiche il giorno prima e follow-up SMS così le persone si presentano davvero."
+      },
+      "quotesFollowUp": {
+        "title": "Preventivi e follow-up",
+        "subtitle": "Hai bisogno di 200 preventivi da fornitori?",
+        "description": "L'agente chiama, raccoglie dettagli e registra dati strutturati nel tuo CRM, pronti per la tua approvazione."
+      },
+      "salesLeadQualification": {
+        "title": "Vendite e qualificazione lead",
+        "subtitle": "I nuovi lead ricevono una chiamata nella loro lingua.",
+        "description": "L'AI qualifica, prenota un appuntamento nel tuo calendario o lo passa a un umano quando ha senso."
+      },
+      "supportFaqs": {
+        "title": "Supporto e FAQ",
+        "subtitle": "Domande comuni risposte sul momento.",
+        "description": "\"Dov'è il mio ordine?\", \"Come posso riprogrammare?\", \"Quali sono i vostri orari?\" → risposte immediate, escalation solo quando necessario."
+      }
+    },
+    "sections": {
+      "whyAgoralia": {
+        "title": "Perché scegliere Agoralia",
+        "subtitle": "La piattaforma AI più avanzata per l'automazione delle chiamate cross-border, progettata per crescere con il tuo business internazionale.",
+        "benefits": {
+          "multilingual": {
+            "title": "Multilingua nativo",
+            "description": "Parla la lingua dei tuoi clienti: agenti virtuali fluenti in oltre 150 lingue e dialetti per agenti AI, con 100+ lingue supportate nell'interfaccia."
+          },
+          "compliance": {
+            "title": "Compliance automatica",
+            "description": "Niente più rischi legali: ogni chiamata rispetta privacy e normative locali (GDPR, TCPA, LGPD, PDPA e oltre 15 framework normativi)."
+          },
+          "scalability": {
+            "title": "Scalabilità 24/7",
+            "description": "Non mettere limiti alle tue vendite: l'AI gestisce migliaia di chiamate contemporaneamente, a qualsiasi ora, senza stancarsi mai."
+          }
+        }
+      },
+      "howItWorks": {
+        "title": "Come funziona Agoralia",
+        "subtitle": "Automatizza l'intero processo di outbound sales in pochi minuti. Dalla lista contatti ai risultati misurabili.",
+        "steps": {
+          "step1": {
+            "title": "Importa o integra i tuoi contatti",
+            "description": "Collega il CRM o carica una lista: Agoralia identifica automaticamente chi chiamare, quando e dove, rispettando i fusi orari e le preferenze linguistiche."
+          },
+          "step2": {
+            "title": "L'AI chiama per te",
+            "description": "Un agente virtuale contatta ogni lead nella sua lingua madre, seguendo uno script intelligente che si adatta alle risposte in tempo reale e gestisce obiezioni."
+          },
+          "step3": {
+            "title": "Ricevi risultati e dati",
+            "description": "Ogni conversazione viene trascritta, analizzata e salvata automaticamente. Tu ottieni lead qualificati, appuntamenti fissati e insight dettagliati nel tuo CRM."
+          }
+        }
+      },
+      "completeSolution": {
+        "title": "Una piattaforma unica per gestire vendite vocali globali",
+        "subtitle": "Agoralia combina AI conversazionale, telefonia internazionale e integrazioni business in un'unica soluzione plug & play. Tutto quello che serve per scalare le vendite cross-border.",
+        "features": {
+          "voice": {
+            "title": "Voce AI naturale in ogni lingua",
+            "description": "Modelli GPT-4 e speech avanzati per conversazioni umane e fluenti in 150+ lingue."
+          },
+          "integrations": {
+            "title": "Integrazioni pronte con i tuoi sistemi",
+            "description": "CRM, calendari e API per workflow seamless. HubSpot, Salesforce, Outlook e oltre."
+          },
+          "dashboard": {
+            "title": "Dashboard in tempo reale con trascrizioni e KPI",
+            "description": "Analytics complete, sentiment analysis e report automatici per ottimizzare le performance."
+          },
+          "security": {
+            "title": "Controlli di sicurezza e compliance incorporati",
+            "description": "GDPR, TCPA e oltre 15 framework normativi gestiti automaticamente per ogni chiamata."
+          }
+        },
+        "cta": "Inizia Prova Gratuita"
+      }
+    },
+    "whyDifferent": {
+      "title": "Non un'altra demo giocattolo.",
+      "subtitle": "Agoralia è costruita per chiamate reali: denaro, appuntamenti, ordini, rinnovi.",
+      "understands": {
+        "title": "Capisce come le persone parlano davvero",
+        "description": "Gestisce accenti diversi, correzioni, \"aspetta un momento\", codici, numeri, indirizzi. Non è un IVR basato su pulsanti, è una vera conversazione."
+      },
+      "playsNice": {
+        "title": "Si integra bene con il tuo stack",
+        "description": "Scrive nel CRM, aggiorna campi, aggiunge note, crea task, può anche prenotare appuntamenti nei calendari connessi (Cal.com / Google, ecc.)."
+      },
+      "designedRules": {
+        "title": "Progettato attorno alle regole, non alle sensazioni",
+        "description": "Orari di chiamata, consenso, registrazione, cosa si può dire e cosa no: tutto configurabile per paese e per campagna."
+      }
+    },
+    "proof": {
+      "title": "Risultati reali",
+      "subtitle": "Dall'Italia agli UAE: Vedi come le aziende scalano globalmente con Agoralia",
+      "caseStudies": [
+        {
+          "id": 1,
+          "company": "Esportatore Italiano",
+          "industry": "Manifatturiero",
+          "country": "🇮🇹",
+          "kpi": "+85% preventivi più veloci",
+          "metric": "Tempo di generazione preventivi ridotto da 2 giorni a 4 ore",
+          "description": "Richieste preventivi automatizzate in 12 lingue tra mercati UE e MENA."
+        },
+        {
+          "id": 2,
+          "company": "Distributore UAE",
+          "industry": "Distribuzione",
+          "country": "🇦🇪",
+          "kpi": "+340% lead",
+          "metric": "Da 50 a 220 lead qualificati al mese",
+          "description": "Supporto inbound 24/7 in arabo e inglese. Non perdere mai una chiamata."
+        },
+        {
+          "id": 3,
+          "company": "Marketplace B2B Tedesco",
+          "industry": "Marketplace",
+          "country": "🇩🇪",
+          "kpi": "99.9% conformità",
+          "metric": "Zero violazioni GDPR in 12 mesi",
+          "description": "Controlli di conformità automatizzati per tutte le chiamate outbound in 28 paesi UE."
+        },
+        {
+          "id": 4,
+          "company": "Fornitore Singapore",
+          "industry": "Trading",
+          "country": "🇸🇬",
+          "kpi": "+25% tasso di chiusura",
+          "metric": "Il punteggio BANT ha migliorato le prestazioni dell'agente",
+          "description": "Il coaching AI e il punteggio di qualità hanno aumentato significativamente i tassi di conversione."
+        },
+        {
+          "id": 5,
+          "company": "Importatore Brasiliano",
+          "industry": "Import/Export",
+          "country": "🇧🇷",
+          "kpi": "60% riduzione costi",
+          "metric": "Sostituito call center da 8 persone con AI",
+          "description": "Voice AI conforme LGPD gestisce chiamate in portoghese e spagnolo 24/7."
+        },
+        {
+          "id": 6,
+          "company": "Azienda Tech Indiana",
+          "industry": "SaaS",
+          "country": "🇮🇳",
+          "kpi": "15 lingue",
+          "metric": "Piattaforma unica per espansione APAC",
+          "description": "Lancio simultaneo in 15 mercati APAC con supporto vocale nativo."
+        },
+        {
+          "id": 7,
+          "company": "Retailer Francese",
+          "industry": "Retail",
+          "country": "🇫🇷",
+          "kpi": "+180% NPS",
+          "metric": "Punteggi di soddisfazione clienti raddoppiati",
+          "description": "Chiamate NPS post-consegna in francese, inglese e arabo hanno migliorato la retention."
+        },
+        {
+          "id": 8,
+          "company": "Piattaforma B2B USA",
+          "industry": "Piattaforma",
+          "country": "🇺🇸",
+          "kpi": "Conforme TCPA",
+          "metric": "100% tasso opt-in, zero violazioni",
+          "description": "Conformità TCPA automatizzata per campagne outbound in tutti i 50 stati."
+        }
+      ],
+      "testimonial": {
+        "quote": "Agoralia ha trasformato le nostre operazioni globali. Siamo passati da 3 lingue a 15 in un mese, tutte conformi.",
+        "author": "Head of Sales, Piattaforma B2B Globale"
+      }
+    },
+    "finalCTA": {
+      "title": "Pronto a eliminare le barriere nelle tue vendite internazionali?",
+      "subtitle": "Prova Agoralia gratuitamente o parlaci per una demo personalizzata.",
+      "ctaPrimary": "Prova una chiamata AI",
+      "ctaSecondary": "Contatta il nostro team"
+    },
+    "manifesto": {
+      "thesis": {
+        "title": "L'infrastruttura dietro le conversazioni globali.",
+        "description": "La voce, finalmente trattata come infrastruttura. Non una feature. Non una demo. Le fondamenta per come avviene realmente il commercio B2B globale.",
+        "point1": {
+          "title": "Costruito per la scala, non per le demo",
+          "description": "Ogni chiamata rispetta automaticamente le normative locali. 200+ paesi. Zero configurazione."
+        },
+        "point2": {
+          "title": "Progettato per operazioni reali",
+          "description": "Gestisce accenti, correzioni, codici, indirizzi. Si integra con il tuo stack. Scrive nel CRM. Prenota appuntamenti. Conversazioni reali, non menu a pulsanti."
+        }
+      },
+      "proof": {
+        "stats": [
+          { "value": "+200", "label": "Stati coperti" },
+          { "value": "+150", "label": "Lingue chiamata" },
+          { "value": "+100", "label": "Lingue UI" },
+          { "value": "24/7", "label": "Disponibile" }
+        ]
+      },
+      "howItWorks": {
+        "title": "Come funziona",
+        "steps": [
+          {
+            "number": "01",
+            "title": "Connetti i tuoi dati",
+            "description": "Importa contatti o integra con il tuo CRM. Agoralia identifica chi chiamare, quando e in quale lingua."
+          },
+          {
+            "number": "02",
+            "title": "L'AI gestisce le chiamate",
+            "description": "Un agente virtuale contatta ogni lead nella sua lingua nativa, adattandosi alle risposte e gestendo obiezioni in tempo reale."
+          },
+          {
+            "number": "03",
+            "title": "Ottieni risultati automaticamente",
+            "description": "Ogni conversazione è trascritta, analizzata e salvata. Lead qualificati, appuntamenti e insight fluiscono nel tuo CRM."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Inizia a costruire sull'infrastruttura vocale.",
+        "subtitle": "Prova una chiamata o parla con il nostro team.",
+        "button": "Prova una chiamata"
+      }
+    },
+    "trustBar": {
+      "title": "Fidati dalle aziende leader",
+      "subtitle": "Integrato con gli strumenti che già usi"
+    },
+    "testimonials": {
+      "title": "Fidati da aziende globali",
+      "subtitle": "Scopri come le aziende stanno trasformando le loro operazioni di vendita",
+      "items": [
+        {
+          "name": "Marco Rossi",
+          "role": "Head of Sales, TechCorp Italia",
+          "company": "TechCorp",
+          "content": "Agoralia ha trasformato le nostre operazioni di vendita internazionali. Ora raggiungiamo clienti in oltre 50 paesi con conversazioni personalizzate e conformi.",
+          "rating": 5,
+          "image": "🇮🇹"
+        },
+        {
+          "name": "Sarah Chen",
+          "role": "VP of Growth, GlobalTrade Inc.",
+          "company": "GlobalTrade",
+          "content": "Le capacità multilingue sono incredibili. I nostri agenti AI gestiscono conversazioni complesse in oltre 15 lingue senza problemi. Un punto di svolta per le nostre operazioni B2B.",
+          "rating": 5,
+          "image": "🇸🇬"
+        },
+        {
+          "name": "Thomas Müller",
+          "role": "Sales Director, EuroSolutions",
+          "company": "EuroSolutions",
+          "content": "La conformità era la nostra preoccupazione principale. Agoralia gestisce GDPR, privacy dei dati e normative locali automaticamente. Finalmente possiamo scalare con fiducia.",
+          "rating": 5,
+          "image": "🇩🇪"
+        }
+      ]
+    },
+    "useCases": {
+      "badge": "Casi d'uso",
+      "title": "Cosa puoi automatizzare?",
+      "subtitle": "Dalla qualificazione dei lead al feedback dei clienti, scopri come gli agent vocali AI trasformano ogni punto di contatto nel tuo processo di vendita.",
+      "cta": "Esplora tutti i casi d'uso",
+      "items": [
+        {
+          "title": "Qualificazione Lead",
+          "description": "Gli agent AI qualificano migliaia di lead quotidianamente, estraendo criteri BANT e assegnando punteggi ai prospect automaticamente.",
+          "metric": "10x",
+          "metricLabel": "qualificazione più veloce"
+        },
+        {
+          "title": "Prenotazione Appuntamenti",
+          "description": "Scheduling automatizzato che controlla la disponibilità, gestisce riprogrammazioni e invia promemoria in qualsiasi lingua.",
+          "metric": "+85%",
+          "metricLabel": "tasso di presenza"
+        },
+        {
+          "title": "Campagne Outbound",
+          "description": "Scala le tue chiamate a freddo con AI che gestisce obiezioni, si adatta alle risposte e non si stanca mai.",
+          "metric": "1000+",
+          "metricLabel": "chiamate/giorno per agente"
+        },
+        {
+          "title": "Richieste Preventivi",
+          "description": "Raccogli requisiti, valida specifiche e genera preventivi automaticamente. Dall'inchiesta alla proposta in minuti.",
+          "metric": "-80%",
+          "metricLabel": "tempo di risposta"
+        },
+        {
+          "title": "Riattivazione Clienti",
+          "description": "Riattiva clienti dormienti con outreach personalizzato nella loro lingua. Riconquista opportunità perse.",
+          "metric": "+45%",
+          "metricLabel": "tasso di riattivazione"
+        },
+        {
+          "title": "Survey e Feedback",
+          "description": "Raccogli NPS, CSAT e feedback qualitativi attraverso conversazioni naturali. Tassi di risposta più alti delle email.",
+          "metric": "3x",
+          "metricLabel": "tasso di risposta vs email"
+        }
+      ]
+    }
+  },
+  "hero": {
+    "title": "L'infrastruttura dietro le conversazioni globali.",
+    "subtitle": "La voce, finalmente trattata come infrastruttura. Non una feature. Non una demo. Le fondamenta per come avviene realmente il commercio B2B globale.",
+    "ctaPrimary": "Prova una chiamata AI",
+    "ctaSecondary": "Contatta il team",
+    "microCopy": "Nessuna carta di credito • Setup in 5 minuti • Annulla quando vuoi"
+  },
+  "tryCall": {
+    "title": "Prova una Chiamata",
+    "subtitle": "Esperienza il nostro AI vocale in azione con una chiamata demo live",
+    "orTryFull": "Oppure prova l'esperienza completa",
+    "openFullModal": "Apri Modal Completo",
+    "description": "Esperienza il nostro AI vocale in azione con una chiamata demo live",
+    "inboundTab": "In Entrata",
+    "outboundTab": "In Uscita",
+    "form": {
+      "title": "Pianifica la Tua Demo",
+      "description": "Prenota una chiamata demo personalizzata per vedere come il nostro AI vocale può trasformare la tua attività",
+      "name": "Nome Completo",
+      "email": "Indirizzo Email",
+      "company": "Nome Azienda",
+      "phone": "Numero di Telefono",
+      "useCase": "Caso d'Uso Principale",
+      "preferredTime": "Orario Preferito",
+      "timezone": "Fuso Orario",
+      "submit": "Pianifica Demo",
+      "success": "Grazie! Confermeremo presto il tuo orario demo.",
+      "error": "Qualcosa è andato storto. Riprova."
+    },
+    "features": {
+      "title": "Cosa Proverai",
+      "items": [
+        "Conversazione live con AI vocale",
+        "Demo supporto multi-lingua",
+        "Trascrizione in tempo reale",
+        "Dashboard analisi chiamate",
+        "Esempi di integrazione"
+      ]
+    },
+    "inbound": {
+      "step1Title": "Seleziona lingua e voce",
+      "step1Subtitle": "Scegli tra le lingue supportate",
+      "step2Title": "Seleziona scenario",
+      "step2Subtitle": "Scegli il tuo caso d'uso",
+      "step3Title": "Avvia chiamata",
+      "step3Subtitle": "Clicca per iniziare",
+      "scenarios": {
+        "qualify": {
+          "name": "Qualificazione Lead",
+          "desc": "Qualifica lead con domande automatizzate"
+        },
+        "reorder": {
+          "name": "Richiesta di Riordino",
+          "desc": "Gestisci richieste di riordino in modo efficiente"
+        },
+        "nps": {
+          "name": "NPS Post-Consegna",
+          "desc": "Raccogli punteggi di soddisfazione del cliente"
+        }
+      },
+      "legal": {
+        "consent": "Acconsento alla registrazione per scopi di test.",
+        "startCall": "Avvia Chiamata"
+      }
+    },
+    "languages": {
+      "en": "Inglese",
+      "it": "Italiano",
+      "fr": "Francese",
+      "es": "Spagnolo",
+      "hi": "Hindi"
+    },
+    "outbound": {
+      "step1Title": "Inserisci il tuo numero di telefono",
+      "step1Subtitle": "Ti chiameremo per una demo live",
+      "step2Title": "Verifica con OTP",
+      "step2Subtitle": "Inserisci il codice a 6 cifre inviato al tuo telefono",
+      "step3Title": "Scegli il timing",
+      "step3Subtitle": "Chiama ora o pianifica per dopo",
+      "step4Title": "Avvia la chiamata",
+      "step4Subtitle": "Esperienza il nostro AI vocale in azione",
+      "callNow": "Chiama Ora",
+      "fallback": {
+        "simulator": "Modalità Simulatore",
+        "listenExample": "Ascolta Chiamata di Esempio"
+      }
+    },
+    "legal": {
+      "title": "Avviso Legale",
+      "disclaimer": "Pianificando una demo, acconsenti a ricevere comunicazioni sui nostri servizi. Puoi disiscriverti in qualsiasi momento."
+    },
+    "afterCall": {
+      "actionPoints": "Punti d'Azione",
+      "bantScore": "Punteggio BANT",
+      "bantTrade": "Punteggio BANT Trade",
+      "copyClipboard": "Copia negli Appunti",
+      "download": "Scarica",
+      "no": "No",
+      "outcome": "Risultato",
+      "summary": "Riepilogo Chiamata",
+      "summaryPdf": "PDF Riepilogo",
+      "transcript": "Trascrizione",
+      "yes": "Sì",
+      "joinEarlyAccess": "Unisciti all'Accesso Anticipato",
+      "startFree": "Inizia Gratuitamente"
+    },
+    "duringCall": {
+      "inProgress": "In Corso",
+      "status": "Stato",
+      "timer": "Timer",
+      "transcript": "Trascrizione Live"
+    }
+  },
+  "pilotPlaybooks": {
+    "title": "Manuali per Piloti",
+    "subtitle": "Dalla configurazione del pilota a risultati misurabili. Adottanti iniziali in corso."
+  },
+  "compliance": {
+    "title": "Conformità, automatizzata per design",
+    "subtitle": "Notificatore legale per paese, divulgazione e consenso, politiche di conservazione",
+    "regions": [
+      "UE",
+      "Egitto",
+      "Marocco",
+      "India"
+    ],
+    "bullets": [
+      "Formulazione automatica di divulgazione",
+      "Registrazione e prova del consenso",
+      "Politiche di conservazione configurabili",
+      "Notificatore legale per paese"
+    ],
+    "features": {
+      "gdpr": {
+        "title": "Conforme al GDPR",
+        "description": "Piena conformità alle normative europee sulla protezione dei dati"
+      },
+      "audits": {
+        "title": "Audit Automatizzati",
+        "description": "Tracciati di audit completi per tutte le interazioni vocali e l'elaborazione dei dati"
+      },
+      "encryption": {
+        "title": "Crittografia a Riposo",
+        "description": "Tutti i dati crittografati utilizzando la crittografia AES-256 standard del settore"
+      }
+    },
+    "benefit1": "Conformità normativa automatizzata",
+    "benefit2": "Monitoraggio della conformità in tempo reale",
+    "benefit3": "Tracciato di audit e reporting"
+  },
+  "pricing": {
+    "title": "Prezzi semplici e trasparenti",
+    "subtitle": "Inizia gratuitamente, scala man mano che cresci. Nessun costo nascosto.",
+    "toggle": {
+      "monthly": "Mensile",
+      "annual": "Annuale",
+      "discount": "Risparmia il 15%"
+    },
+    "badge": {
+      "mostPopular": "Più Popolare"
+    },
+    "plans": {
+      "free": {
+        "name": "Prova Gratuita",
+        "description": "Perfetto per test e piccoli team",
+        "price": "Gratuito",
+        "priceLabel": "Gratuito",
+        "period": "per sempre",
+        "features": {
+          "minutes": "10 minuti al mese",
+          "languages": "Agenti vocali base",
+          "support": "Supporto via email",
+          "integrations": "Conformità standard"
+        },
+        "cta": "Inizia Gratuitamente",
+        "popular": true
+      },
+      "core": {
+        "name": "Core",
+        "description": "Per aziende in crescita",
+        "price": "$99",
+        "priceLabel": "$99",
+        "period": "al mese",
+        "features": {
+          "minutes": "1.000 minuti al mese",
+          "languages": "Agenti vocali avanzati",
+          "support": "Supporto prioritario",
+          "integrations": "Conformità avanzata",
+          "analytics": "Dashboard di analisi"
+        },
+        "cta": "Inizia Piano Core"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Per aziende affermate",
+        "price": "$299",
+        "priceLabel": "$299",
+        "period": "al mese",
+        "features": {
+          "minutes": "5.000 minuti al mese",
+          "languages": "Agenti vocali personalizzati",
+          "support": "Supporto 24/7",
+          "integrations": "Suite completa di conformità",
+          "analytics": "Analisi avanzate",
+          "compliance": "Accesso API",
+          "priority": "Supporto prioritario"
+        },
+        "cta": "Inizia Piano Pro"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Per grandi organizzazioni",
+        "price": "Personalizzato",
+        "priceLabel": "Personalizzato",
+        "period": "al mese",
+        "features": {
+          "minutes": "Minuti illimitati",
+          "languages": "Sviluppo personalizzato",
+          "support": "Supporto dedicato",
+          "integrations": "Consulenza sulla conformità",
+          "analytics": "Opzioni white-label",
+          "compliance": "Garanzie SLA",
+          "custom": "Sviluppo personalizzato",
+          "dedicated": "Supporto dedicato"
+        },
+        "cta": "Contatta Vendite"
+      }
+    },
+    "calculator": {
+      "title": "Calcolatore di Costi",
+      "description": "Stima i tuoi costi mensili in base all'utilizzo",
+      "plan": "Piano",
+      "minutes": "Minuti al mese",
+      "rate": "Tariffa per minuto",
+      "inboundSlots": "Slot in entrata",
+      "inboundSlotsHelp": "Numero di chiamate in entrata simultanee",
+      "platformFee": "Tassa piattaforma",
+      "platformFeeHelp": "Tassa di abbonamento mensile alla piattaforma",
+      "estimatedCost": "Costo Stimato",
+      "usageCost": "Costo di Utilizzo",
+      "inboundCost": "Costo in Entrata",
+      "platformCost": "Costo Piattaforma",
+      "total": "Costo mensile totale",
+      "currency": "Valuta"
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "q1": {
+        "question": "Posso cambiare piano in qualsiasi momento?",
+        "answer": "Sì, puoi aggiornare o downgradare il tuo piano in qualsiasi momento. Le modifiche hanno effetto immediato."
+      },
+      "q2": {
+        "question": "Cosa succede se supero i limiti del mio piano?",
+        "answer": "L'utilizzo aggiuntivo viene addebitato alla tariffa per minuto del tuo piano. Ti informeremo prima che gli addebiti vengano applicati."
+      },
+      "q3": {
+        "question": "C'è una tariffa di configurazione?",
+        "answer": "Nessuna tariffa di configurazione. Paghi solo per ciò che usi in base al piano scelto."
+      },
+      "q4": {
+        "question": "Offrite sconti per volumi?",
+        "answer": "Sì, offriamo sconti per volumi ai clienti con alto utilizzo. Contatta il nostro team vendite per prezzi personalizzati."
+      },
+      "q5": {
+        "question": "Quali metodi di pagamento accettate?",
+        "answer": "Accettiamo tutte le principali carte di credito, bonifici bancari e possiamo fatturare per piani annuali."
+      }
+    }
+  },
+  "footer": {
+    "description": "Piattaforma Voice AI per il commercio B2B transfrontaliero",
+    "product": {
+      "title": "Prodotto",
+      "overview": "Panoramica Prodotto",
+      "voiceAgents": "Agenti Vocali",
+      "qaCoaching": "QA e Coaching",
+      "coaching": "QA e Coaching",
+      "compliance": "Conformità",
+      "integrations": "Integrazioni",
+      "languageCoverage": "Copertura Linguistica"
+    },
+    "solutions": {
+      "title": "Soluzioni",
+      "useCases": "Casi d'uso",
+      "exportersSuppliers": "Esportatori e Fornitori",
+      "buyersDistributors": "Acquirenti e Distributori",
+      "marketplaces": "Marketplace",
+      "pilotPlaybooks": "Manuali per Pilota"
+    },
+    "company": {
+      "title": "Azienda",
+      "about": "Chi Siamo",
+      "contact": "Contatti",
+      "support": "Supporto",
+      "blog": "Blog"
+    },
+    "legal": {
+      "title": "Legale",
+      "privacy": "Privacy",
+      "terms": "Termini",
+      "cookies": "Cookie",
+      "security": "Sicurezza",
+      "dpa": "DPA",
+      "changelog": "Registro Modifiche"
+    },
+    "resources": {
+      "title": "Risorse",
+      "complianceCenter": "Centro Conformità",
+      "glossary": "Glossario",
+      "status": "Stato"
+    },
+    "madeWith": "Realizzato con ❤️ in Italia",
+    "privacy": "Privacy"
+  },
+  "languages": {
+    "en": "Inglese",
+    "it": "Italiano",
+    "fr": "Francese",
+    "es": "Spagnolo",
+    "hi": "हिन्दी",
+    "ar": "العربية"
+  },
+  "legal": {
+    "title": "Legale",
+    "privacy": {
+      "title": "Informativa sulla privacy",
+      "description": "Come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali"
+    },
+    "terms": {
+      "title": "Termini di servizio",
+      "description": "I termini e le condizioni che regolano l'utilizzo dei servizi di Agoralia"
+    },
+    "cookies": {
+      "title": "Informativa sui cookie",
+      "description": "Utilizziamo i cookie per far funzionare il sito e, con il tuo consenso, per l'analisi. Puoi modificare la tua scelta in qualsiasi momento dalla pagina Cookie."
+    },
+    "security": "Sicurezza",
+    "dpa": "DPA",
+    "changelog": "Changelog"
+  },
+  "resources": {
+    "title": "Risorse",
+    "description": "Tutto ciò che ti serve per avere successo con l'IA vocale",
+    "complianceCenter": "Centro Conformità",
+    "glossary": {
+      "title": "Glossario",
+      "description": "Termini chiave e definizioni per il commercio internazionale"
+    }
+  },
+  "solutions": {
+    "title": "Soluzioni",
+    "subtitle": "Progettate appositamente per i flussi di lavoro B2B di esportazione/importazione",
+    "supplier": "Esportatori e Fornitori",
+    "supplierSubtitle": "Ricezione RFQ, Incoterms, tempi di consegna",
+    "supplierDesc": "Automatizza la qualificazione e i follow-up attraverso i mercati",
+    "supplierFeatures": [
+      "Supporto clienti multilingue",
+      "Qualificazione lead automatizzata",
+      "Gestione della conformità",
+      "Analisi in tempo reale"
+    ],
+    "supplied": "Acquirenti e Distributori",
+    "suppliedSubtitle": "Riordini, controlli stock, NPS",
+    "suppliedDesc": "Mantieni i distributori forniti e informati",
+    "suppliedFeatures": [
+      "Elaborazione riordini automatizzata",
+      "Monitoraggio livelli stock",
+      "Tracciamento soddisfazione clienti",
+      "Ottimizzazione catena di fornitura"
+    ],
+    "learnMore": "Scopri di più",
+    "cta": "Contatta le vendite",
+    "marketplaces": {
+      "title": "Soluzioni Marketplace",
+      "description": "Scala le operazioni del tuo marketplace con agenti vocali alimentati dall'IA",
+      "learnMore": "Scopri di più →",
+      "features": {
+        "automation": {
+          "title": "Operazioni Automatizzate",
+          "description": "Razionalizza l'onboarding dei fornitori e il supporto clienti"
+        },
+        "analytics": {
+          "title": "Analisi Avanzate",
+          "description": "Traccia le performance e ottimizza le operazioni"
+        },
+        "global": {
+          "title": "Espansione Globale",
+          "description": "Espandi in nuovi mercati con agenti vocali localizzati"
+        },
+        "compliance": {
+          "title": "Gestione della Conformità",
+          "description": "Assicura la conformità regolamentare in tutti i mercati"
+        },
+        "scalability": {
+          "title": "Infrastruttura Scalabile",
+          "description": "Gestisci la crescita senza preoccupazioni infrastrutturali"
+        },
+        "integration": {
+          "title": "Integrazione Fluida",
+          "description": "Connetti con gli strumenti marketplace esistenti"
+        }
+      }
+    },
+    "pilotPlaybooks": {
+      "title": "Playbook per Pilota",
+      "description": "Strategie e template provati per piloti di voice AI di successo",
+      "learnMore": "Scopri di più →",
+      "features": {
+        "templates": {
+          "title": "Template Pronti",
+          "description": "Playbook pre-costruiti per casi d'uso comuni"
+        },
+        "strategy": {
+          "title": "Framework Strategico",
+          "description": "Approccio passo-passo alla pianificazione del pilota"
+        },
+        "metrics": {
+          "title": "Metriche di Successo",
+          "description": "Indicatori chiave per misurare il successo del pilota"
+        },
+        "iteration": {
+          "title": "Processo di Iterazione",
+          "description": "Metodologia di miglioramento continuo"
+        },
+        "team": {
+          "title": "Allineamento Team",
+          "description": "Coinvolgi tutti con ruoli chiari"
+        },
+        "scaling": {
+          "title": "Percorso di Scalabilità",
+          "description": "Dal pilota al deployment in produzione completa"
+        }
+      }
+    },
+    "ctaSection": {
+      "title": "Pronto a trasformare i tuoi flussi di lavoro B2B?",
+      "subtitle": "Discutiamo di come l'IA vocale possa automatizzare le tue operazioni di esportazione/importazione.",
+      "tryCall": "Prova una Chiamata",
+      "contactSales": "Contatta le Vendite"
+    }
+  },
+  "product": {
+    "title": "Prodotto",
+    "subtitle": "Piattaforma AI vocale per il commercio B2B transfrontaliero",
+    "description": "Piattaforma AI vocale per il commercio B2B transfrontaliero",
+    "cta": "Inizia Ora",
+    "dashboard": "Dashboard",
+    "dashboardDesc": "Pannello di controllo centralizzato per tutte le operazioni vocali",
+    "calls": "Chiamate Vocali",
+    "callsDesc": "Chiamate vocali potenziate dall'AI e gestione delle conversazioni",
+    "qa": "Controllo Qualità",
+    "qaDesc": "Monitora e migliora la qualità e le prestazioni delle chiamate",
+    "compliance": {
+      "title": "Conformità",
+      "description": "Gestione automatizzata della conformità tra giurisdizioni",
+      "features": {
+        "gdpr": {
+          "title": "Conformità GDPR",
+          "description": "Protezione automatica dei dati e conformità alla privacy per le operazioni UE"
+        },
+        "consent": {
+          "title": "Gestione del Consenso",
+          "description": "Traccia e gestisci il consenso degli utenti in tutte le interazioni"
+        },
+        "security": {
+          "title": "Standard di Sicurezza",
+          "description": "Soddisfa i requisiti di sicurezza del settore e le certificazioni"
+        },
+        "localization": {
+          "title": "Conformità Locale",
+          "description": "Conformità normativa e requisiti legali specifici del paese"
+        },
+        "audit": {
+          "title": "Tracciati di Audit",
+          "description": "Tracciati di audit completi per la verifica della conformità"
+        },
+        "legal": {
+          "title": "Quadro Legale",
+          "description": "Quadri legali integrati per più giurisdizioni"
+        }
+      }
+    },
+    "complianceDesc": "Automated compliance across all jurisdictions",
+    "overview": {
+      "title": "Product Overview",
+      "description": "Complete voice AI solution for global business operations"
+    },
+    "voiceAgents": {
+      "title": "Voice Agents",
+      "description": "AI-powered voice agents for customer interactions",
+      "features": {
+        "accuracy": {
+          "title": "High Accuracy",
+          "description": "Industry-leading speech recognition and natural language understanding"
+        },
+        "languages": {
+          "title": "Multi-language Support",
+          "description": "Support for 50+ languages with native pronunciation"
+        },
+        "speed": {
+          "title": "Fast Response",
+          "description": "Real-time processing for natural conversation flow"
+        },
+        "compliance": {
+          "title": "Built-in Compliance",
+          "description": "Automatic consent collection and regulatory compliance"
+        },
+        "analytics": {
+          "title": "Advanced Analytics",
+          "description": "Comprehensive insights into call performance and customer satisfaction"
+        },
+        "integration": {
+          "title": "Easy Integration",
+          "description": "Connect with your existing CRM and business tools"
+        }
+      }
+    },
+    "coaching": {
+      "title": "QA & Coaching",
+      "description": "Quality assurance and agent coaching tools"
+    },
+    "coachingQA": {
+      "title": "QA & Coaching",
+      "description": "Improve agent performance with AI-powered quality assurance and coaching tools",
+      "features": {
+        "scorecard": {
+          "title": "Automated Scorecards",
+          "description": "AI-powered evaluation of call quality and agent performance"
+        },
+        "feedback": {
+          "title": "Real-time Feedback",
+          "description": "Instant coaching suggestions during live calls"
+        },
+        "improvement": {
+          "title": "Performance Improvement",
+          "description": "Track progress and identify areas for development"
+        },
+        "abTesting": {
+          "title": "A/B Testing",
+          "description": "Test different approaches and optimize performance"
+        },
+        "reports": {
+          "title": "Detailed Reports",
+          "description": "Comprehensive analytics and insights for managers"
+        },
+        "team": {
+          "title": "Team Management",
+          "description": "Coordinate coaching efforts across your entire team"
+        }
+      },
+      "benefit1": "Real-time feedback and scoring",
+      "benefit2": "Automated quality monitoring",
+      "benefit3": "Performance improvement tracking",
+      "cta": "Learn More"
+    },
+    "ctaSection": {
+      "title": "Ready to get started?",
+      "subtitle": "Try our voice AI platform in 60 seconds with a simple call demo.",
+      "tryCall": "Try a Call",
+      "earlyAccess": "Join Early Access"
+    },
+    "integrations": {
+      "title": "Integrations",
+      "subtitle": "Connect your CRM and ERP in minutes",
+      "description": "Connect with your existing business tools",
+      "benefit1": "Seamless data synchronization",
+      "benefit2": "Real-time updates across platforms",
+      "benefit3": "Automated workflow optimization",
+      "items": [
+        "HubSpot (Free)",
+        "Zoho",
+        "Odoo",
+        "Google",
+        "Salesforce (soon)"
+      ],
+      "desc": {
+        "hubspot": "Sync leads, contacts, and call recordings directly to HubSpot CRM with our free integration",
+        "zoho": "Connect with Zoho CRM to manage your international sales pipeline efficiently",
+        "odoo": "Integrate with Odoo ERP for complete business process automation",
+        "google": "Connect Google Workspace for seamless document and calendar integration",
+        "salesforce": "Coming soon: Full Salesforce CRM integration for enterprise customers"
+      },
+      "features": {
+        "api": {
+          "title": "REST API",
+          "description": "Programmatic access to all platform features"
+        },
+        "webhook": {
+          "title": "Webhooks",
+          "description": "Real-time notifications for events and updates"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Comprehensive reporting and insights"
+        },
+        "sdk": {
+          "title": "SDK",
+          "description": "Client libraries for popular programming languages"
+        },
+        "plugins": {
+          "title": "Plugins",
+          "description": "Ready-to-use integrations for common platforms"
+        },
+        "custom": {
+          "title": "Custom Integration",
+          "description": "Tailored solutions for your specific needs"
+        }
+      },
+      "cta": "View Documentation",
+      "customTitle": "Need a Custom Integration?",
+      "customSubtitle": "We can build custom integrations for your specific CRM or business tools",
+      "customCta": "Contact Our Team"
+    }
+  },
+  "ctaSection": {
+    "title": "Pronto a trasformare le tue chiamate di vendita?",
+    "subtitle": "Unisciti alle aziende che utilizzano l'IA vocale per accelerare la qualificazione, chiudere più accordi e espandersi globalmente.",
+    "bullet1": "Configurazione in meno di 5 minuti",
+    "bullet2": "Nessuna competenza tecnica richiesta",
+    "bullet3": "Supporto 24/7 incluso",
+    "cardTitle": "Inizia oggi",
+    "cardSubtitle": "Avvia la prova gratuita o prenota una demo personalizzata",
+    "ctaStartFree": "Inizia Prova Gratuita",
+    "ctaEarlyAccess": "Unisciti all'Accesso Anticipato",
+    "ctaBookDemo": "Prenota Demo Live"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Pronto a trasformare la tua attività con l'IA vocale? Parliamone.",
+    "description": "Pronto a trasformare la tua attività con l'IA vocale? Parliamone."
+  },
+  "earlyAccess": {
+    "title": "Accesso Anticipato",
+    "description": "Sii tra i primi a provare le nostre nuove funzionalità",
+    "heroSubtitle": "Sii tra i primi a provare l'IA vocale che rivoluziona il commercio B2B globale"
+  },
+  "languageAvailability": {
+    "title": "Disponibilità delle Lingue",
+    "description": "Controlla quali lingue sono supportate nella tua regione",
+    "intro": "Esplora il nostro supporto linguistico completo per l'interfaccia utente e le capacità di chiamata vocale",
+    "supported": "Lingue Supportate",
+    "comingSoon": "Prossimamente",
+    "notAvailable": "Non Disponibile",
+    "uiTab": "Lingue UI",
+    "callingTab": "Lingue di Chiamata",
+    "uiLanguages": {
+      "title": "Lingue UI",
+      "description": "Lingue disponibili per l'interfaccia utente"
+    },
+    "callingLanguages": {
+      "title": "Lingue di Chiamata",
+      "description": "Lingue disponibili per chiamate vocali e conversazioni"
+    },
+    "multilingual": "Multilingue (EN, ES, FR, DE, HI, RU, PT, IT, NL)",
+    "uiOnly": "Solo UI",
+    "callingNote": "Tutte le lingue di chiamata supportano il riconoscimento vocale in tempo reale e un flusso di conversazione naturale.",
+    "status": {
+      "live": "Attivo",
+      "beta": "Beta",
+      "planned": "Pianificato"
+    },
+    "uiLabels": {
+      "am-ET": "Amarico",
+      "ar-EG": "Arabo",
+      "ar": "Arabo",
+      "bg-BG": "Bulgaro",
+      "cs-CZ": "Ceco",
+      "da-DK": "Danese",
+      "de-DE": "Tedesco",
+      "el-GR": "Greco",
+      "en-US": "Inglese",
+      "es-ES": "Spagnolo",
+      "et-EE": "Estone",
+      "fi-FI": "Finlandese",
+      "fr-FR": "Francese",
+      "ha": "Hausa",
+      "he-IL": "Ebraico",
+      "hi-IN": "Hindi",
+      "hu-HU": "Ungherese",
+      "id-ID": "Indonesiano",
+      "it-IT": "Italiano",
+      "ja-JP": "Giapponese",
+      "ko-KR": "Coreano",
+      "lt-LT": "Lituano",
+      "lv-LV": "Lettone",
+      "nb-NO": "Norvegese",
+      "nl-NL": "Olandese",
+      "pl-PL": "Polacco",
+      "pt-BR": "Portoghese (Brasile)",
+      "pt-PT": "Portoghese",
+      "ro-RO": "Rumeno",
+      "ru-RU": "Russo",
+      "sk-SK": "Slovacco",
+      "sl-SI": "Sloveno",
+      "sv-SE": "Svedese",
+      "sw": "Swahili",
+      "th-TH": "Thai",
+      "tr-TR": "Turco",
+      "uk-UA": "Ucraino",
+      "vi-VN": "Vietnamita",
+      "zh-HANS": "Cinese Semplificato"
+    },
+    "callingLabels": {
+      "bg-BG": "Bulgaro",
+      "ca-ES": "Catalano",
+      "cs-CZ": "Ceco",
+      "da-DK": "Danese",
+      "de-DE": "Tedesco",
+      "el-GR": "Greco",
+      "en-AU": "Inglese AU",
+      "en-GB": "Inglese UK",
+      "en-IN": "Inglese IN",
+      "en-NZ": "Inglese NZ",
+      "en-US": "Inglese US",
+      "es-ES": "Spagnolo",
+      "es-MX": "Spagnolo America Latina",
+      "et-EE": "Estone",
+      "fi-FI": "Finlandese",
+      "fr-FR": "Francese",
+      "he-IL": "Ebraico",
+      "hi-IN": "Hindi",
+      "hu-HU": "Ungherese",
+      "id-ID": "Indonesiano",
+      "it-IT": "Italiano",
+      "ja-JP": "Giapponese",
+      "ko-KR": "Coreano",
+      "lt-LT": "Lituano",
+      "lv-LV": "Lettone",
+      "ms-MY": "Malese",
+      "multi": "Multilingue (Inglese, Spagnolo, Francese, Tedesco, Hindi, Russo, Portoghese, Italiano, Olandese)",
+      "nb-NO": "Norvegese",
+      "nl-BE": "Olandese Belgio",
+      "nl-NL": "Olandese",
+      "pl-PL": "Polacco",
+      "pt-BR": "Portoghese BR",
+      "pt-PT": "Portoghese PT",
+      "ro-RO": "Rumeno",
+      "ru-RU": "Russo",
+      "sk-SK": "Slovacco",
+      "sl-SI": "Sloveno",
+      "sv-SE": "Svedese",
+      "th-TH": "Thai",
+      "tr-TR": "Turco",
+      "uk-UA": "Ucraino",
+      "vi-VN": "Vietnamita",
+      "zh-HANS": "Cinese"
+    }
+  },
+  "actionPoints": "Punti Azione",
+  "bantScore": "Punteggio BANT",
+  "bantTrade": "Punteggio BANT Trade",
+  "copyClipboard": "Copia negli appunti",
+  "download": "Scarica",
+  "no": "No",
+  "outcome": "Traduci in Italiano (it-IT).\n\nRestituisci SOLO JSON con struttura ESATTA.\nNon avvolgere in campi extra. Non aggiungere commenti.\n\nJSON:\n{\"outcome\": \"Outcome\"}",
+  "summary": "Riepilogo della chiamata",
+  "summaryPdf": "Riassunto PDF",
+  "transcript": "Trascrizione",
+  "yes": "Yes",
+  "inProgress": "In Corso",
+  "status": "Stato",
+  "timer": "Timer",
+  "listenExample": "Ascolta l'esempio",
+  "simulator": "Modalità Simulatore",
+  "messages": {
+    "submissionFailed": "Invio non riuscito. Si prega di riprovare.",
+    "thankYouContact": "Grazie! Ti contatteremo presto."
+  },
+  "title": "Coaching & QA",
+  "description": "Migliora le prestazioni dell'agente con coaching potenziato dall'IA e controllo qualità",
+  "benefit1": "Feedback e punteggio in tempo reale",
+  "benefit2": "Monitoraggio automatico della qualità",
+  "benefit3": "Tracciamento del miglioramento delle prestazioni",
+  "cta": "Scopri di più",
+  "features": {
+    "scorecard": {
+      "title": "Scheda di Valutazione delle Prestazioni",
+      "description": "Sistema di valutazione completo per la valutazione delle prestazioni degli agenti"
+    },
+    "feedback": {
+      "title": "Feedback Istantaneo",
+      "description": "Suggerimenti di coaching in tempo reale durante le chiamate live"
+    },
+    "improvement": {
+      "title": "Tracciamento del Miglioramento",
+      "description": "Monitora i progressi e identifica aree di sviluppo"
+    },
+    "abTesting": {
+      "title": "Test A/B",
+      "description": "Testa approcci diversi e ottimizza le prestazioni"
+    },
+    "reports": {
+      "title": "Report Dettagliati",
+      "description": "Analisi complete e insight"
+    },
+    "team": {
+      "title": "Gestione del Team",
+      "description": "Gestisci e allena interi team in modo efficace"
+    }
+  },
+  "blog": "Blog",
+  "betaCountdown": {
+    "title": "🚀 Lancio Beta tra",
+    "days": "Giorni",
+    "hours": "Ore",
+    "minutes": "Minuti",
+    "seconds": "Secondi",
+    "cta": "Unisciti all'Accesso Anticipato"
+  },
+  "complianceDatabase": {
+    "title": "Database Globale di Conformità",
+    "subtitle": "Consulta le regole di conformità per il telemarketing per paese, inclusi regimi di consenso, DNC, orari silenziosi, divulgazione AI e requisiti di registrazione.",
+    "loading": "Caricamento dati di conformità...",
+    "errorLoading": "Impossibile caricare i dati di conformità. Riprova più tardi.",
+    "retry": "Riprova",
+    "tableView": "Vista Tabella",
+    "mapView": "Vista Mappa",
+    "viewBy": "Visualizza per",
+    "regimeB2C": "Regime B2C",
+    "regimeB2B": "Regime B2B",
+    "aiDisclosure": "Divulgazione AI",
+    "recording": "Registrazione",
+    "dnc": "Registro DNC",
+    "quietHours": "Orari Silenziosi",
+    "searchPlaceholder": "Cerca per paese, ISO o continente...",
+    "selectCountryPrompt": "Seleziona un paese dalla mappa o dalla tabella per visualizzarne i dettagli.",
+    "country": "Paese",
+    "iso": "ISO",
+    "continent": "Continente",
+    "dncCheck": "Controllo DNC Richiesto",
+    "recordingConsent": "Consenso Registrazione",
+    "selectCountry": "Seleziona un paese per visualizzare i dettagli",
+    "detailedInfo": "Informazioni Dettagliate",
+    "aiRecordingDetails": "Dettagli AI & Registrazione",
+    "exceptions": "Eccezioni",
+    "productNotes": "Note Prodotto",
+    "primarySources": "Fonti Primarie",
+    "dncRegistry": "Registro DNC",
+    "visitRegistry": "Visita registro",
+    "weekdays": "Giorni feriali",
+    "saturday": "Sabato",
+    "sunday": "Domenica",
+    "totalCountries": "Totale paesi",
+    "mapComingSoon": "Vista mappa interattiva in arrivo presto. Per ora, usa la vista tabella.",
+    "notSpecified": "Non specificato",
+    "required": "Richiesto",
+    "notRequired": "Non richiesto",
+    "allowed": "Consentito",
+    "yes": "Sì",
+    "no": "No",
+    "mapOptions": {
+      "regimeB2C": "Regime B2C",
+      "regimeB2B": "Regime B2B",
+      "aiDisclosure": "Divulgazione AI",
+      "aiQuoteRequests": "Richieste Preventivi AI",
+      "recording": "Regole Registrazione",
+      "dnc": "Registro DNC",
+      "quietHours": "Orari Silenziosi",
+      "existingCustomer": "Cliente Esistente"
+    },
+    "tableHeaders": {
+      "country": "Paese",
+      "iso": "ISO",
+      "continent": "Continente",
+      "regimeB2C": "Regime B2C",
+      "regimeB2B": "Regime B2B",
+      "dnc": "Controllo DNC",
+      "aiDisclosure": "Divulgazione AI",
+      "recording": "Registrazione"
+    },
+    "regimeTypes": {
+      "opt_in": "Opt-in Richiesto",
+      "opt_out": "Opt-out Consentito",
+      "allowed": "Consentito",
+      "prohibited": "Proibito",
+      "unregulated": "Non regolamentato",
+      "not_specified": "Non Specificato"
+    },
+    "recordingBasis": {
+      "consent": "Consenso",
+      "legal_obligation": "Obbligo Legale",
+      "legitimate_interest": "Interesse Legittimo",
+      "none": "Nessuno",
+      "not_specified": "Non Specificato"
+    },
+    "sidebar": {
+      "regimeB2C": "Regime Telemarketing B2C",
+      "dncCheckRequired": "Controllo DNC Richiesto",
+      "recordingConsent": "Consenso Registrazione Richiesto",
+      "aiDisclosureRequired": "Divulgazione AI Richiesta"
+    },
+    "details": {
+      "title": "Informazioni Dettagliate di Conformità",
+      "aiRecording": {
+        "title": "Dettagli AI & Registrazione",
+        "exceptions": "Eccezioni",
+        "recordingBasis": "Base Registrazione",
+        "consentRequired": "Consenso Richiesto",
+        "notificationRequired": "Notifica Richiesta",
+        "notificationTiming": "Tempistica Notifica",
+        "retention": "Conservazione",
+        "maxDuration": "Durata Max: {duration}",
+        "notes": "Note"
+      },
+      "quietHours": {
+        "title": "Orari Silenziosi",
+        "enabled": "Attivato",
+        "weekdays": "Giorni feriali",
+        "saturday": "Sabato",
+        "sunday": "Domenica",
+        "timezone": "Fuso orario"
+      },
+      "dncRegistry": {
+        "title": "Info Registro Do Not Call",
+        "enabled": "Registro Attivato",
+        "name": "Nome Registro",
+        "url": "URL Registro",
+        "checkRequired": "Controllo Richiesto",
+        "apiAvailable": "API Disponibile"
+      },
+      "productNotes": {
+        "title": "Note Prodotto"
+      },
+      "primarySources": {
+        "title": "Fonti Primarie"
+      },
+      "knownExceptions": {
+        "title": "Eccezioni Note"
+      },
+      "callerIdRules": {
+        "title": "Regole Caller ID"
+      },
+      "existingCustomer": {
+        "title": "Esenzioni Cliente Esistente",
+        "applies": "Si applica",
+        "doesNotApply": "Non si applica"
+      },
+      "frequencyLimits": {
+        "title": "Limiti Frequenza Chiamate",
+        "maxPerDay": "Max al giorno",
+        "maxPerWeek": "Max alla settimana",
+        "maxPerMonth": "Max al mese"
+      },
+      "legalRestrictions": {
+        "title": "Restrizioni Legali",
+        "restriction": "Restrizione",
+        "appliesTo": "Si applica a"
+      },
+      "relationshipRequirements": {
+        "title": "Requisiti Relazione",
+        "optInAlwaysRequired": "Opt-in sempre richiesto",
+        "softOptInAllowed": "Soft opt-in consentito",
+        "requiresExistingRelationship": "Richiede relazione esistente"
+      },
+      "specialRequirements": {
+        "title": "Requisiti Speciali"
+      }
+    },
+    "help": {
+      "aiRecording": {
+        "title": "Divulgazione AI & Registrazione",
+        "description": "I requisiti di divulgazione AI variano per paese. Alcuni paesi richiedono una divulgazione esplicita quando si usa l'AI nelle chiamate di telemarketing, mentre altri hanno eccezioni per determinati casi d'uso come le richieste di preventivi."
+      }
+    },
+    "values": {
+      "opt_in": "Opt-in",
+      "opt_out": "Opt-out",
+      "opt-out": "Opt-out",
+      "allowed": "Consentito",
+      "unregulated": "Non regolamentato",
+      "prohibited": "Proibito"
+    }
+  },
+  "\\n": "",
+  "_": "",
+  "bullet1": "Setup in under 5 minutes",
+  "bullet2": "No technical skills required",
+  "bullet3": "24/7 support included",
+  "callNow": "Call Now",
+  "callingNote": "Tutte le lingue di chiamata supportano il riconoscimento vocale in tempo reale e il flusso di conversazione naturale.",
+  "callingTab": "Lingue Chiamate",
+  "cardSubtitle": "Inizia prova gratuita o prenota una demo personalizzata",
+  "cardTitle": "Inizia oggi",
+  "ctaEarlyAccess": "Unisciti all'Accesso Anticipato",
+  "ctaStartFree": "Inizia Prova Gratuita",
+  "custom": "Se il tuo stack non è qui, possiamo aggiungerlo.",
+  "customCta": "Contatta il Nostro Team",
+  "customQueue": "Più clienti lo richiedono, più alto sale nella coda.",
+  "customSubtitle": "Possiamo costruire integrazioni personalizzate per il tuo CRM o strumenti aziendali specifici",
+  "customTitle": "Hai Bisogno di un'Integrazione Personalizzata?",
+  "days": "Giorni",
+  "disclaimer": "Nessun blocco annuale obbligatorio. Inizia, testa un caso d'uso, scala quando hai i dati.",
+  "email": "Email",
+  "heroSubtitle": "Qualifica lead, documenta ordini e mantieni la conformità — nelle lingue dei tuoi mercati.",
+  "heroTitle": "Voice AI per il commercio B2B transfrontaliero",
+  "hours": "Ore",
+  "inboundTab": "In Entrata",
+  "intro": "Esplora il nostro supporto linguistico completo sia per l'interfaccia utente che per le chiamate vocali",
+  "mapView": "Vista Mappa",
+  "markets": "Mercati",
+  "minutes": "Minuti",
+  "outboundTab": "In Uscita",
+  "searchPlaceholder": "Cerca per paese, ISO o continente...",
+  "seconds": "Secondi",
+  "seeAlso": "Vedi anche",
+  "span": "",
+  "startCall": "Avvia Chiamata",
+  "step1Subtitle": "Scegli tra le lingue supportate",
+  "step1Title": "Seleziona lingua e voce",
+  "step2Subtitle": "Scegli il tuo caso d'uso",
+  "step2Title": "Seleziona scenario",
+  "step3Subtitle": "Clicca per iniziare",
+  "step3Title": "Avvia chiamata",
+  "step4Subtitle": "Chiama ora o programma per dopo",
+  "step4Title": "Scegli tempistica",
+  "tableView": "Vista Tabella",
+  "uiTab": "Lingue UI",
+  "useCase": ""
+}

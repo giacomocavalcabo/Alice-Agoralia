@@ -1,14 +1,35 @@
+# Environment
 .env
 .env.local
 .env*.local
+
+# Node.js
 node_modules/
 .next/
 *.log
+
+# Python
 venv/
+.venv/
 *.pyc
 __pycache__/
 
-.vercel
+# Vercel
+.vercel/
 
-# Config service env
-services/config/.env
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Temporary files
+*.tmp
+*.bak
+*.backup_*

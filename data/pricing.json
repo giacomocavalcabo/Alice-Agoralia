@@ -1,11 +1,35 @@
 {
+  "version": 2,
+  "updated_at": "2026-01-29T16:00:00Z",
+  "default_currency": "EUR",
+  "stripe_products": {
+    "core": "prod_TphL31RiOmNriG",
+    "pro": "prod_TphLUK24yHzrA5"
+  },
+  "tiers": {
+    "tier1": {
+      "name": "Tier 1 (Premium Markets)",
+      "countries": ["US", "GB", "DE", "FR", "CH", "JP", "AU", "SG"]
+    },
+    "tier2": {
+      "name": "Tier 2 (Growth Markets)",
+      "countries": ["IT", "ES", "NL", "BE", "AT", "CA", "NZ", "AE", "IE"]
+    },
+    "tier3": {
+      "name": "Tier 3 (Emerging Markets)",
+      "countries": ["PL", "CZ", "PT", "GR", "BR", "MX", "IN", "ZA", "default"]
+    }
+  },
   "plans": [
     {
       "id": "free",
       "name": "Free",
+      "stripe_price_id_monthly": null,
+      "stripe_price_id_yearly": null,
       "price": {
-        "monthly": 0,
-        "yearly": 0
+        "EUR": { "monthly": 0, "yearly": 0 },
+        "USD": { "monthly": 0, "yearly": 0 },
+        "GBP": { "monthly": 0, "yearly": 0 }
       },
       "description": "Perfect for testing",
       "features": [
@@ -27,9 +51,24 @@
     {
       "id": "core",
       "name": "Core",
+      "stripe_prices": {
+        "tier1": {
+          "monthly": "price_1Ss1xGJ91rFbJhgbFkk05irS",
+          "yearly": "price_1Ss1xGJ91rFbJhgbhqZRvgY4"
+        },
+        "tier2": {
+          "monthly": "price_1Ss1xHJ91rFbJhgbg5cR9UuW",
+          "yearly": "price_1Ss1xIJ91rFbJhgb5mxzbtaF"
+        },
+        "tier3": {
+          "monthly": "price_1Ss1xJJ91rFbJhgbKIjU8Bb3",
+          "yearly": "price_1Ss1xJJ91rFbJhgbfklNmycv"
+        }
+      },
       "price": {
-        "monthly": 299,
-        "yearly": 2990
+        "tier1": { "EUR": { "monthly": 199, "yearly": 2090 }, "USD": { "monthly": 219, "yearly": 2299 }, "GBP": { "monthly": 179, "yearly": 1879 } },
+        "tier2": { "EUR": { "monthly": 149, "yearly": 1565 }, "USD": { "monthly": 169, "yearly": 1779 }, "GBP": { "monthly": 139, "yearly": 1459 } },
+        "tier3": { "EUR": { "monthly": 99, "yearly": 1040 }, "USD": { "monthly": 109, "yearly": 1149 }, "GBP": { "monthly": 89, "yearly": 934 } }
       },
       "description": "For growing teams",
       "features": [
@@ -53,9 +92,24 @@
     {
       "id": "pro",
       "name": "Pro",
+      "stripe_prices": {
+        "tier1": {
+          "monthly": "price_1Ss1xHJ91rFbJhgbYFbljOGa",
+          "yearly": "price_1Ss1xHJ91rFbJhgbIpiRxce8"
+        },
+        "tier2": {
+          "monthly": "price_1Ss1xIJ91rFbJhgbqmYipUcA",
+          "yearly": "price_1Ss1xJJ91rFbJhgbzBp7MN2o"
+        },
+        "tier3": {
+          "monthly": "price_1Ss1xKJ91rFbJhgbCDxMTsFn",
+          "yearly": "price_1Ss1xKJ91rFbJhgbd81Piwpy"
+        }
+      },
       "price": {
-        "monthly": 799,
-        "yearly": 7990
+        "tier1": { "EUR": { "monthly": 349, "yearly": 3665 }, "USD": { "monthly": 379, "yearly": 3989 }, "GBP": { "monthly": 319, "yearly": 3349 } },
+        "tier2": { "EUR": { "monthly": 299, "yearly": 3140 }, "USD": { "monthly": 329, "yearly": 3459 }, "GBP": { "monthly": 269, "yearly": 2824 } },
+        "tier3": { "EUR": { "monthly": 249, "yearly": 2615 }, "USD": { "monthly": 269, "yearly": 2829 }, "GBP": { "monthly": 219, "yearly": 2299 } }
       },
       "description": "For global operations",
       "features": [
@@ -82,41 +136,52 @@
     {
       "id": "extra-minutes",
       "name": "Extra Minutes",
+      "stripe_price_id": null,
       "price": {
-        "per1000": 50
+        "EUR": { "per1000": 50 },
+        "USD": { "per1000": 55 },
+        "GBP": { "per1000": 45 }
       },
       "description": "Additional call minutes"
     },
     {
       "id": "extra-languages",
       "name": "Extra Languages",
+      "stripe_price_id": null,
       "price": {
-        "per10": 99
+        "EUR": { "per10": 99 },
+        "USD": { "per10": 109 },
+        "GBP": { "per10": 89 }
       },
       "description": "Add 10 more voice languages"
     },
     {
-      "id": "extra-countries",
-      "name": "Extra Countries",
-      "price": {
-        "per5": 199
-      },
-      "description": "Add compliance for 5 more countries"
-    },
-    {
       "id": "dedicated-support",
       "name": "Dedicated Support",
+      "stripe_price_id": null,
       "price": {
-        "monthly": 299
+        "EUR": { "monthly": 299 },
+        "USD": { "monthly": 329 },
+        "GBP": { "monthly": 259 }
       },
       "description": "24/7 dedicated support team"
     }
   ],
-  "currency": "USD",
   "billing": {
-    "monthly": "monthly",
-    "yearly": "yearly",
-    "yearlyDiscount": 17
+    "yearly_discount_percent": 17
+  },
+  "country_currency_map": {
+    "US": "USD",
+    "GB": "GBP",
+    "IT": "EUR",
+    "FR": "EUR",
+    "DE": "EUR",
+    "ES": "EUR",
+    "default": "EUR"
+  },
+  "currency_symbols": {
+    "EUR": "€",
+    "USD": "$",
+    "GBP": "£"
   }
 }
-

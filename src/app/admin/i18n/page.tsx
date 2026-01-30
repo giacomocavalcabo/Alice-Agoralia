@@ -1,644 +1,757 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
+
+const styles = {
+  container: {
+    display: 'flex',
+    minHeight: '100vh',
+    backgroundColor: '#0a0a0a',
+    color: '#ffffff',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  },
+  sidebar: {
+    width: '256px',
+    backgroundColor: '#111111',
+    borderRight: '1px solid #222222',
+    display: 'flex',
+    flexDirection: 'column' as const,
+    position: 'fixed' as const,
+    top: 0,
+    left: 0,
+    bottom: 0,
+    zIndex: 50,
+  },
+  sidebarHeader: {
+    padding: '20px',
+    borderBottom: '1px solid #222222',
+  },
+  logo: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+  },
+  logoIcon: {
+    width: '40px',
+    height: '40px',
+    borderRadius: '8px',
+    background: 'linear-gradient(135deg, #ccff00, #99cc00)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '20px',
+  },
+  nav: {
+    flex: 1,
+    padding: '16px',
+  },
+  navItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    padding: '12px 16px',
+    borderRadius: '8px',
+    fontSize: '14px',
+    fontWeight: 500,
+    color: '#888888',
+    textDecoration: 'none',
+    marginBottom: '4px',
+  },
+  navItemActive: {
+    backgroundColor: 'rgba(204, 255, 0, 0.1)',
+    color: '#ccff00',
+    border: '1px solid rgba(204, 255, 0, 0.2)',
+  },
+  main: {
+    marginLeft: '256px',
+    flex: 1,
+    minHeight: '100vh',
+  },
+  header: {
+    height: '64px',
+    backgroundColor: '#111111',
+    borderBottom: '1px solid #222222',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '0 24px',
+    position: 'sticky' as const,
+    top: 0,
+    zIndex: 40,
+  },
+  content: {
+    padding: '24px',
+  },
+  tabs: {
+    display: 'flex',
+    gap: '8px',
+    marginBottom: '24px',
+    borderBottom: '1px solid #222222',
+    paddingBottom: '16px',
+  },
+  tab: {
+    padding: '8px 16px',
+    borderRadius: '8px',
+    fontSize: '14px',
+    fontWeight: 500,
+    cursor: 'pointer',
+    border: 'none',
+    transition: 'all 0.2s',
+  },
+  statsRow: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '16px',
+    marginBottom: '24px',
+  },
+  statCard: {
+    backgroundColor: '#111111',
+    border: '1px solid #222222',
+    borderRadius: '12px',
+    padding: '20px',
+  },
+  languageTable: {
+    backgroundColor: '#111111',
+    border: '1px solid #222222',
+    borderRadius: '12px',
+    overflow: 'hidden',
+  },
+  tableHeader: {
+    display: 'grid',
+    gridTemplateColumns: '40px 200px 100px 120px 100px 100px',
+    gap: '16px',
+    padding: '12px 20px',
+    backgroundColor: '#0a0a0a',
+    borderBottom: '1px solid #222222',
+    fontSize: '12px',
+    color: '#666666',
+    textTransform: 'uppercase' as const,
+  },
+  tableRow: {
+    display: 'grid',
+    gridTemplateColumns: '40px 200px 100px 120px 100px 100px',
+    gap: '16px',
+    padding: '12px 20px',
+    borderBottom: '1px solid #1a1a1a',
+    alignItems: 'center',
+    fontSize: '14px',
+  },
+  badge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: '4px 8px',
+    borderRadius: '4px',
+    fontSize: '11px',
+    fontWeight: 500,
+  },
+  progressBar: {
+    width: '100%',
+    height: '6px',
+    backgroundColor: '#222222',
+    borderRadius: '3px',
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    borderRadius: '3px',
+    transition: 'width 0.3s',
+  },
+};
 
 interface LanguageStatus {
-  locale: string;
+  code: string;
   name: string;
-  exists: boolean;
-  keys: number;
-  translated: number;
-  memory: number;
-  lastModified?: string;
-  costFull?: number;
-  costMissing?: number;
+  flag: string;
+  status: 'complete' | 'partial' | 'missing';
+  keyCount: number;
+  sourceKeyCount: number;
+  progress: number;
+  estimatedCost: number;
+  files: string[];
 }
 
-interface TranslationMemory {
-  [locale: string]: {
-    [path: string]: any;
-  };
+interface ProjectStatus {
+  projectId: string;
+  projectName: string;
+  sourceLocale: string;
+  sourceKeyCount: number;
+  languages: LanguageStatus[];
+  totalLanguages: number;
+  translatedLanguages: number;
+  missingLanguages: number;
+  totalEstimatedCost: number;
 }
 
-interface Project {
-  id: string;
-  name: string;
-}
-
-export default function I18nDashboard() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedProject, setSelectedProject] = useState<string>('site');
-  const [languages, setLanguages] = useState<LanguageStatus[]>([]);
-  const [enSnapshot, setEnSnapshot] = useState<any>(null);
-  const [currentEn, setCurrentEn] = useState<any>(null);
-  const [memory, setMemory] = useState<TranslationMemory>({});
+export default function I18nPage() {
+  const [activeProject, setActiveProject] = useState<'site' | 'app' | 'compliance'>('site');
+  const [status, setStatus] = useState<ProjectStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [translating, setTranslating] = useState<string | null>(null);
-  const [selectedLocale, setSelectedLocale] = useState<string | null>(null);
-  const [jsonView, setJsonView] = useState<any>(null);
-  const [selectedLocales, setSelectedLocales] = useState<Set<string>>(new Set());
-  const [translationProgress, setTranslationProgress] = useState<Record<string, { current: number; total: number; percentage: number; block_name: string }>>({});
+  const [selectedLanguages, setSelectedLanguages] = useState<Set<string>>(new Set());
+  const [filter, setFilter] = useState<'all' | 'missing' | 'partial' | 'complete'>('all');
+  const [translating, setTranslating] = useState(false);
+  const [translateLog, setTranslateLog] = useState<string[]>([]);
+  const [showLog, setShowLog] = useState(false);
+  const [config, setConfig] = useState<{ grokConfigured: boolean; githubConfigured: boolean; credits: number | null } | null>(null);
+  const [sessionCost, setSessionCost] = useState(0); // Track cost spent in this session
 
-  useEffect(() => {
-    loadProjects();
-  }, []);
-
-  useEffect(() => {
-    if (selectedProject) {
-      loadData();
-    }
-  }, [selectedProject]);
-
-  const loadProjects = async () => {
-    try {
-      const res = await fetch('/api/admin-translation/i18n/projects');
-      if (res.ok) {
-        const data = await res.json();
-        setProjects(data.projects || []);
-        if (data.projects && data.projects.length > 0 && !selectedProject) {
-          setSelectedProject(data.projects[0].id);
-        }
-      }
-    } catch (error) {
-      console.error('Error loading projects:', error);
-    }
-  };
-
-  const loadData = async () => {
+  const fetchStatus = useCallback(async (project: string) => {
     setLoading(true);
     setError(null);
     try {
-      const projectParam = `?project=${selectedProject}`;
-      const [langsRes, snapshotRes, enRes, memRes] = await Promise.all([
-        fetch(`/api/admin-translation/i18n/languages${projectParam}`),
-        fetch(`/api/admin-translation/i18n/snapshot${projectParam}`),
-        fetch(`/api/admin-translation/i18n/en${projectParam}`),
-        fetch(`/api/admin-translation/i18n/memory${projectParam}`)
-      ]);
-
-      if (langsRes.ok) {
-        const langs = await langsRes.json();
-        setLanguages(langs);
-      } else {
-        const err = await langsRes.json().catch(() => ({}));
-        setLanguages([]);
-        setError(err?.error || `Errore ${langsRes.status}`);
+      const res = await fetch(`/api/i18n/status?project=${project}`);
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to fetch');
       }
-
-      if (snapshotRes.ok) {
-        const snapshot = await snapshotRes.json();
-        setEnSnapshot(snapshot);
-      }
-
-      if (enRes.ok) {
-        const en = await enRes.json();
-        setCurrentEn(en);
-      }
-
-      if (memRes.ok) {
-        const mem = await memRes.json();
-        setMemory(mem);
-      }
-    } catch (error) {
-      console.error('Error loading data:', error);
-      setLanguages([]);
-      setError((error as Error).message);
+      const data = await res.json();
+      setStatus(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const formatCost = (v?: number) => {
-    if (v === undefined || Number.isNaN(v)) return '–';
-    return `$${v.toFixed(4)}`;
-  };
+  useEffect(() => {
+    fetchStatus(activeProject);
+  }, [activeProject, fetchStatus]);
 
-  const totalCostFull = languages.reduce((sum, l) => sum + (l.costFull || 0), 0);
-  const totalCostMissing = languages.reduce((sum, l) => sum + (l.costMissing || 0), 0);
+  // Fetch config on mount
+  const fetchConfig = useCallback(() => {
+    fetch('/api/i18n/config')
+      .then(res => res.json())
+      .then(data => setConfig(data))
+      .catch(() => setConfig({ grokConfigured: false, githubConfigured: false, credits: null }));
+  }, []);
 
-  const translateLanguage = async (locale: string, createMissing: boolean = false) => {
-    setTranslating(locale);
-    setTranslationProgress(prev => ({ ...prev, [locale]: { current: 0, total: 0, percentage: 0, block_name: 'Inizio...' } }));
+  useEffect(() => {
+    fetchConfig();
+  }, [fetchConfig]);
+
+  const translateSelected = async (dryRun: boolean = false) => {
+    if (selectedLanguages.size === 0) return;
     
-    // Avvia polling del progresso
-    const progressInterval = setInterval(async () => {
+    setTranslating(true);
+    setShowLog(true);
+    setTranslateLog([`Starting ${dryRun ? 'cost estimate' : 'translation'} for ${selectedLanguages.size} languages...`]);
+
+    let totalCost = 0;
+    let totalKeys = 0;
+
+    for (const locale of selectedLanguages) {
+      setTranslateLog(prev => [...prev, `\n📍 Processing ${locale}...`]);
+      
       try {
-        const progressRes = await fetch(`/api/admin-translation/i18n/progress?locale=${locale}&project=${selectedProject}`);
-        if (progressRes.ok) {
-          const progress = await progressRes.json();
-          if (progress) {
-            setTranslationProgress(prev => ({ ...prev, [locale]: progress }));
-          } else {
-            // Progresso null = traduzione completata
-            clearInterval(progressInterval);
-          }
-        }
-      } catch (error) {
-        // Ignora errori di polling
-      }
-    }, 1000); // Poll ogni secondo
-    
-    try {
-      const res = await fetch('/api/admin-translation/i18n/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ locale, createMissing, project: selectedProject })
-      });
-
-      if (res.ok) {
-        const result = await res.json();
-        clearInterval(progressInterval);
-        setTranslationProgress(prev => {
-          const newProgress = { ...prev };
-          delete newProgress[locale];
-          return newProgress;
-        });
-        alert(`Traduzione ${locale}: ${result.success ? 'Completata' : 'Parziale'}`);
-        loadData();
-      } else {
-        let errorMessage = 'Errore sconosciuto';
-        try {
-          const error = await res.json();
-          errorMessage = error?.error || error?.message || JSON.stringify(error);
-        } catch {
-          errorMessage = `HTTP ${res.status}: ${res.statusText}`;
-        }
-        clearInterval(progressInterval);
-        alert(`Errore: ${errorMessage}`);
-      }
-    } catch (error: any) {
-      clearInterval(progressInterval);
-      const errorMessage = error?.message || error?.toString() || 'Errore di connessione';
-      alert(`Errore: ${errorMessage}`);
-    } finally {
-      setTranslating(null);
-    }
-  };
-
-  const toggleLocale = (locale: string) => {
-    const newSet = new Set(selectedLocales);
-    if (newSet.has(locale)) {
-      newSet.delete(locale);
-    } else {
-      newSet.add(locale);
-    }
-    setSelectedLocales(newSet);
-  };
-
-  const selectAll = () => {
-    setSelectedLocales(new Set(languages.map(l => l.locale)));
-  };
-
-  const deselectAll = () => {
-    setSelectedLocales(new Set());
-  };
-
-  const translateSelected = async (createMissing: boolean = false) => {
-    if (selectedLocales.size === 0) {
-      alert('Seleziona almeno una lingua');
-      return;
-    }
-
-    if (!confirm(`Traduci ${selectedLocales.size} lingua/e selezionata/e?`)) return;
-    
-    setTranslating('selected');
-    const locales = Array.from(selectedLocales);
-    let success = 0;
-    let failed = 0;
-
-    for (const locale of locales) {
-      try {
-        const res = await fetch('/api/admin-translation/i18n/translate', {
+        const res = await fetch('/api/i18n/translate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ locale, createMissing, project: selectedProject })
+          body: JSON.stringify({
+            project: activeProject,
+            targetLocale: locale,
+            dryRun,
+          }),
         });
 
-        if (res.ok) {
-          success++;
-        } else {
-          failed++;
-        }
-      } catch (error) {
-        failed++;
-      }
-    }
-
-    alert(`Completato: ${success} successi, ${failed} falliti`);
-    setTranslating(null);
-    loadData();
-  };
-
-  const translateAll = async () => {
-    if (!confirm('Traduci tutte le lingue?')) return;
-    
-    setTranslating('all');
-    try {
-      const res = await fetch('/api/admin-translation/i18n/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ locale: null, createMissing: true, project: selectedProject })
-      });
-
-      if (res.ok) {
-        const result = await res.json();
-        alert(`Traduzione completata: ${result.success}/${result.total} lingue`);
-        loadData();
-      } else {
-        let errorMessage = 'Errore sconosciuto';
-        try {
-          const error = await res.json();
-          errorMessage = error?.error || error?.message || JSON.stringify(error);
-        } catch {
-          errorMessage = `HTTP ${res.status}: ${res.statusText}`;
-        }
-        alert(`Errore: ${errorMessage}`);
-      }
-    } catch (error: any) {
-      const errorMessage = error?.message || error?.toString() || 'Errore di connessione';
-      alert(`Errore: ${errorMessage}`);
-    } finally {
-      setTranslating(null);
-    }
-  };
-
-  const translateAllMissing = async () => {
-    if (!confirm('Aggiorna (solo chiavi mancanti) tutte le lingue?')) return;
-    
-    setTranslating('all');
-    try {
-      const res = await fetch('/api/admin-translation/i18n/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ locale: null, createMissing: false, project: selectedProject })
-      });
-
-      if (res.ok) {
-        const result = await res.json();
-        alert(`Aggiornamento completato: ${result.success}/${result.total} lingue`);
-        loadData();
-      } else {
-        let errorMessage = 'Errore sconosciuto';
-        try {
-          const error = await res.json();
-          errorMessage = error?.error || error?.message || JSON.stringify(error);
-        } catch {
-          errorMessage = `HTTP ${res.status}: ${res.statusText}`;
-        }
-        alert(`Errore: ${errorMessage}`);
-      }
-    } catch (error: any) {
-      const errorMessage = error?.message || error?.toString() || 'Errore di connessione';
-      alert(`Errore: ${errorMessage}`);
-    } finally {
-      setTranslating(null);
-    }
-  };
-
-  const viewJson = async (locale: string) => {
-    try {
-        const res = await fetch(`/api/admin-translation/i18n/json?locale=${locale}&project=${selectedProject}`);
-      if (res.ok) {
         const data = await res.json();
-        setJsonView({ locale, data });
-        setSelectedLocale(locale);
+        
+        if (data.success) {
+          totalCost += data.result.cost;
+          totalKeys += data.result.keysTranslated;
+          setTranslateLog(prev => [
+            ...prev,
+            `  ✓ ${locale}: ${data.result.keysTranslated} keys, $${data.result.cost.toFixed(4)}`,
+            data.result.errors?.length > 0 ? `  ⚠ Warnings: ${data.result.errors.join(', ')}` : '',
+          ].filter(Boolean));
+        } else {
+          setTranslateLog(prev => [...prev, `  ✗ ${locale}: ${data.error}`]);
+        }
+      } catch (err) {
+        setTranslateLog(prev => [...prev, `  ✗ ${locale}: ${err instanceof Error ? err.message : 'Unknown error'}`]);
       }
-    } catch (error) {
-      console.error('Error loading JSON:', error);
+    }
+
+    setTranslateLog(prev => [
+      ...prev,
+      '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+      `✅ ${dryRun ? 'ESTIMATE' : 'COMPLETE'}: ${totalKeys} keys, Total cost: $${totalCost.toFixed(4)}`,
+    ]);
+
+    setTranslating(false);
+    
+    if (!dryRun) {
+      // Update session cost
+      setSessionCost(prev => prev + totalCost);
+      // Refresh status after translation
+      fetchStatus(activeProject);
     }
   };
 
-  const getChanges = () => {
-    if (!enSnapshot || !currentEn) return { added: [], changed: [], removed: [] };
-    
-    const snapshotKeys = new Set(Object.keys(enSnapshot));
-    const currentKeys = new Set(Object.keys(currentEn));
-    
-    const added = Array.from(currentKeys).filter(k => !snapshotKeys.has(k));
-    const removed = Array.from(snapshotKeys).filter(k => !currentKeys.has(k));
-    const changed = Array.from(currentKeys).filter(k => {
-      if (!snapshotKeys.has(k)) return false;
-      return JSON.stringify(enSnapshot[k]) !== JSON.stringify(currentEn[k]);
-    });
-
-    return { added, changed, removed };
+  const toggleLanguage = (code: string) => {
+    const newSelected = new Set(selectedLanguages);
+    if (newSelected.has(code)) {
+      newSelected.delete(code);
+    } else {
+      newSelected.add(code);
+    }
+    setSelectedLanguages(newSelected);
   };
 
-  const changes = getChanges();
+  const selectAllMissing = () => {
+    if (!status) return;
+    const missing = status.languages
+      .filter(l => l.status === 'missing' || l.status === 'partial')
+      .map(l => l.code);
+    setSelectedLanguages(new Set(missing));
+  };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#0f0f0f] text-white p-8 flex items-center justify-center">
-        <div className="text-xl">Caricamento...</div>
-      </div>
-    );
-  }
+  const filteredLanguages = status?.languages.filter(l => {
+    if (filter === 'all') return true;
+    return l.status === filter;
+  }) || [];
+
+  const selectedCost = status?.languages
+    .filter(l => selectedLanguages.has(l.code))
+    .reduce((sum, l) => sum + l.estimatedCost, 0) || 0;
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'complete': return { bg: 'rgba(34, 197, 94, 0.1)', color: '#22c55e' };
+      case 'partial': return { bg: 'rgba(234, 179, 8, 0.1)', color: '#eab308' };
+      case 'missing': return { bg: 'rgba(239, 68, 68, 0.1)', color: '#ef4444' };
+      default: return { bg: '#222222', color: '#888888' };
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[#0f0f0f] text-white p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-8 gap-4">
-          <h1 className="text-4xl font-bold text-[#ccff00]">
-            🌍 Dashboard Traduzioni i18n
-          </h1>
-          {projects.length > 0 && (
-            <div className="flex items-center gap-2">
-              {projects.map((project) => (
-                <button
-                  key={project.id}
-                  onClick={() => setSelectedProject(project.id)}
-                  className={`px-4 py-2 rounded-lg border text-sm ${
-                    selectedProject === project.id
-                      ? 'border-[#ccff00] text-[#ccff00] bg-[#1a1a1a]'
-                      : 'border-[#2a2a2a] text-white hover:border-[#ccff00]'
-                  }`}
-                >
-                  {project.name}
-                </button>
-              ))}
+    <div style={styles.container}>
+      {/* Sidebar */}
+      <aside style={styles.sidebar}>
+        <div style={styles.sidebarHeader}>
+          <div style={styles.logo}>
+            <div style={styles.logoIcon}>✦</div>
+            <div>
+              <div style={{ fontSize: '18px', fontWeight: 700 }}>Alice</div>
+              <div style={{ fontSize: '12px', color: '#666666' }}>Control Center</div>
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Changes Alert */}
-        {changes.added.length > 0 || changes.changed.length > 0 || changes.removed.length > 0 ? (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-[#1a1a1a] border border-[#ccff00] rounded-lg p-4 mb-6"
-          >
-            <h2 className="text-xl font-bold mb-3 text-[#ccff00]">📝 Cambiamenti in EN.json</h2>
-            {changes.added.length > 0 && (
-              <div className="mb-2">
-                <span className="text-green-400">+ {changes.added.length} nuove chiavi:</span>
-                <div className="text-sm text-gray-400 ml-4 mt-1">
-                  {changes.added.slice(0, 5).join(', ')}
-                  {changes.added.length > 5 && ` ... +${changes.added.length - 5}`}
-                </div>
-              </div>
-            )}
-            {changes.changed.length > 0 && (
-              <div className="mb-2">
-                <span className="text-yellow-400">~ {changes.changed.length} chiavi modificate:</span>
-                <div className="text-sm text-gray-400 ml-4 mt-1">
-                  {changes.changed.slice(0, 5).join(', ')}
-                  {changes.changed.length > 5 && ` ... +${changes.changed.length - 5}`}
-                </div>
-              </div>
-            )}
-            {changes.removed.length > 0 && (
-              <div>
-                <span className="text-red-400">- {changes.removed.length} chiavi rimosse:</span>
-                <div className="text-sm text-gray-400 ml-4 mt-1">
-                  {changes.removed.slice(0, 5).join(', ')}
-                  {changes.removed.length > 5 && ` ... +${changes.removed.length - 5}`}
-                </div>
-              </div>
-            )}
-          </motion.div>
-        ) : (
-          <div className="bg-[#1a1a1a] border border-green-500 rounded-lg p-4 mb-6">
-            ✅ Nessun cambiamento in EN.json dall'ultimo snapshot
-          </div>
-        )}
+        <nav style={styles.nav}>
+          <Link href="/admin" style={styles.navItem}>📊 Dashboard</Link>
+          <Link href="/admin/pricing" style={styles.navItem}>💰 Pricing</Link>
+          <Link href="/admin/i18n" style={{ ...styles.navItem, ...styles.navItemActive }}>🌍 Translations</Link>
+          <Link href="/admin/calls" style={styles.navItem}>📞 Monitoring</Link>
+          <Link href="/admin/finance" style={styles.navItem}>📈 Finance</Link>
+        </nav>
+      </aside>
 
-        {/* Actions */}
-        <div className="space-y-4 mb-6">
-          {/* Bulk Selection */}
-          <div className="flex items-center gap-4 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={selectedLocales.size === languages.length && languages.length > 0}
-                onChange={(e) => e.target.checked ? selectAll() : deselectAll()}
-                className="w-5 h-5 cursor-pointer"
-              />
-              <span className="text-sm">
-                {selectedLocales.size > 0 
-                  ? `${selectedLocales.size} lingua/e selezionata/e`
-                  : 'Seleziona lingue'}
-              </span>
-            </div>
-            <div className="flex gap-2 ml-auto">
-              <button
-                onClick={() => translateSelected(false)}
-                disabled={translating !== null || selectedLocales.size === 0}
-                className="px-4 py-2 bg-[#ccff00] text-[#0f0f0f] rounded-lg font-bold hover:bg-[#b8e600] disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-              >
-                {translating === 'selected' ? '⏳' : '🔄 Aggiorna Selezionate'}
-              </button>
-              <button
-                onClick={() => translateSelected(true)}
-                disabled={translating !== null || selectedLocales.size === 0}
-                className="px-4 py-2 bg-[#ccff00] text-[#0f0f0f] rounded-lg font-bold hover:bg-[#b8e600] disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-              >
-                {translating === 'selected' ? '⏳' : '➕ Crea/Traduci Selezionate'}
-              </button>
+      {/* Main */}
+      <main style={styles.main}>
+        <header style={styles.header}>
+          <div>
+            <div style={{ fontSize: '20px', fontWeight: 600 }}>Translations</div>
+            <div style={{ fontSize: '12px', color: '#666666' }}>
+              Manage i18n for {status?.projectName || 'loading...'}
             </div>
           </div>
-
-          {/* Global Actions */}
-          <div className="flex flex-wrap gap-4 items-center">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={translateAll}
-                disabled={translating !== null}
-                className="px-6 py-3 bg-[#ccff00] text-[#0f0f0f] rounded-lg font-bold hover:bg-[#b8e600] disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {translating === 'all' ? '⏳ Traducendo...' : '🚀 Traduci tutte le lingue'}
-              </button>
-              <span className="text-sm text-gray-300">({formatCost(totalCostFull)})</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={translateAllMissing}
-                disabled={translating !== null}
-                className="px-6 py-3 bg-[#0f0f0f] border border-[#2a2a2a] rounded-lg font-bold hover:border-[#ccff00] disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {translating === 'all' ? '⏳ Aggiornando...' : '🔁 Aggiorna tutte (chiavi mancanti)'}
-              </button>
-              <span className="text-sm text-gray-300">({formatCost(totalCostMissing)})</span>
-            </div>
-
+          <div style={{ display: 'flex', gap: '12px' }}>
+            {selectedLanguages.size > 0 && (
+              <>
+                <button
+                  onClick={() => translateSelected(true)}
+                  disabled={translating}
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: '8px',
+                    backgroundColor: '#1a1a1a',
+                    color: '#888888',
+                    border: '1px solid #333333',
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    cursor: translating ? 'not-allowed' : 'pointer',
+                    opacity: translating ? 0.5 : 1,
+                  }}
+                >
+                  💰 Estimate Cost
+                </button>
+                <button
+                  onClick={() => translateSelected(false)}
+                  disabled={translating}
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: '8px',
+                    backgroundColor: translating ? '#666600' : '#ccff00',
+                    color: '#000000',
+                    border: 'none',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    cursor: translating ? 'not-allowed' : 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                  }}
+                >
+                  {translating ? '⏳ Translating...' : `🚀 Translate ${selectedLanguages.size} languages`}
+                </button>
+              </>
+            )}
             <button
-              onClick={loadData}
-              className="px-6 py-3 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg font-bold hover:border-[#ccff00]"
+              onClick={() => fetchStatus(activeProject)}
+              disabled={loading}
+              style={{
+                padding: '8px 16px',
+                borderRadius: '8px',
+                backgroundColor: '#1a1a1a',
+                color: '#888888',
+                border: 'none',
+                fontSize: '14px',
+                cursor: loading ? 'not-allowed' : 'pointer',
+              }}
             >
-              🔄 Ricarica
+              🔄 Refresh
             </button>
           </div>
-        </div>
+        </header>
 
-        {error && (
-          <div className="mb-4 bg-red-900/40 border border-red-700 text-red-100 px-4 py-3 rounded-lg">
-            Errore: {error}
-          </div>
-        )}
-
-        {/* Languages Table */}
-        <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-[#0f0f0f] border-b border-[#2a2a2a]">
-                <tr>
-                  <th className="px-4 py-3 text-left">
-                    <input
-                      type="checkbox"
-                      checked={selectedLocales.size === languages.length && languages.length > 0}
-                      onChange={(e) => e.target.checked ? selectAll() : deselectAll()}
-                      className="w-5 h-5 cursor-pointer"
-                    />
-                  </th>
-                  <th className="px-4 py-3 text-left text-sm font-bold text-[#ccff00]">Lingua</th>
-                  <th className="px-4 py-3 text-left text-sm font-bold text-[#ccff00]">Locale</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Stato</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Progresso</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Chiavi</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Tradotte</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Memoria</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Costo full</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Costo update</th>
-                  <th className="px-4 py-3 text-center text-sm font-bold text-[#ccff00]">Azioni</th>
-                </tr>
-              </thead>
-              <tbody>
-                {languages.length === 0 && (
-                  <tr>
-                    <td colSpan={11} className="px-4 py-6 text-center text-gray-400">
-                      Nessuna lingua trovata per il progetto selezionato.
-                    </td>
-                  </tr>
-                )}
-                {languages.map((lang, idx) => {
-                  const progress = lang.keys > 0 ? Math.floor((lang.translated / lang.keys) * 100 * 10) / 10 : 0;
-                  const memCount = lang.memory || 0;
-                  const isTranslating = translating === lang.locale;
-                  const isSelected = selectedLocales.has(lang.locale);
-
-                  return (
-                    <motion.tr
-                      key={lang.locale}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: idx * 0.02 }}
-                      className={`border-b border-[#2a2a2a] hover:bg-[#1a2a1a] transition-colors ${
-                        isSelected ? 'bg-[#1a2a1a]' : ''
-                      }`}
-                    >
-                      <td className="px-4 py-3">
-                        <input
-                          type="checkbox"
-                          checked={isSelected}
-                          onChange={() => toggleLocale(lang.locale)}
-                          className="w-5 h-5 cursor-pointer"
-                        />
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="font-semibold text-white">{lang.name}</div>
-                      </td>
-                      <td className="px-4 py-3">
-                        <code className="text-xs text-gray-400 bg-[#0f0f0f] px-2 py-1 rounded">{lang.locale}</code>
-                      </td>
-                      <td className="px-4 py-3 text-center">
-                        {lang.exists ? (
-                          <span className="text-green-400 text-lg">✓</span>
-                        ) : (
-                          <span className="text-gray-500 text-lg">✗</span>
-                        )}
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <div className="flex-1 bg-[#0f0f0f] rounded-full h-2 min-w-[100px]">
-                            {translationProgress[lang.locale] ? (
-                              <>
-                                <div
-                                  className="bg-[#ccff00] h-2 rounded-full transition-all"
-                                  style={{ width: `${translationProgress[lang.locale].percentage}%` }}
-                                />
-                                <div className="text-xs text-gray-500 mt-1 truncate">
-                                  {translationProgress[lang.locale].current}/{translationProgress[lang.locale].total} - {translationProgress[lang.locale].block_name}
-                                </div>
-                              </>
-                            ) : (
-                              <div
-                                className="bg-[#ccff00] h-2 rounded-full transition-all"
-                                style={{ width: `${progress}%` }}
-                              />
-                            )}
-                          </div>
-                          <span className="text-sm text-gray-400 min-w-[3ch]">
-                            {translationProgress[lang.locale] ? translationProgress[lang.locale].percentage : progress}%
-                          </span>
-                        </div>
-                      </td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-400">{lang.keys}</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-400">{lang.translated}</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-400">{memCount}</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-400">{formatCost(lang.costFull)}</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-400">{formatCost(lang.costMissing)}</td>
-                      <td className="px-4 py-3">
-                        <div className="flex gap-2 justify-center">
-                          <button
-                            onClick={() => translateLanguage(lang.locale, !lang.exists)}
-                            disabled={isTranslating || (translating !== null && translating !== 'selected' && translating !== 'all')}
-                            className="px-3 py-1 bg-[#ccff00] text-[#0f0f0f] rounded-lg font-bold hover:bg-[#b8e600] disabled:opacity-50 disabled:cursor-not-allowed text-xs"
-                            title={lang.exists ? 'Aggiorna traduzione' : 'Crea e traduci'}
-                          >
-                            {isTranslating ? '⏳' : lang.exists ? '🔄' : '➕'}
-                          </button>
-                          <button
-                            onClick={() => viewJson(lang.locale)}
-                            className="px-3 py-1 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#ccff00] text-xs"
-                            title="Visualizza JSON"
-                          >
-                            👁️
-                          </button>
-                        </div>
-                      </td>
-                    </motion.tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* JSON Viewer Modal */}
-        {jsonView && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="fixed inset-0 bg-black/80 flex items-center justify-center p-8 z-50"
-            onClick={() => setJsonView(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-[#1a1a1a] border border-[#ccff00] rounded-lg p-6 max-w-4xl w-full max-h-[80vh] overflow-auto"
+        <div style={styles.content}>
+          {/* Project Tabs */}
+          <div style={styles.tabs}>
+            <button
+              onClick={() => setActiveProject('site')}
+              style={{
+                ...styles.tab,
+                backgroundColor: activeProject === 'site' ? '#ccff00' : '#1a1a1a',
+                color: activeProject === 'site' ? '#000000' : '#888888',
+              }}
             >
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-[#ccff00]">
-                  {jsonView.locale}.json
-                </h2>
-                <button
-                  onClick={() => setJsonView(null)}
-                  className="px-4 py-2 bg-[#0f0f0f] rounded-lg hover:bg-[#2a2a2a]"
-                >
-                  ✕
-                </button>
+              🌐 Sito Agoralia
+            </button>
+            <button
+              onClick={() => setActiveProject('app')}
+              style={{
+                ...styles.tab,
+                backgroundColor: activeProject === 'app' ? '#ccff00' : '#1a1a1a',
+                color: activeProject === 'app' ? '#000000' : '#888888',
+              }}
+            >
+              📱 Agoralia App
+            </button>
+            <button
+              onClick={() => setActiveProject('compliance')}
+              style={{
+                ...styles.tab,
+                backgroundColor: activeProject === 'compliance' ? '#ccff00' : '#1a1a1a',
+                color: activeProject === 'compliance' ? '#000000' : '#888888',
+              }}
+            >
+              📋 Compliance (KB)
+            </button>
+          </div>
+
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: '60px', color: '#666666' }}>
+              ⏳ Loading translation status...
+            </div>
+          ) : error ? (
+            <div style={{
+              padding: '24px',
+              backgroundColor: 'rgba(239, 68, 68, 0.1)',
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              borderRadius: '12px',
+              color: '#ef4444',
+            }}>
+              ❌ {error}
+            </div>
+          ) : status && (
+            <>
+              {/* Stats */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '16px', marginBottom: '24px' }}>
+                <div style={styles.statCard}>
+                  <div style={{ fontSize: '12px', color: '#666666', marginBottom: '8px' }}>Total Languages</div>
+                  <div style={{ fontSize: '32px', fontWeight: 700 }}>{status.totalLanguages}</div>
+                </div>
+                <div style={styles.statCard}>
+                  <div style={{ fontSize: '12px', color: '#666666', marginBottom: '8px' }}>Translated</div>
+                  <div style={{ fontSize: '32px', fontWeight: 700, color: '#22c55e' }}>
+                    {status.translatedLanguages}
+                  </div>
+                </div>
+                <div style={styles.statCard}>
+                  <div style={{ fontSize: '12px', color: '#666666', marginBottom: '8px' }}>Partial</div>
+                  <div style={{ fontSize: '32px', fontWeight: 700, color: '#eab308' }}>
+                    {status.languages.filter(l => l.status === 'partial').length}
+                  </div>
+                </div>
+                <div style={styles.statCard}>
+                  <div style={{ fontSize: '12px', color: '#666666', marginBottom: '8px' }}>Missing</div>
+                  <div style={{ fontSize: '32px', fontWeight: 700, color: '#ef4444' }}>
+                    {status.missingLanguages}
+                  </div>
+                </div>
+                <div style={styles.statCard}>
+                  <div style={{ fontSize: '12px', color: '#666666', marginBottom: '8px' }}>Est. Cost (All)</div>
+                  <div style={{ fontSize: '32px', fontWeight: 700, color: '#ccff00' }}>
+                    ${status.totalEstimatedCost.toFixed(2)}
+                  </div>
+                </div>
               </div>
-              <pre className="text-sm text-gray-300 overflow-auto bg-[#0f0f0f] p-4 rounded">
-                {JSON.stringify(jsonView.data, null, 2)}
-              </pre>
-            </motion.div>
-          </motion.div>
-        )}
-      </div>
+
+              {/* Source Info */}
+              <div style={{
+                backgroundColor: '#111111',
+                border: '1px solid #222222',
+                borderRadius: '12px',
+                padding: '16px 20px',
+                marginBottom: '24px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+                <div>
+                  <span style={{ color: '#666666' }}>Source: </span>
+                  <span style={{ fontWeight: 600 }}>{status.sourceLocale}</span>
+                  <span style={{ color: '#666666', marginLeft: '16px' }}>Keys: </span>
+                  <span style={{ fontWeight: 600 }}>{status.sourceKeyCount.toLocaleString()}</span>
+                </div>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button
+                    onClick={selectAllMissing}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      backgroundColor: '#1a1a1a',
+                      color: '#888888',
+                      border: 'none',
+                      fontSize: '12px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Select all missing
+                  </button>
+                  <button
+                    onClick={() => setSelectedLanguages(new Set())}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      backgroundColor: '#1a1a1a',
+                      color: '#888888',
+                      border: 'none',
+                      fontSize: '12px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Clear selection
+                  </button>
+                </div>
+              </div>
+
+              {/* Filter */}
+              <div style={{ marginBottom: '16px', display: 'flex', gap: '8px' }}>
+                {(['all', 'missing', 'partial', 'complete'] as const).map(f => (
+                  <button
+                    key={f}
+                    onClick={() => setFilter(f)}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      backgroundColor: filter === f ? '#ccff00' : '#1a1a1a',
+                      color: filter === f ? '#000000' : '#888888',
+                      border: 'none',
+                      fontSize: '12px',
+                      cursor: 'pointer',
+                      textTransform: 'capitalize',
+                    }}
+                  >
+                    {f} ({f === 'all' ? status.languages.length : status.languages.filter(l => l.status === f).length})
+                  </button>
+                ))}
+              </div>
+
+              {/* Languages Table */}
+              <div style={styles.languageTable}>
+                <div style={styles.tableHeader}>
+                  <span>☐</span>
+                  <span>Language</span>
+                  <span>Status</span>
+                  <span>Progress</span>
+                  <span>Keys</span>
+                  <span>Est. Cost</span>
+                </div>
+                <div style={{ maxHeight: '500px', overflowY: 'auto' }}>
+                  {filteredLanguages.map(lang => {
+                    const statusColors = getStatusColor(lang.status);
+                    const isSelected = selectedLanguages.has(lang.code);
+                    return (
+                      <div
+                        key={lang.code}
+                        style={{
+                          ...styles.tableRow,
+                          backgroundColor: isSelected ? 'rgba(204, 255, 0, 0.05)' : 'transparent',
+                          cursor: 'pointer',
+                        }}
+                        onClick={() => toggleLanguage(lang.code)}
+                      >
+                        <span>
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() => {}}
+                            style={{ cursor: 'pointer' }}
+                          />
+                        </span>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span style={{ fontSize: '20px' }}>{lang.flag}</span>
+                          <div>
+                            <div style={{ fontWeight: 500 }}>{lang.name}</div>
+                            <div style={{ fontSize: '12px', color: '#666666' }}>{lang.code}</div>
+                          </div>
+                        </span>
+                        <span>
+                          <span style={{
+                            ...styles.badge,
+                            backgroundColor: statusColors.bg,
+                            color: statusColors.color,
+                          }}>
+                            {lang.status === 'complete' ? '✓' : lang.status === 'partial' ? '◐' : '✗'} {lang.status}
+                          </span>
+                        </span>
+                        <span>
+                          <div style={styles.progressBar}>
+                            <div style={{
+                              ...styles.progressFill,
+                              width: `${lang.progress}%`,
+                              backgroundColor: statusColors.color,
+                            }} />
+                          </div>
+                          <span style={{ fontSize: '11px', color: '#666666' }}>{lang.progress}%</span>
+                        </span>
+                        <span style={{ color: '#888888' }}>
+                          {lang.keyCount.toLocaleString()}/{lang.sourceKeyCount.toLocaleString()}
+                        </span>
+                        <span style={{ color: lang.estimatedCost > 0 ? '#ccff00' : '#666666' }}>
+                          ${lang.estimatedCost.toFixed(4)}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Translation Log */}
+              {showLog && translateLog.length > 0 && (
+                <div style={{
+                  marginTop: '24px',
+                  backgroundColor: '#0a0a0a',
+                  border: '1px solid #222222',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '12px 20px',
+                    borderBottom: '1px solid #222222',
+                    backgroundColor: '#111111',
+                  }}>
+                    <h3 style={{ fontSize: '14px', fontWeight: 600 }}>
+                      📋 Translation Log
+                    </h3>
+                    <button
+                      onClick={() => setShowLog(false)}
+                      style={{
+                        padding: '4px 8px',
+                        borderRadius: '4px',
+                        backgroundColor: '#1a1a1a',
+                        color: '#666666',
+                        border: 'none',
+                        fontSize: '12px',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      Hide
+                    </button>
+                  </div>
+                  <pre style={{
+                    padding: '16px 20px',
+                    margin: 0,
+                    fontSize: '12px',
+                    fontFamily: 'monospace',
+                    color: '#22c55e',
+                    maxHeight: '300px',
+                    overflowY: 'auto',
+                    whiteSpace: 'pre-wrap',
+                  }}>
+                    {translateLog.join('\n')}
+                  </pre>
+                </div>
+              )}
+
+              {/* Grok API Info */}
+              <div style={{
+                marginTop: '24px',
+                backgroundColor: '#111111',
+                border: '1px solid #222222',
+                borderRadius: '12px',
+                padding: '20px',
+              }}>
+                <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '12px' }}>
+                  🤖 Grok API Translation
+                </h3>
+                <div style={{ fontSize: '14px', color: '#888888', lineHeight: 1.6 }}>
+                  <p style={{ marginBottom: '8px' }}>
+                    Using <code style={{ backgroundColor: '#0a0a0a', padding: '2px 6px', borderRadius: '4px' }}>grok-4-fast-non-reasoning</code> model
+                  </p>
+                  <p style={{ marginBottom: '8px' }}>
+                    Pricing: <span style={{ color: '#ccff00' }}>$0.20</span>/1M input tokens + <span style={{ color: '#ccff00' }}>$0.50</span>/1M output tokens
+                  </p>
+                  <p>
+                    {config?.grokConfigured ? (
+                      <span style={{ color: '#22c55e' }}>✓ GROK_API_KEY configurata</span>
+                    ) : (
+                      <span style={{ color: '#eab308' }}>⚠ Aggiungi GROK_API_KEY in .env.local per abilitare le traduzioni</span>
+                    )}
+                  </p>
+                  <p style={{ marginTop: '8px' }}>
+                    {config?.githubConfigured ? (
+                      <span style={{ color: '#22c55e' }}>✓ GITHUB_TOKEN configurato</span>
+                    ) : (
+                      <span style={{ color: '#eab308' }}>⚠ Aggiungi GITHUB_TOKEN per sincronizzare su GitHub</span>
+                    )}
+                  </p>
+                  {config?.credits !== null && config?.credits !== undefined && (
+                    <p style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid #222222' }}>
+                      💳 Credito disponibile: <span style={{ color: '#22c55e', fontWeight: 600, fontSize: '18px' }}>${config.credits.toFixed(2)}</span>
+                      <button
+                        onClick={fetchConfig}
+                        style={{
+                          marginLeft: '8px',
+                          padding: '2px 8px',
+                          borderRadius: '4px',
+                          backgroundColor: '#1a1a1a',
+                          color: '#666666',
+                          border: 'none',
+                          fontSize: '11px',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        🔄
+                      </button>
+                    </p>
+                  )}
+                  {sessionCost > 0 && (
+                    <p style={{ marginTop: '8px' }}>
+                      💰 Speso in sessione: <span style={{ color: '#eab308', fontWeight: 600 }}>${sessionCost.toFixed(4)}</span>
+                    </p>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </main>
     </div>
   );
 }
-

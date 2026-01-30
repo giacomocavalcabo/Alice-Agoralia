@@ -1,0 +1,1702 @@
+{
+  "schema_version": "1.0",
+  "description": "AI disclosure requirements for quote requests only",
+  "generated_at": "2025-12-05T14:10:51Z",
+  "countries": {
+    "AD": {
+      "iso": "AD",
+      "country": "Andorra",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current Andorran rules on AI disclosure for telemarketing quote requests using only official sources in this environment, because direct access to Andorran government and regulatory websites or consolidated legal texts cannot be performed. No specific confirmation can therefore be given on whether AI disclosure is required or not required for quote-request telemarketing calls, nor on any distinctions between existing customers and cold calls.",
+      "sources": []
+    },
+    "AE": {
+      "iso": "AE",
+      "country": "United Arab Emirates",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Unable to determine the current, specific AI disclosure requirements for telemarketing quote-request calls in the UAE from official government or regulatory sources because direct access to updated online legal and regulatory databases is not available in this environment. You should check the Telecommunications and Digital Government Regulatory Authority (TDRA), the UAE Ministry of Economy, and the official UAE legislation portal for Cabinet Decision No. 56 of 2024 and any subsequent AI- or telemarketing-related guidance to confirm whether AI use in telemarketing, including quote requests, must be disclosed and whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "AF": {
+      "iso": "AF",
+      "country": "Afghanistan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Afghanistan currently requires or exempts AI disclosure for telemarketing calls made for quote requests, or whether rules differ for existing customers versus cold calls. No official Afghan government or regulatory sources could be checked in this environment, so you should consult Afghan telecom, consumer protection, or communications authorities’ official websites or published legal texts directly for authoritative, up-to-date requirements.",
+      "sources": []
+    },
+    "AG": {
+      "iso": "AG",
+      "country": "Antigua and Barbuda",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to verify current, official Antigua and Barbuda regulations on AI disclosure requirements for telemarketing quote-request calls using only internal knowledge. Without access to up-to-date government or regulatory websites and legal texts, no reliable conclusion can be drawn about whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls. Please consult the official Antigua and Barbuda government or regulatory authority websites (for example, the national parliament, telecommunications regulators, or consumer protection agencies) or a qualified local attorney for authoritative and current rules.",
+      "sources": []
+    },
+    "AI": {
+      "iso": "AI",
+      "country": "Anguilla",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current Anguilla (AI) regulations on AI disclosure for telemarketing quote-request calls using only internal knowledge, and external official government or regulatory sources could not be consulted in this environment. No specific rules regarding AI disclosure requirements, exceptions for quote requests, or differences between existing customers and cold calls can be confirmed here. For an authoritative answer, check Anguilla government and regulatory sites directly, such as communications, consumer protection, or data protection authorities.",
+      "sources": []
+    },
+    "AL": {
+      "iso": "AL",
+      "country": "Albania",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official Albanian government or regulatory source explicitly requires or exempts AI disclosure for telemarketing quote requests. The main data protection law (Law No. 124/2024) aligns with GDPR principles, mandating transparency in data processing, but does not specify AI disclosure for telemarketing or quote requests. There is no mention of exceptions for existing customers versus cold calling in the context of AI disclosure for quote requests. The regulatory framework for AI in Albania remains undeveloped and lacks specific rules for telemarketing or AI disclosure.",
+      "sources": [
+        "https://iapp.org/news/a/albania-s-personal-data-protection-law-a-legal-framework-harmonized-with-the-gdpr",
+        "https://scidevcenter.org/wp-content/uploads/2024/09/DSADMAAIA-IN-ALBANIA.pdf",
+        "https://techpolicy.press/albania-is-showing-the-perils-of-outsourcing-democracy-to-algorithms"
+      ]
+    },
+    "AM": {
+      "iso": "AM",
+      "country": "Armenia",
+      "allowed_without_disclosure": true,
+      "exceptions": [
+        "quote requests"
+      ],
+      "note": "Armenia currently has no sector-specific or binding legislative measures that require AI disclosure for telemarketing calls, including quote requests. The existing data protection law does not specifically address AI systems or mandate disclosure for AI-generated calls, regardless of whether the call is to an existing customer or a cold call. There are no official government sources indicating a requirement for AI disclosure in this context.",
+      "sources": [
+        "https://practiceguides.chambers.com/practice-guides/data-protection-privacy-2025/armenia",
+        "https://www.legal500.com/guides/wp-content/uploads/sites/1/2024/05/Armenia-Data-Protection-Cybersecurity-1.pdf",
+        "https://csometer.info/updates/armenia-new-legal-amendments-expand-biometric-surveillance-police"
+      ]
+    },
+    "AO": {
+      "iso": "AO",
+      "country": "Angola",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Angola currently requires AI disclosure for telemarketing calls specifically aimed at quote requests, whether there are exceptions, or whether different rules apply to existing customers versus cold calls. No clear, specific, and official Angolan government or regulatory authority sources focused on AI disclosure obligations in telemarketing (including quote requests) could be identified in this environment. Given this uncertainty and lack of directly applicable, authoritative legal texts, no conclusion can be drawn on whether AI use may lawfully remain undisclosed in such calls.",
+      "sources": []
+    },
+    "AR": {
+      "iso": "AR",
+      "country": "Argentina",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Argentina currently requires AI disclosure in telemarketing calls specifically for quote requests, or whether there are exceptions or distinctions between existing customers and cold calls, using only official government and regulatory sources. No conclusive, up‑to‑date official rules tailored to this exact scenario could be identified, so the legal situation for AI disclosure in quote‑request telemarketing remains unclear and should be verified with a qualified local lawyer or directly with Argentine authorities.",
+      "sources": []
+    },
+    "AT": {
+      "iso": "AT",
+      "country": "Austria",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, Austria-specific legal requirements for AI disclosure in telemarketing quote-request calls using only internal knowledge and without directly consulting up-to-date official Austrian government or regulator sources (such as Austrian federal ministries, the telecommunications regulator, or data protection authority). Because those official sources cannot be accessed in this context, no clear conclusion can be drawn on whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls when the purpose is a quote request.",
+      "sources": []
+    },
+    "AU": {
+      "iso": "AU",
+      "country": "Australia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, specific Australian legal requirements for AI disclosure in telemarketing quote‑request calls using only internal knowledge, and no clear, generally known rule distinguishes quote requests or existing‑customer vs cold‑call scenarios for AI voice disclosure. You should consult up‑to‑date primary Australian government sources (such as legislation.gov.au, oaic.gov.au, acma.gov.au and state or territory consumer regulators) or obtain legal advice to confirm whether AI disclosure is required, whether any exceptions apply for quote requests, and whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "AZ": {
+      "iso": "AZ",
+      "country": "Azerbaijan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to conduct the requested up‑to‑date, source‑specific internet research in this environment, so no reliable conclusion can be drawn about whether Azerbaijan currently requires AI disclosure for telemarketing quote requests, whether there are exceptions, or whether rules differ for existing customers versus cold calls.",
+      "sources": []
+    },
+    "BA": {
+      "iso": "BA",
+      "country": "Bosnia and Herzegovina",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Bosnia and Herzegovina has any current, specific AI disclosure requirements for telemarketing calls when the purpose is a quote request, especially distinguishing between existing customers and cold calls, using only official government or regulatory sources. No clear, targeted rules on AI disclosure for this scenario could be confirmed, so the legal situation for AI disclosure in quote‑request telemarketing remains unclear based on the information that can be accessed.",
+      "sources": []
+    },
+    "BB": {
+      "iso": "BB",
+      "country": "Barbados",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official government sources or regulatory documents from Barbados were found that specifically address AI disclosure requirements for telemarketing calls, including quote requests. The available information does not clarify whether AI disclosure is required or exempt for quote requests, nor does it differentiate between existing customers and cold calling in this context.",
+      "sources": []
+    },
+    "BD": {
+      "iso": "BD",
+      "country": "Bangladesh",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested current-law, government-source-specific internet research for Bangladesh AI disclosure rules for telemarketing quote requests because external search tools are not accessible in this environment. No reliable conclusion can be drawn here about whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls under current Bangladeshi law. For authoritative, up‑to‑date answers, consult official Bangladeshi government and regulatory websites (for example, the Ministry of Posts, Telecommunications and Information Technology, Bangladesh Telecommunication Regulatory Commission, and any national data protection or cybersecurity authority), and review the latest versions of telecommunication, consumer protection, and data protection laws and regulations, ideally with local legal counsel.",
+      "sources": []
+    },
+    "BE": {
+      "iso": "BE",
+      "country": "Belgium",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "BF": {
+      "iso": "BF",
+      "country": "Burkina Faso",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Burkina Faso currently requires AI disclosure for telemarketing calls involving quote requests. No specific, up-to-date, and official government or regulatory texts on AI disclosure duties in telemarketing – including distinctions for quote requests or between existing customers and cold calls – can be reliably accessed or verified in this environment. You should consult Burkina Faso’s official government portals (such as the sites of the communications regulator, the data protection authority, or the ministry responsible for the digital economy) or a local legal professional for authoritative, current rules.",
+      "sources": []
+    },
+    "BG": {
+      "iso": "BG",
+      "country": "Bulgaria",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Bulgaria has any specific, current legal requirement to disclose the use of AI in telemarketing calls for quote requests, or any explicit exceptions, because up-to-date official Bulgarian government and regulatory sources could not be directly consulted. General EU and Bulgarian data protection and electronic communications rules do regulate telemarketing and automated decision-making, but they do not, at a high level, clearly and specifically address AI disclosure duties in the narrow scenario of telemarketing quote requests; specialized local legal advice or direct review of Bulgarian government and regulator publications is required.",
+      "sources": []
+    },
+    "BH": {
+      "iso": "BH",
+      "country": "Bahrain",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested up-to-date, source-specific internet research because external browsing tools are unavailable in this environment. As a result, no reliable conclusion can be given on whether Bahrain currently requires AI disclosure for telemarketing quote requests, whether there are exceptions, or whether rules differ for existing customers vs cold calls. You should consult Bahrain’s official government and regulatory websites directly (for example the national portal bahrain.bh and the Telecommunications Regulatory Authority site) or a qualified local lawyer to obtain authoritative, current information.",
+      "sources": []
+    },
+    "BI": {
+      "iso": "BI",
+      "country": "Burundi",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific rules in Burundi regarding AI disclosure requirements for telemarketing calls for quote requests using only official government or regulatory sources under the present constraints. No clear, authoritative legal text or regulatory guidance specific to AI disclosure in telemarketing (including distinctions between existing customers and cold calls, or specific treatment of quote requests) could be identified. Therefore, it cannot be stated with confidence that AI disclosure is either required or not required for quote requests.",
+      "sources": []
+    },
+    "BJ": {
+      "iso": "BJ",
+      "country": "Benin",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Benin (BJ) currently requires AI disclosure for telemarketing calls specifically for quote requests, nor whether there are explicit exceptions or distinctions between existing customers and cold calls. No concrete, up-to-date official Beninese government or regulatory sources can be accessed or verified in this environment for this narrow question, so no specific rules can be stated.",
+      "sources": []
+    },
+    "BM": {
+      "iso": "BM",
+      "country": "Bermuda",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Bermuda currently requires AI disclosure specifically for telemarketing calls made for quote requests or inquiries, or whether there are exceptions (such as existing customers vs. cold calls), because direct access to up-to-date official Bermuda government or regulatory websites (.gov or equivalent) is not available in this environment. No definitive conclusion can therefore be drawn on whether AI disclosure is allowed without disclosure, required, or treated differently for quote requests.",
+      "sources": []
+    },
+    "BN": {
+      "iso": "BN",
+      "country": "Brunei",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, using only internal knowledge, whether Brunei currently requires AI disclosure for telemarketing calls that are quote requests or whether there are specific exceptions or distinctions for existing customers versus cold calls. Up‑to‑date confirmation would require direct consultation of Bruneian government and regulatory websites (for example, legislation and guidance from Brunei’s official law publications, the Authority for Info-communications Technology Industry of Brunei Darussalam, or other competent regulators). Because those sources cannot be checked in this environment, no clear statement can be made about whether AI disclosure is or is not required for quote‑request telemarketing calls.",
+      "sources": []
+    },
+    "BO": {
+      "iso": "BO",
+      "country": "Bolivia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Bolivia currently requires AI disclosure for telemarketing calls specifically aimed at quote requests, whether there are exceptions, or whether rules differ for existing customers versus cold calls, because direct access to up‑to‑date official Bolivian government or regulatory sources is not available in this environment. You should consult Bolivian official government portals (e.g., the telecommunications regulator and any digital government or consumer protection authorities) or a qualified local attorney to verify current, authoritative rules.",
+      "sources": []
+    },
+    "BR": {
+      "iso": "BR",
+      "country": "Brazil",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "BT": {
+      "iso": "BT",
+      "country": "Bhutan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Bhutan currently requires AI disclosure for telemarketing calls, including quote requests, using only official government or regulatory sources. No specific Bhutanese rules on AI disclosure in telemarketing, distinctions for quote requests, or differences between existing-customer and cold-call scenarios can be confirmed, so the legal situation for AI disclosure in quote-request telemarketing remains unclear based on the information accessible.",
+      "sources": []
+    },
+    "BW": {
+      "iso": "BW",
+      "country": "Botswana",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here, using only official Botswana government or regulatory sources, whether there are any current, specific legal requirements to disclose the use of AI in telemarketing calls for quote requests, or whether any exceptions apply or differ between existing customers and cold calls. No clear, AI-specific telemarketing disclosure provisions tailored to quote requests could be identified, and general data protection and electronic communications rules do not explicitly address AI disclosure for this scenario. A local legal professional or the competent Botswanan authority should be consulted for an authoritative, up-to-date interpretation.",
+      "sources": []
+    },
+    "BY": {
+      "iso": "BY",
+      "country": "Belarus",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Belarus currently requires explicit AI disclosure in telemarketing calls for quote requests or differentiates between existing customers and cold calls, because up‑to‑date official Belarusian legal sources and regulatory websites cannot be checked directly in this environment. You should verify the Law on Advertising, the Law on Personal Data Protection, and any newer telecom or AI‑related acts or bylaws on official Belarusian government portals (for example, the sites of the Parliament, the Ministry of Antimonopoly Regulation and Trade, the Ministry of Communications and Informatization, or the Operational and Analytical Center under the President) to confirm if any specific AI disclosure obligations or exceptions for quote‑request telemarketing have been introduced.",
+      "sources": []
+    },
+    "BZ": {
+      "iso": "BZ",
+      "country": "Belize",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "CA": {
+      "iso": "CA",
+      "country": "Canada",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Canada currently requires explicit AI disclosure for telemarketing calls when the purpose is a quote request, because direct access to up-to-date official Canadian government or regulatory sources could not be used. No specific rules, exceptions, or distinctions between existing customers and cold-call quote requests can be reliably confirmed in this context.",
+      "sources": []
+    },
+    "CD": {
+      "iso": "CD",
+      "country": "Democratic Republic of Congo",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official government sources, regulatory authority websites, or legal documents from the Democratic Republic of Congo were found that specifically address AI disclosure requirements for telemarketing calls, including quote requests. The available sources discuss general data protection and consumer protection frameworks but do not mention AI disclosure obligations or exceptions for quote requests or differences between existing customers and cold calling.",
+      "sources": [
+        "https://www.dlapiperdataprotection.com/index.html?t=law&c=CD",
+        "https://digitalpolicyalert.org/countries/dr-congo",
+        "https://www.itu.int/dms_pub/itu-d/opb/stg/D-STG-SG01.06.1-2025-PDF-E.pdf"
+      ]
+    },
+    "CF": {
+      "iso": "CF",
+      "country": "Central African Republic",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No specific, official regulations or legal provisions could be identified that address AI disclosure requirements in telemarketing calls (including quote requests) in the Central African Republic. Because relevant government or regulatory texts could not be consulted, it is not possible to determine whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "CG": {
+      "iso": "CG",
+      "country": "Republic of the Congo",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No specific, current regulations or official guidance could be identified that address AI disclosure requirements for telemarketing calls (including quote requests) in the Republic of the Congo (CG). This includes lack of clear rules on whether AI disclosure is required or not for quote-request calls, and no distinct provisions for existing customers versus cold-calling in this specific AI/telemarketing context. Because only official government or regulatory sources are permitted and those could not be directly consulted here, it is not possible to state definitively whether AI use in quote-request telemarketing is allowed without disclosure.",
+      "sources": []
+    },
+    "CH": {
+      "iso": "CH",
+      "country": "Switzerland",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested up‑to‑date, source‑specific internet research using only official Swiss government or regulatory websites within the current technical constraints. As a result, no reliable conclusion can be drawn here about whether Switzerland currently requires disclosure of AI use in telemarketing quote‑request calls, whether there are exceptions, or whether rules differ between existing customers and cold calls. Please consult directly the Swiss Federal Data Protection and Information Commissioner (FDPIC), the Federal Office of Communications (OFCOM), and the text of the revised Federal Act on Data Protection (FADP) or any sector‑specific telemarketing rules for an authoritative and up‑to‑date answer.",
+      "sources": []
+    },
+    "CI": {
+      "iso": "CI",
+      "country": "Côte d’Ivoire",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, using only internal knowledge and without direct access to current official Ivorian government or regulatory websites, whether Côte d’Ivoire currently requires AI disclosure in telemarketing calls specifically for quote requests, whether there are exceptions, or whether different rules apply to existing customers versus cold calls. No clear, specific rules on AI disclosure for telemarketing quote requests can be confirmed or ruled out in this context.",
+      "sources": []
+    },
+    "CL": {
+      "iso": "CL",
+      "country": "Chile",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Chile's proposed AI regulation and new data protection law (Law 21.719) emphasize transparency and risk-based obligations for AI systems, including requirements to disclose artificial nature when interacting with humans or generating content. However, there is no explicit mention in official government sources or legal documents regarding specific exceptions for telemarketing quote requests or distinctions between existing customers and cold calls. The law mandates disclosure for AI-generated content and high-risk systems, but does not clarify whether quote requests are exempt. Therefore, the requirement for AI disclosure in telemarketing quote requests is not explicitly stated as required or exempt in current official sources.",
+      "sources": [
+        "https://cadeproject.org/updates/chiles-artificial-intelligence-regulation-bill-advances-to-the-senate/",
+        "https://www.gipmatrix.com/post/chile-ai-regulation-ip-agustina-davis-komlos-and-javiera-badilla",
+        "https://secureprivacy.ai/blog/chile-new-data-protection-law-2025",
+        "https://regulatingai.org/chile-in-2025-government-ai-a-turning-point/",
+        "https://latinamericareports.com/balancing-innovation-and-ethics-chile-faces-national-debate-as-proposed-bill-to-regulate-ai-use-",
+        "https://fpf.org/blog/chiles-new-data-protection-law-context-overview-and-key-takeaways/"
+      ]
+    },
+    "CM": {
+      "iso": "CM",
+      "country": "Cameroon",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date, source-specific internet search or verify current Cameroonian regulations from official government sites in this environment. Therefore, no reliable conclusion can be given on whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls when the purpose is a quote request. You should consult Cameroon's official government portals (e.g., telecommunications regulator, consumer protection authorities, or official gazette) or a qualified Cameroonian lawyer for authoritative, current information.",
+      "sources": []
+    },
+    "CN": {
+      "iso": "CN",
+      "country": "China",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested up-to-date, source-specific internet research using only official Chinese government or regulatory websites in this environment because external search tools and browsing are not available in this turn. As a result, no reliable determination can be made here about whether current PRC regulations specifically require or exempt AI disclosure for telemarketing quote‑request calls, nor about any different rules for existing customers versus cold calls.",
+      "sources": []
+    },
+    "CO": {
+      "iso": "CO",
+      "country": "Colombia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "CR": {
+      "iso": "CR",
+      "country": "Costa Rica",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "CU": {
+      "iso": "CU",
+      "country": "Cuba",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible here to reliably identify CURRENT, Cuba-specific telemarketing regulations on AI disclosure for quote-request calls from official government sources only. No clear rule could be confirmed about whether AI disclosure is required or not, nor about differences between existing customers and cold calls. You should consult a Cuban lawyer or directly review Cuban government gazettes and telecom/consumer protection authorities’ publications for an authoritative, up-to-date answer.",
+      "sources": []
+    },
+    "CV": {
+      "iso": "CV",
+      "country": "Cabo Verde",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "CY": {
+      "iso": "CY",
+      "country": "Cyprus",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested internet search using only official Cypriot government and regulatory sources in this environment because external search and browsing tools cannot be accessed in this turn. As a result, no clear, current, and authoritative statement can be made about whether Cyprus specifically requires or exempts AI disclosure for telemarketing calls whose purpose is a quote request, nor whether rules differ for existing customers versus cold calls. For up-to-date and authoritative information, it is necessary to consult directly the websites and legal databases of the Republic of Cyprus (e.g., legislation portals and competent authorities) and relevant EU law (including the EU Artificial Intelligence Act and applicable personal data and electronic communications rules) or obtain local legal advice.",
+      "sources": []
+    },
+    "CZ": {
+      "iso": "CZ",
+      "country": "Czech Republic",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "DE": {
+      "iso": "DE",
+      "country": "Germany",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, using only internal knowledge and without consulting current official German or EU legal sources, whether there are specific, up‑to‑date AI disclosure requirements for telemarketing calls in Germany when the purpose is a quote request (including any distinctions between existing customers and cold calls). No statement can therefore be made on whether AI disclosure is required, not required, or subject to specific exceptions in this context.",
+      "sources": []
+    },
+    "DJ": {
+      "iso": "DJ",
+      "country": "Djibouti",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, detailed rules in Djibouti on AI disclosure requirements for telemarketing calls for quote requests using only internal knowledge. No specific, up-to-date official legal texts or regulatory guidance on this exact point can be confirmed here, including any distinction between existing customers and cold calls. You should consult Djibouti’s Official Journal, the relevant ministries or regulatory authorities, or a qualified local lawyer for authoritative and current information.",
+      "sources": []
+    },
+    "DK": {
+      "iso": "DK",
+      "country": "Denmark",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm the current, Denmark-specific legal requirements on AI disclosure in telemarketing quote-request calls using only official sources within this environment. No clear, authoritative statement can be given here on whether AI disclosure is required, not required, or treated differently for existing customers versus cold prospects. Consultation of up-to-date Danish government and regulatory websites or local legal counsel is necessary.",
+      "sources": []
+    },
+    "DM": {
+      "iso": "DM",
+      "country": "Dominica",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm any current Dominica (DM) regulations on AI disclosure requirements for telemarketing quote‑request calls using only official sources, because direct access to up‑to‑date government and regulatory websites is not available in this environment. As a result, no clear rule could be identified on whether AI disclosure is required or not, whether there are exceptions for quote requests, or whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "DO": {
+      "iso": "DO",
+      "country": "Dominican Republic",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm the current, detailed AI disclosure requirements for telemarketing quote requests in the Dominican Republic using only internal knowledge, and external official government and regulatory sources cannot be accessed in this environment. Because no up-to-date, source-verified legal texts or regulatory guidance specific to AI disclosure in telemarketing (including distinctions between quote requests vs. other purposes or existing customers vs. cold calls) can be consulted, no clear statement can be made on whether AI disclosure is required or not. A qualified lawyer in the Dominican Republic or direct review of current laws and regulations published on Dominican government and regulatory authority websites is necessary for an authoritative answer.",
+      "sources": []
+    },
+    "DZ": {
+      "iso": "DZ",
+      "country": "Algeria",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Algeria has any specific, current legal requirement to disclose the use of AI in telemarketing calls for quote requests or whether such calls are exempt; no authoritative confirmation from Algerian government or regulator sources can be provided in this context. You should consult up-to-date Algerian legislation and official regulatory guidance (for example, telecom and consumer protection laws and any AI- or robocall-specific rules) directly from Algerian government portals or a qualified local lawyer.",
+      "sources": []
+    },
+    "EC": {
+      "iso": "EC",
+      "country": "Ecuador",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to give a reliable, up‑to‑date answer because direct access to current official Ecuadorian government or regulatory websites is not available in this environment. As a result, no specific, verifiable rule could be identified regarding AI disclosure requirements for telemarketing quote requests, any exceptions, or distinctions between existing customers and cold calls.",
+      "sources": []
+    },
+    "EE": {
+      "iso": "EE",
+      "country": "Estonia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Unable to determine the current, specific Estonian rules on AI disclosure in telemarketing quote-request calls using only official government or regulatory sources because external legal and government resources cannot be accessed in this environment. No conclusion can be given on whether disclosure is required, whether there are exceptions for quote requests, or whether rules differ for existing customers versus cold calls.",
+      "sources": []
+    },
+    "EG": {
+      "iso": "EG",
+      "country": "Egypt",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "ER": {
+      "iso": "ER",
+      "country": "Eritrea",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Eritrea has any current, specific AI disclosure requirements for telemarketing calls related to quote requests or whether such calls are exempt, because access to up‑to‑date official Eritrean government or regulatory websites and legal documents is not available in this environment. As a result, no clear rules could be identified regarding whether AI use must be disclosed for quote requests, whether there are exceptions, or whether the rules differ between existing customers and cold calls.",
+      "sources": []
+    },
+    "ES": {
+      "iso": "ES",
+      "country": "Spain",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here, using only official and currently verifiable legal sources, whether Spain has any specific, in‑force rule that requires or exempts disclosure of AI use in telemarketing calls when the purpose is a quote request. Existing Spanish and EU rules clearly regulate telemarketing, consent, data protection, unfair commercial practices and, more generally, transparency when interacting with AI systems, but none can be reliably confirmed here as containing a focused, explicit provision on AI disclosure duties tailored only to quote‑request telemarketing or that differentiates such duties between existing customers and cold calls. Because no precise, up‑to‑date, and officially verifiable provision on this very narrow scenario can be confirmed, it cannot be stated that AI disclosure is either required or not required for quote‑request calls, nor that there are formal exceptions or distinct rules for existing customers versus prospects, based solely on information that is safely accessible in this environment.",
+      "sources": []
+    },
+    "ET": {
+      "iso": "ET",
+      "country": "Ethiopia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm current, specific Ethiopian rules on AI disclosure for telemarketing quote requests using only pre‑existing knowledge. Public analyses of Ethiopia’s emerging AI and data protection framework indicate that, as of 2025, Ethiopia has adopted a National AI Policy and a Personal Data Protection Proclamation but has not yet enacted a dedicated, detailed AI-use or telemarketing-specific disclosure regime comparable to some other jurisdictions. [2][3] These sources, however, are secondary legal and policy commentaries and not official government or regulatory texts, so they cannot be relied on to answer with certainty whether AI disclosure is required or not required specifically for quote-request telemarketing calls, nor whether there are distinctions between existing customers and cold calls. [2][3] Because direct consultation of current Ethiopian government portals, official gazettes, or regulatory authority sites is not available in this context, the existence or absence of narrowly tailored AI disclosure rules for telemarketing quote requests cannot be verified, and no clear exceptions can be documented.",
+      "sources": [
+        "https://www.legalserviceethiopia.com/legal-updates/ethiopia-s-next-frontier-building-a-responsible-ai-governance-framework",
+        "https://digitalpolicyalert.org/digest/dpa-digital-digest-ethiopia"
+      ]
+    },
+    "FI": {
+      "iso": "FI",
+      "country": "Finland",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm the current, detailed Finnish rules on AI disclosure in telemarketing calls for quote requests using only internal knowledge, and accessing the most recent official government or regulatory sources is required for a reliable answer. Because those sources cannot be consulted in this context, no clear statement can be made on whether AI disclosure is required or not for quote-request telemarketing, or whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "FJ": {
+      "iso": "FJ",
+      "country": "Fiji",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It was not possible to access or verify current, official Fijian government or regulatory sources for AI-specific disclosure requirements in telemarketing, including quote requests, so no clear rules could be identified on whether AI disclosure is required, not required, or different for existing customers versus cold calls.",
+      "sources": []
+    },
+    "FM": {
+      "iso": "FM",
+      "country": "Micronesia (Fed. States)",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote-request calls in the Federated States of Micronesia using only official government sources, because direct access to and review of those online regulatory materials is not available in this context. No clear, authoritative rules could be identified here regarding whether AI disclosure is required or not for quote requests, nor any distinction between existing customers and cold calls.",
+      "sources": []
+    },
+    "FR": {
+      "iso": "FR",
+      "country": "France",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date, source-specific internet research in this environment, so no reliable conclusion can be given on whether French law currently requires AI disclosure for telemarketing quote‑request calls, whether there are exceptions, or whether rules differ for existing customers versus cold calls. You should consult official French government and regulatory sites such as service-public.fr, legifrance.gouv.fr, economie.gouv.fr/DGCCRF, cnil.fr, and any implementing texts of the EU AI Act as applied in France to verify current disclosure obligations and any specific provisions on AI use in telemarketing.",
+      "sources": []
+    },
+    "GA": {
+      "iso": "GA",
+      "country": "Gabon",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No specific, current Gabonese regulations or official guidance were located that address AI disclosure requirements in telemarketing calls, including calls made for quote requests or inquiries, nor any rules distinguishing existing customers from cold calls. As a result, it is not possible to state from official sources whether AI disclosure is explicitly required or not required for quote-request telemarketing in Gabon.",
+      "sources": []
+    },
+    "GB": {
+      "iso": "GB",
+      "country": "United Kingdom",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to carry out the requested up‑to‑date search of official UK government and regulatory sources in this environment, so no reliable conclusion can be given on whether AI disclosure is currently required or not for telemarketing quote‑request calls, or whether rules differ for existing customers versus cold calls.",
+      "sources": []
+    },
+    "GD": {
+      "iso": "GD",
+      "country": "Grenada",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official government sources or regulatory documents from Grenada were found that specifically address AI disclosure requirements for telemarketing calls, including quote requests. There is no agency currently regulating AI use in Grenada, and no specific laws or regulations have been enacted regarding AI disclosure in telemarketing or customer service contexts.",
+      "sources": [
+        "https://www.corporatecomplianceinsights.com/states-telemarketing-compliance-laws/",
+        "https://www.lexmundi.com/guides/ai-legislative-guide/jurisdictions/caribbean/grenada/"
+      ]
+    },
+    "GE": {
+      "iso": "GE",
+      "country": "Georgia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date internet search of official Georgia government or regulatory sites in this environment, so no specific, current rules on AI disclosure for telemarketing quote requests (including distinctions between existing customers and cold calls) can be confirmed. Because the relevant primary legal texts and official guidance cannot be accessed or verified here, no definitive statement can be made about whether AI disclosure is required or not required in Georgia (GE) for this specific use case.",
+      "sources": []
+    },
+    "GF": {
+      "iso": "GF",
+      "country": "French Guiana",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "GH": {
+      "iso": "GH",
+      "country": "Ghana",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested up‑to‑date, source‑specific internet research using only official Ghanaian government and regulatory websites because external search and browsing tools are not accessible in this environment. As a result, no clear determination can be made here about whether Ghana currently requires disclosure of AI use in telemarketing calls for quote requests, whether there are exceptions, or whether rules differ for existing customers versus cold calls. To obtain a reliable answer, it is necessary to manually consult recent publications and legal texts from official Ghanaian sources such as the Ministry of Communications and Digitalisation (moc.gov.gh), the National Communications Authority (nca.org.gh or its current official domain), the Data Protection Commission (dpc.gov.gh or equivalent), and any current electronic communications or consumer protection legislation and regulations published on official government portals.",
+      "sources": []
+    },
+    "GI": {
+      "iso": "GI",
+      "country": "Gibraltar",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No specific, current Gibraltar government or regulatory rules could be identified that expressly address AI disclosure requirements in telemarketing calls for quote requests, whether to existing customers or for cold calls. As a result, it is unclear whether AI use in this context is allowed without disclosure, and no explicit exceptions for quote requests could be documented from official sources.",
+      "sources": []
+    },
+    "GM": {
+      "iso": "GM",
+      "country": "Gambia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "GN": {
+      "iso": "GN",
+      "country": "Guinea",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current AI disclosure requirements for telemarketing quote requests in Guinea (GN) using only internal knowledge without direct access to official Guinean government or regulatory websites (such as national telecom, data protection, or consumer protection authorities). No specific, verifiable rules can therefore be confirmed regarding whether AI disclosure is required or not, or whether different rules apply to existing customers versus cold-calling prospects.",
+      "sources": []
+    },
+    "GP": {
+      "iso": "GP",
+      "country": "Guadeloupe",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, specific AI disclosure requirements for telemarketing quote-request calls in Guadeloupe using only internal knowledge, and external official government or regulatory sources cannot be consulted in this context. As a result, no clear rule could be identified on whether AI disclosure is required or not, whether there are exceptions for quote requests, or whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "GQ": {
+      "iso": "GQ",
+      "country": "Equatorial Guinea",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Equatorial Guinea currently requires AI disclosure for telemarketing calls (including quote requests) because direct access to up‑to‑date official government or regulatory websites and legal texts is not available in this environment. You should consult current Equatorial Guinean legislation and any telecom or data‑protection authority guidance (for example, laws on electronic communications, consumer protection, telemarketing, and data protection) directly from official government portals or gazettes to confirm whether there are AI-specific disclosure rules, any exceptions for quote requests, or distinctions between existing customers and cold calls.",
+      "sources": []
+    },
+    "GR": {
+      "iso": "GR",
+      "country": "Greece",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific Greek legal requirements on AI disclosure for telemarketing quote-request calls using only official sources because direct access to and review of up-to-date Greek government or regulatory websites and legal documents is not available in this environment. As a result, no reliable conclusion can be drawn on whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls when the call concerns a quote request.",
+      "sources": []
+    },
+    "GT": {
+      "iso": "GT",
+      "country": "Guatemala",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from official Guatemalan government or regulatory sources, under the current constraints, whether there are specific and current AI disclosure requirements for telemarketing calls when the purpose is a quote request, nor whether any such rules distinguish between existing customers and cold calls. No clear, specific rules on AI disclosure for this scenario can be confirmed, so the legal situation must be treated as unclear and should be verified with local counsel or directly with Guatemalan authorities.",
+      "sources": []
+    },
+    "GU": {
+      "iso": "GU",
+      "country": "Guam",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "GW": {
+      "iso": "GW",
+      "country": "Guinea-Bissau",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Guinea-Bissau has any current, specific regulations on AI disclosure requirements for telemarketing calls related to quote requests, or whether such rules differ for existing customers versus cold calls, because direct access to official government or regulatory websites and legal documents is not available in this environment. As a result, no clear rule stating that AI disclosure is required or not required for quote-request telemarketing in Guinea-Bissau can be confirmed.",
+      "sources": []
+    },
+    "GY": {
+      "iso": "GY",
+      "country": "Guyana",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote-request calls in Guyana using only internal knowledge. Publicly available information in general indicates that Guyana has been working on broader AI and data protection frameworks, but there is no clear, reliably verifiable indication (from internal knowledge alone) of any telemarketing-specific legal rule that either requires or exempts disclosure that an AI system is speaking during quote-request calls, nor of any distinction between existing customers and cold calls. Because current, authoritative confirmation from official Guyanese government or regulatory websites cannot be accessed in this context, the status of whether AI disclosure is required, not required, or treated differently for existing customers versus prospects must be treated as unclear, and you should consult up-to-date official Guyanese legal sources or qualified local counsel.",
+      "sources": []
+    },
+    "HK": {
+      "iso": "HK",
+      "country": "Hong Kong",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Unable to determine current, official Hong Kong rules on AI disclosure for telemarketing quote-request calls because external government and regulatory sources could not be consulted in this environment. No specific conclusions can be drawn about whether AI disclosure is required, exempted for quote requests, or differentiated between existing customers and cold calls.",
+      "sources": []
+    },
+    "HN": {
+      "iso": "HN",
+      "country": "Honduras",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm current, specific Honduran regulations on AI disclosure for telemarketing quote requests using only the information available here, and no definitive official government rules on this narrow issue can be reliably identified without direct access to and review of Honduran government or regulatory websites and legal texts. Consequently, it cannot be clearly stated whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls in the context of quote requests.",
+      "sources": []
+    },
+    "HR": {
+      "iso": "HR",
+      "country": "Croatia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "At this time, no direct access to official Croatian government or regulatory sources is available, so it is not possible to reliably determine whether Croatia explicitly requires or exempts AI disclosure for telemarketing calls whose purpose is a quote request, nor whether rules differ for existing customers versus cold calls. Because current, authoritative .gov or official-legal documents cannot be consulted, no clear statement can be made on whether AI use in this specific telemarketing context is allowed without disclosure.",
+      "sources": []
+    },
+    "HT": {
+      "iso": "HT",
+      "country": "Haiti",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine current, Haiti-specific regulations on AI disclosure requirements for telemarketing quote-request calls using only internal knowledge. No confirmed information can be provided on whether disclosure is required, not required, or differentiated for existing customers versus cold calls, and no official government URLs can be verified in this context.",
+      "sources": []
+    },
+    "HU": {
+      "iso": "HU",
+      "country": "Hungary",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Hungary currently requires AI disclosure specifically for telemarketing calls whose purpose is a quote request, nor whether there are differentiated rules for existing customers versus cold calls. A focused check of up-to-date Hungarian government and regulatory websites (such as kormany.hu, the National Authority for Data Protection and Freedom of Information, the national consumer protection authority, and official publications of the Hungarian AI implementation law and telemarketing rules) is needed to confirm if any AI-specific disclosure obligations or exceptions apply to such quote-request calls. Since those official sources cannot be accessed in this environment, no clear conclusion can be stated about whether AI disclosure is or is not required for this specific scenario.",
+      "sources": []
+    },
+    "ID": {
+      "iso": "ID",
+      "country": "Indonesia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to provide a reliable, up-to-date answer because direct access to current official Indonesian government and regulatory websites is not available in this environment. Without being able to review the latest laws, regulations, or official guidance from Indonesian authorities, no clear determination can be made about whether AI disclosure is required or not for telemarketing quote requests, whether there are exceptions, or whether rules differ for existing customers versus cold calls.",
+      "sources": []
+    },
+    "IE": {
+      "iso": "IE",
+      "country": "Ireland",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm from here whether Ireland currently requires AI disclosure in telemarketing quote-request calls, whether any explicit exceptions exist, or whether there are different disclosure rules for existing customers versus cold calls, because direct access to up‑to‑date official Irish or EU legal and regulatory sources is not available in this environment. You should consult current Irish government and regulatory authority publications (for example, gov.ie, the Data Protection Commission, ComReg, and the text of the EU AI Act as implemented in Ireland) or obtain local legal advice to determine whether AI disclosure is required, whether quote requests are treated as an exception, and whether different rules apply to existing customers.",
+      "sources": []
+    },
+    "IL": {
+      "iso": "IL",
+      "country": "Israel",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "IN": {
+      "iso": "IN",
+      "country": "India",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to provide a reliable, up‑to‑date answer using only official Indian government or regulatory sources because external lookup tools are currently unavailable. Without access to current TRAI regulations, the Telecom Commercial Communications Customer Preference Regulations (including 2025 amendments), or other official Indian legal materials, no clear determination can be made on whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls when the purpose of a telemarketing call is a quote request. You should consult the latest regulations, notifications, and FAQs published by the Telecom Regulatory Authority of India (trai.gov.in) and the Ministry of Electronics and Information Technology (meity.gov.in), or seek qualified local legal counsel for an authoritative answer.",
+      "sources": []
+    },
+    "IQ": {
+      "iso": "IQ",
+      "country": "Iraq",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "IR": {
+      "iso": "IR",
+      "country": "Iran",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official Iranian government sources or regulatory documents were found that specifically address AI disclosure requirements for telemarketing calls, including quote requests or inquiries. The available information discusses broader AI legislation and national plans but does not mention disclosure rules for telemarketing or quote requests.",
+      "sources": []
+    },
+    "IS": {
+      "iso": "IS",
+      "country": "Iceland",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific Icelandic rules on AI disclosure in telemarketing quote-request calls using only internal knowledge, and external official Icelandic government or regulatory sources cannot be consulted in this environment. As a result, no clear conclusion can be drawn on whether AI disclosure is required or exempted for quote requests, or whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "IT": {
+      "iso": "IT",
+      "country": "Italy",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether current Italian regulations specifically require or exempt AI disclosure for telemarketing calls whose sole purpose is a quote request, including any differences between existing customers and cold calls. No targeted search of up‑to‑date official Italian government or regulatory sources could be performed in this environment, so no definitive conclusion can be drawn and no authoritative exceptions can be reliably identified.",
+      "sources": []
+    },
+    "JM": {
+      "iso": "JM",
+      "country": "Jamaica",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm current, Jamaica‑specific legal rules on AI disclosure in telemarketing quote‑request calls using only internal knowledge. No verified information is available about whether AI disclosure is required, not required, or differentiated between existing customers and cold calls in this specific context, so the applicable law and any exceptions remain unclear.",
+      "sources": []
+    },
+    "JO": {
+      "iso": "JO",
+      "country": "Jordan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine, from here, any current Jordanian government or regulatory rules that specifically require or exempt AI disclosure in telemarketing calls for quote requests, or that distinguish between existing customers and cold calls. No clear, AI-specific telemarketing disclosure obligations or exceptions for quote requests in Jordan could be confirmed, so specialized local legal advice or direct inquiry with Jordanian regulators is necessary.",
+      "sources": []
+    },
+    "JP": {
+      "iso": "JP",
+      "country": "Japan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to provide a reliable, up-to-date answer to this question right now because external official Japanese government sources (such as current laws, regulations, or regulatory authority guidance) cannot be accessed or checked for the latest information in this environment. Therefore, no specific rule could be confirmed regarding whether AI disclosure is required or not for telemarketing quote requests, nor whether there are distinctions between existing customers and cold calling. You should consult up-to-date Japanese government or regulator websites (for example, relevant .go.jp domains or official legal databases) or seek local legal counsel for an authoritative answer.",
+      "sources": []
+    },
+    "KE": {
+      "iso": "KE",
+      "country": "Kenya",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Kenya currently requires AI disclosure for telemarketing quote-request calls, whether any specific exceptions exist, or whether rules differ for existing customers versus cold calls, because this environment cannot access or verify up-to-date official Kenyan government or regulatory sources (.go.ke, official gazettes, or regulator websites). You should check directly with Kenyan official sources such as the Office of the Data Protection Commissioner (ODPC), the Communications Authority of Kenya (CA), the Ministry of Information, Communications and the Digital Economy, and any current consumer protection or telecommunications regulations published in the Kenya Gazette or on their official websites to confirm whether AI use in telemarketing must be disclosed, including for quote requests.",
+      "sources": []
+    },
+    "KG": {
+      "iso": "KG",
+      "country": "Kyrgyzstan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote-request calls in Kyrgyzstan using only official government or regulatory sources, because direct access to up-to-date Kyrgyz .gov or official legal-document websites is not available in this environment. As a result, there is no clear confirmation on whether AI disclosure is explicitly required, not required, or differentiated for quote requests or for existing vs. new customers under Kyrgyz law.",
+      "sources": []
+    },
+    "KH": {
+      "iso": "KH",
+      "country": "Cambodia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested current, official-source-specific internet research within this environment right now. As a result, no clear determination can be made regarding whether Cambodia requires AI disclosure for telemarketing quote requests, whether there are exceptions, or whether rules differ between existing customers and cold calls. You should consult up-to-date Cambodian government or regulatory websites (for example, official ministry, telecom regulator, or consumer protection authority sites under .gov.kh) or a qualified local lawyer to confirm the latest telemarketing and AI-disclosure rules.",
+      "sources": []
+    },
+    "KI": {
+      "iso": "KI",
+      "country": "Kiribati",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Kiribati currently requires AI disclosure for telemarketing quote-request calls, whether there are exceptions, or whether rules differ for existing customers versus cold calls, because access to official Kiribati government or regulatory sources cannot be performed in this environment. No specific AI disclosure rules for telemarketing quote requests in Kiribati can therefore be confirmed or ruled out.",
+      "sources": []
+    },
+    "KM": {
+      "iso": "KM",
+      "country": "Comoros",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible here to reliably identify any current, Comoros-specific legal or regulatory provisions that address AI disclosure requirements in telemarketing calls for quote requests. No official Comorian government, regulatory authority, or legal sources could be consulted in this environment, so it cannot be confirmed whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls. For an authoritative answer, consultation of Comoros’ telecommunications, consumer protection, and data protection laws and any implementing regulations or decisions, via official government portals or local legal counsel, is necessary.",
+      "sources": []
+    },
+    "KN": {
+      "iso": "KN",
+      "country": "St. Kitts and Nevis",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current AI disclosure rules for telemarketing quote‑request calls in St. Kitts and Nevis from here because direct access to official government or regulatory websites and up‑to‑date legal texts is unavailable in this environment. You should consult St. Kitts and Nevis government portals (such as justice, communications, consumer protection, or data protection authorities) or a qualified local lawyer to confirm whether AI disclosure is required, whether any exceptions apply for quote requests or existing customers, and whether any recent regulations have been enacted.",
+      "sources": []
+    },
+    "KP": {
+      "iso": "KP",
+      "country": "North Korea",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm any current, specific North Korean (KP) regulations on AI disclosure requirements for telemarketing calls – including quote requests – using only officially published government or regulatory sources, because these materials cannot be accessed or verified in this environment. No clear rules could be identified regarding whether AI disclosure is required or not required for quote-request telemarketing, nor whether any distinction exists between existing customers and cold calls.",
+      "sources": []
+    },
+    "KR": {
+      "iso": "KR",
+      "country": "South Korea",
+      "allowed_without_disclosure": false,
+      "exceptions": [],
+      "note": "South Korea's AI Framework Act, effective January 2026, requires AI business operators to notify users when a product or service is operated by AI, including for telemarketing calls and quote requests. There are no explicit exceptions for quote requests or for existing customers versus cold calling. All AI-generated communications must be clearly disclosed to users.",
+      "sources": [
+        "https://www.onetrust.com/blog/south-koreas-new-ai-law-what-it-means-for-organizations-and-how-to-prepare/",
+        "https://ps-engage.com/south-koreas-ai-framework-act-navigating-opportunities-and-challenges-before-enforcement/",
+        "https://connectontech.bakermckenzie.com/south-korea-sets-ai-standard-pipcs-guidelines-for-generative-ai-present-obligations-oppo"
+      ]
+    },
+    "KW": {
+      "iso": "KW",
+      "country": "Kuwait",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to verify current, official Kuwaiti regulations on AI disclosure requirements for telemarketing quote requests using only internal knowledge and without direct access to up‑to‑date government or regulatory websites. No specific, reliable rules can be confirmed regarding whether AI disclosure is required or not required for quote‑request telemarketing calls, or whether different rules apply to existing customers versus cold calls. A review of the latest, authoritative .gov.kw sources and official publications from Kuwait’s Communications and Information Technology Regulatory Authority (CITRA) and other competent authorities would be necessary to determine the current legal position.",
+      "sources": []
+    },
+    "KZ": {
+      "iso": "KZ",
+      "country": "Kazakhstan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested targeted search of current, official Kazakhstan regulations on AI disclosure for telemarketing quote requests because external legal sources and official government websites cannot be accessed in this environment. As a result, no reliable conclusion can be drawn on whether disclosure is required or not, whether there are specific exceptions for quote requests, or whether rules differ for existing customers versus cold calls.",
+      "sources": []
+    },
+    "LA": {
+      "iso": "LA",
+      "country": "Laos",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Laos currently requires or exempts AI disclosure for telemarketing calls made for quote requests, including any distinctions between existing customers and cold calls, because there is no direct access to up‑to‑date official Lao government or regulatory sources during this session. As a result, no specific rules or exceptions regarding AI disclosure for quote‑request telemarketing in Laos can be reliably identified.",
+      "sources": []
+    },
+    "LB": {
+      "iso": "LB",
+      "country": "Lebanon",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No specific, current Lebanese regulations could be identified that address AI disclosure requirements in telemarketing calls, including when the call concerns a quote request or inquiry. No official government or regulatory authority sources were located that clearly state whether AI disclosure is required or not required in this context, nor any provisions distinguishing between existing customers and cold calls. Because of this lack of clear, authoritative information, it is not possible to confirm that AI-driven quote-request calls are allowed without disclosure, or that they are prohibited, under current Lebanese law.",
+      "sources": []
+    },
+    "LC": {
+      "iso": "LC",
+      "country": "St. Lucia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm any current, St. Lucia–specific legal requirements on AI disclosure for telemarketing quote-request calls (including any distinction between existing customers and cold calls) using only the information available here. No official government or regulatory sources from Saint Lucia could be consulted in this environment, so whether AI disclosure is required or not for quote requests remains unclear and must be verified directly with Saint Lucia’s official legislation or telecom/data protection authorities.",
+      "sources": []
+    },
+    "LI": {
+      "iso": "LI",
+      "country": "Liechtenstein",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to provide a reliable answer because direct access to up‑to‑date official Liechtenstein legal and regulatory sources is currently unavailable in this environment. As a result, no clear determination can be made about whether AI disclosure is required or not required for telemarketing quote‑request calls, nor whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "LK": {
+      "iso": "LK",
+      "country": "Sri Lanka",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Information about current Sri Lankan regulations specifically requiring or exempting AI disclosure in telemarketing calls for quote requests could not be reliably confirmed from official government or regulatory sources under the current constraints. Because no clear, authoritative rule tailored to AI disclosure in telemarketing (and no distinction between existing customers and cold calls for AI disclosure) could be identified from official .gov or primary legal documents in this context, it is not possible to state whether such AI use is explicitly allowed without disclosure, required to be disclosed, or exempted for quote requests.",
+      "sources": []
+    },
+    "LR": {
+      "iso": "LR",
+      "country": "Liberia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It was not possible to verify any current, specific Liberian regulations requiring or exempting artificial intelligence disclosure for telemarketing calls made for quote requests or inquiries, either for existing customers or cold calls, using only official government or regulatory sources. No clear, binding rules were identified that address AI disclosure in this exact context, so the legal situation remains unclear based on the accessible official information.",
+      "sources": []
+    },
+    "LS": {
+      "iso": "LS",
+      "country": "Lesotho",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested internet search of official Lesotho government and regulatory sources within this environment because external browsing tools are not accessible in this context. As a result, no current, authoritative rules could be verified regarding AI disclosure requirements for telemarketing calls in Lesotho, including for quote requests, possible exceptions, or distinctions between existing customers and cold calls. You should consult up-to-date official Lesotho government websites (e.g., gov.ls), the national communications regulator, or published legislation directly, or seek advice from a qualified local legal professional.",
+      "sources": []
+    },
+    "LT": {
+      "iso": "LT",
+      "country": "Lithuania",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific Lithuanian rules on AI disclosure for telemarketing quote requests using only internal knowledge, and external official government sources cannot be consulted in this context. No clear conclusion can therefore be drawn on whether disclosure is required, not required, or whether special rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "LU": {
+      "iso": "LU",
+      "country": "Luxembourg",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Luxembourg has any specific, current legal rules that require or exempt AI disclosure in telemarketing calls for quote requests, or whether there are distinct rules for existing customers versus cold calls. You may need to consult directly the official Luxembourg legal database (Légilux), the National Commission for Data Protection (CNPD), and any national implementation texts of the EU AI Act and telecom/consumer protection laws, or seek advice from a qualified legal professional in Luxembourg.",
+      "sources": []
+    },
+    "LV": {
+      "iso": "LV",
+      "country": "Latvia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Latvia currently requires AI disclosure in telemarketing calls specifically for quote requests or distinguishes such rules for existing customers versus cold calls, because direct access to official Latvian government or regulatory sources is not available in this environment. Please consult official Latvian government legislation portals (for example, national telemarketing/consumer protection laws, data protection authority guidance, and any national implementation measures of the EU AI Act) or seek local legal advice to verify current AI disclosure obligations for telemarketing quote requests.",
+      "sources": []
+    },
+    "LY": {
+      "iso": "LY",
+      "country": "Libya",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, from here, any current Libya-specific regulations that address AI disclosure requirements in telemarketing calls for quote requests, including whether disclosure is required or not, or whether rules differ for existing customers versus cold calls. No Libya government or regulatory sources could be consulted in this environment, so no specific rules or exceptions can be confirmed, and any assumptions about permissibility or disclosure duties would be speculative.",
+      "sources": []
+    },
+    "MA": {
+      "iso": "MA",
+      "country": "Morocco",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine current, specific Moroccan regulations on AI disclosure for telemarketing quote requests using only internal knowledge. Official Moroccan rules on AI use in telemarketing (including any distinction between quote requests vs. other purposes, or existing customers vs. cold calls) must be verified directly from up-to-date government or regulator sources such as the Commission Nationale de Protection des Données à Caractère Personnel (CNDP), the General Secretariat of the Government’s legal portal, and any published texts related to the Digital X.0 framework or telecom/consumer protection laws. Because these sources cannot be consulted in real time here, no clear statement can be made on whether AI disclosure is required or not for quote requests.",
+      "sources": [
+        "https://www.cndp.ma",
+        "https://sgg.gov.ma",
+        "https://justice.gov.ma",
+        "https://mtata.gov.ma"
+      ]
+    },
+    "MC": {
+      "iso": "MC",
+      "country": "Monaco",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date search of official Monegasque government and regulatory sources in this environment. Therefore, no clear conclusion can be drawn on whether AI disclosure is required or not required for telemarketing quote requests in Monaco, nor whether rules differ for existing customers versus cold calls. A qualified local lawyer or compliance professional should review current Monegasque telecommunications, consumer protection, and data protection rules, as well as any AI-specific legislation or guidance, directly on official sites such as service-public.gouv.mc, the personal data authority (CCIN), and other government or regulatory portals.",
+      "sources": []
+    },
+    "MD": {
+      "iso": "MD",
+      "country": "Moldova",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Moldova currently requires disclosure when using AI for telemarketing calls whose purpose is a quote request, because direct access to up‑to‑date official Moldovan government or regulatory websites and legal texts is not available in this environment. No specific rules, exceptions, or distinctions between existing customers and cold calls for AI disclosure in quote‑request scenarios can be confirmed.",
+      "sources": []
+    },
+    "ME": {
+      "iso": "ME",
+      "country": "Montenegro",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested targeted internet search of official Montenegrin government and regulatory sites within this environment, so no reliable, up‑to‑date, source‑based conclusion can be given on whether AI disclosure is required or not for telemarketing quote‑request calls, nor on any distinctions between existing customers and cold calls. You should consult Montenegrin official sources directly (such as the national data protection authority, electronic communications regulator, and any AI- or telemarketing-specific legislation published on government portals) or obtain local legal advice.",
+      "sources": []
+    },
+    "MG": {
+      "iso": "MG",
+      "country": "Madagascar",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Madagascar currently requires AI disclosure for telemarketing calls, including quote requests, because direct access to up-to-date official government sources and legal databases is not available in this environment. No specific rules, distinctions for quote requests, or differences between existing customers and cold calls can be confirmed, so the legal status of AI disclosure obligations for this use case in Madagascar remains unclear and should be verified with local counsel or by consulting current Malagasy government and regulatory websites directly.",
+      "sources": []
+    },
+    "MH": {
+      "iso": "MH",
+      "country": "Marshall Islands",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No specific, current Marshall Islands regulations or official guidance could be identified that address AI disclosure requirements in telemarketing calls, including calls made for quote requests or inquiries, or that distinguish between existing customers and cold calls for this purpose. Because no clear, authoritative rules were found, it is not possible to state whether AI disclosure is explicitly required or not in the Marshall Islands context, and entities operating there should consult local counsel or the relevant authorities (such as the Nitijela or sector regulators) for up-to-date, official clarification.",
+      "sources": []
+    },
+    "MK": {
+      "iso": "MK",
+      "country": "North Macedonia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "ML": {
+      "iso": "ML",
+      "country": "Mali",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No up-to-date, authoritative information from official Malian government or regulatory sources about AI disclosure requirements in telemarketing (including quote requests) is available in this environment. Because current Malian regulations or guidance specific to AI use and disclosure in telemarketing for quote requests could not be verified directly from official .gov or equivalent regulatory websites, it is not possible to state clearly whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "MM": {
+      "iso": "MM",
+      "country": "Myanmar",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested current, source-linked research on Myanmar AI disclosure rules for telemarketing quote requests using only official government and regulatory sites, because access to external online sources is not available in this environment. No specific determination can therefore be made as to whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "MN": {
+      "iso": "MN",
+      "country": "Mongolia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Mongolia does not currently have specific regulations or official legal documents that mandate AI disclosure requirements for telemarketing calls, including quote requests. Existing laws focus on personal data protection and digital transformation, but do not address AI disclosure in telemarketing or differentiate between quote requests and other types of calls. No official government or regulatory authority sources provide clear rules on this topic.",
+      "sources": [
+        "https://www.dlapiperdataprotection.com/index.html?t=law&c=MN",
+        "https://onch.mn/insight/3-trends-shaping-mongolias-business-and-policy-dialogue-in-2025-esg-digital-transformation-and-skills-of",
+        "https://www.lawgratis.com/blog-detail/artificial-intelligence-law-at-mongolia"
+      ]
+    },
+    "MO": {
+      "iso": "MO",
+      "country": "Macau",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, specific AI disclosure requirements for telemarketing quote-request calls in Macau (MO) using only internal knowledge and without direct access to official online legal or regulatory sources. You should consult Macau’s official government and regulatory websites (such as the Consumer Council and the Office for Personal Data Protection) or a qualified local lawyer to confirm whether AI disclosure is required, whether any exceptions apply to quote requests or existing customers, and to review the most recent applicable rules.",
+      "sources": []
+    },
+    "MR": {
+      "iso": "MR",
+      "country": "Mauritania",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote-request calls in Mauritania from official government or regulatory sources within this environment. No clear, binding rules could be identified that address whether AI must be disclosed in telemarketing calls, whether there are exceptions for quote requests, or whether different rules apply to existing customers versus cold calls. Because of this lack of accessible, specific regulation, it cannot be stated with confidence that AI disclosure is either required or not required for quote-request telemarketing calls.",
+      "sources": []
+    },
+    "MT": {
+      "iso": "MT",
+      "country": "Malta",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific Maltese rules on AI disclosure for telemarketing calls relating to quote requests based solely on the information available here, because direct access to up‑to‑date official Maltese government or regulatory websites and legal databases is not available in this environment. You should verify this point directly with Maltese official sources such as the Government of Malta legislation portal (https://legislation.mt), the Malta Communications Authority (https://www.mca.org.mt), the Office of the Information and Data Protection Commissioner (https://idpc.org.mt), and the Malta Digital Innovation Authority (https://mdia.gov.mt), and/or consult a qualified Maltese lawyer for an authoritative answer.",
+      "sources": [
+        "https://legislation.mt",
+        "https://www.mca.org.mt",
+        "https://idpc.org.mt",
+        "https://mdia.gov.mt"
+      ]
+    },
+    "MU": {
+      "iso": "MU",
+      "country": "Mauritius",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote requests in Mauritius from here because direct access to up-to-date official government or regulatory sources is not available in this environment. You should consult the official Mauritius e-Government portal, the Data Protection Office (under the Data Protection Act 2017), and any sectoral regulators (for example, for telecoms or financial services) for the most recent legal texts or guidelines on AI use and disclosure in telemarketing, including whether obligations differ for existing customers versus cold calling.",
+      "sources": []
+    },
+    "MV": {
+      "iso": "MV",
+      "country": "Maldives",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, using only internal knowledge and without direct access to current Maldivian government or regulatory websites, whether Maldives law specifically requires or exempts AI disclosure in telemarketing calls for quote requests, or whether different rules apply to existing customers versus cold calls. No definitive conclusion can be stated on AI disclosure obligations for such calls in Maldives based on the information currently available here.",
+      "sources": []
+    },
+    "MW": {
+      "iso": "MW",
+      "country": "Malawi",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Malawi currently requires AI disclosure in telemarketing quote-request calls, whether any exceptions exist for quote requests, or whether rules differ for existing customers versus cold calls, because direct access to current official Malawian government or regulatory websites and legal texts is not available in this environment. You should consult up-to-date primary sources such as the Malawi Communications Regulatory Authority (MACRA), the Malawi Data Protection Authority, and any telecommunication or consumer protection regulations published on official .gov.mw domains or in the Malawi Gazette.",
+      "sources": []
+    },
+    "MX": {
+      "iso": "MX",
+      "country": "Mexico",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, specific Mexican rules on AI disclosure in telemarketing quote-request calls using only internal knowledge. A review of the applicable framework would require direct consultation of up‑to‑date official government and regulatory sources (such as federal laws, regulations, and consumer‑protection or data‑protection authority publications). Because those sources cannot be checked here, no clear conclusion can be drawn on whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "MY": {
+      "iso": "MY",
+      "country": "Malaysia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "At the moment, there is no direct access to up-to-date official Malaysian government or regulatory sources to verify whether AI disclosure is specifically required or exempted for telemarketing quote requests, nor whether the rules differ between existing customers and cold calls. Because of this lack of verifiable official information in this environment, it is not possible to state clearly whether AI disclosure is required, not required, or subject to specific exceptions for quote-request telemarketing in Malaysia.",
+      "sources": []
+    },
+    "MZ": {
+      "iso": "MZ",
+      "country": "Mozambique",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Mozambique currently requires AI disclosure for telemarketing calls when the purpose is a quote request, or whether there are specific exceptions or distinctions between existing customers and cold calls. Publicly discussed Mozambican digital and data-governance measures mainly address electronic transactions, data protection, cybersecurity, and general electronic marketing rules, but do not clearly set out AI-specific disclosure obligations in telemarketing contexts. Because no AI-specific telemarketing disclosure rules tailored to quote requests could be identified with certainty from official, up-to-date primary sources, the legal status of AI disclosure for such calls remains unclear and should be confirmed directly with competent Mozambican authorities or local counsel.",
+      "sources": []
+    },
+    "NA": {
+      "iso": "NA",
+      "country": "Namibia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, specific Namibian legal requirements on AI disclosure in telemarketing quote-request calls using only internal knowledge without access to up‑to‑date official government sources. Because of this limitation, whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls in Namibia remains unclear in this context.",
+      "sources": []
+    },
+    "NE": {
+      "iso": "NE",
+      "country": "Niger",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date regulatory search right now, so no specific, current Niger (NE) government rules could be identified regarding AI disclosure requirements for telemarketing calls for quote requests. Because only official government and regulatory sources are permitted and these cannot be consulted in this context, it is not clear whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "NG": {
+      "iso": "NG",
+      "country": "Nigeria",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, from only internal knowledge and without consulting up‑to‑date official Nigerian government or regulatory sources, whether there are specific AI disclosure requirements for telemarketing calls where the purpose is a quote request (richiesta preventivo), nor whether there are distinct rules for existing customers versus cold calling in this context. Because external official sources cannot be accessed in this environment, no clear conclusion can be drawn on whether AI disclosure is explicitly required or not required for such quote‑request telemarketing in Nigeria.",
+      "sources": []
+    },
+    "NI": {
+      "iso": "NI",
+      "country": "Nicaragua",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Nicaragua currently requires AI disclosure in telemarketing calls for quote requests, whether there are exceptions, or whether different rules apply to existing customers versus cold calls, because this environment cannot access or verify the necessary official Nicaraguan government or regulatory sources in real time. No specific AI disclosure rules for telemarketing quote requests in Nicaragua can be confirmed or ruled out based on the limited, non‑official information available without direct access to current .gob.ni or other official legal documents; therefore the legal status of using AI without disclosure remains unclear for this specific use case.",
+      "sources": []
+    },
+    "NL": {
+      "iso": "NL",
+      "country": "The Netherlands",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, detailed Dutch legal requirements on AI disclosure for telemarketing quote‑request calls using only internal knowledge and without direct access to up‑to‑date official government or regulatory sources. Because those official sources (such as Dutch government portals, the Dutch Data Protection Authority, and consumer/telecom regulators) cannot be consulted in this environment, no clear statement can be made on whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls in the specific context of quote requests.",
+      "sources": []
+    },
+    "NO": {
+      "iso": "NO",
+      "country": "Norway",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm the current, specific Norwegian rules on AI disclosure in telemarketing quote‑request calls using only officially verified sources within this environment. You should consult Norwegian government and regulator websites directly (for example, the Ministry of Justice and Public Security, the Norwegian Consumer Authority, the Norwegian Communications Authority, and the Data Protection Authority) or a qualified Norwegian lawyer to determine whether AI disclosure is required, whether any exceptions apply for quote requests, and whether rules differ for existing customers versus cold calls.",
+      "sources": []
+    },
+    "NP": {
+      "iso": "NP",
+      "country": "Nepal",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Nepal currently requires AI disclosure for telemarketing quote requests, whether there are exceptions, or whether rules differ for existing customers versus cold calls, because direct access to up-to-date official Nepalese government or regulatory sources is not available in this environment. You should consult current laws, regulations, or guidance from relevant Nepali authorities (such as official government gazettes, the Ministry of Communication and Information Technology, the telecommunications regulator, or consumer protection agencies) or seek local legal advice to confirm the latest, authoritative position on AI disclosure requirements in telemarketing for quote requests.",
+      "sources": []
+    },
+    "NR": {
+      "iso": "NR",
+      "country": "Nauru",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible here to verify current, official Nauru (NR) laws or regulations specifically addressing AI disclosure requirements for telemarketing calls or quote requests using only official government sources. No clear, AI-specific telemarketing disclosure rules, including distinctions between existing customers and cold-calling contexts for quote requests, can be confirmed. Businesses should consult a qualified local lawyer in Nauru or directly contact Nauru’s government or relevant regulators for authoritative, up‑to‑date guidance.",
+      "sources": []
+    },
+    "NZ": {
+      "iso": "NZ",
+      "country": "New Zealand",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Current official New Zealand regulations do not specify a requirement for AI disclosure in telemarketing calls for quote requests. The Privacy Amendment Act 2025 introduces new notification requirements for indirect collection of personal information, but does not explicitly address AI disclosure for telemarketing or quote requests. Existing guidance focuses on privacy, consent, and transparency, but does not differentiate between quote requests and other telemarketing activities or between existing customers and cold calls. No official sources confirm an exemption or requirement for AI disclosure in this context.",
+      "sources": [
+        "https://natlawreview.com/article/new-zealand-privacy-amendment-act-2025-introduces-new-notification-requirements",
+        "https://duncancotterill.com/insights/new-zealand-releases-responsible-ai-guidance-for-businesses/",
+        "https://www.dlapiperdataprotection.com/index.html?t=law&c=NZ"
+      ]
+    },
+    "OM": {
+      "iso": "OM",
+      "country": "Oman",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested targeted search of CURRENT Omani regulations from official government or regulatory sources because external browsing tools are not available in this environment. Without direct access to Omani government websites, official gazettes, or regulatory authority publications, no reliable conclusion can be drawn on whether AI disclosure is specifically required or not required for telemarketing quote requests, nor whether rules differ for existing customers versus cold calls. You should consult up-to-date Omani government sources (for example, the official e-government portal, the Ministry of Transport, Communications and Information Technology, the Telecommunications Regulatory Authority, and any official AI or telecom/marketing regulations or circulars) or seek advice from qualified local counsel to obtain authoritative, current information.",
+      "sources": []
+    },
+    "PA": {
+      "iso": "PA",
+      "country": "Panama",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, using only internal knowledge, whether Panama currently requires explicit AI disclosure for telemarketing calls made for quote requests, whether there are exceptions, or whether different rules apply to existing customers versus cold calls. A review of up‑to‑date, official Panamanian government and regulatory sources would be needed to answer this accurately.",
+      "sources": []
+    },
+    "PE": {
+      "iso": "PE",
+      "country": "Peru",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, specific Peruvian rules on AI disclosure in telemarketing for quote requests using only internal knowledge. Official requirements may exist in national AI, consumer protection, telecommunications, or data protection rules, but confirming whether AI disclosure is required or not for quote-request calls, and whether there are distinctions between existing customers and cold calls, requires direct consultation of up-to-date Peruvian government and regulatory sources (such as Peruvian .gob.pe sites, official gazettes, and telecom or consumer-protection authorities). Because those sources cannot be accessed in this context, no clear statement can be made about whether AI disclosure is required, not required, or subject to exceptions for quote requests.",
+      "sources": []
+    },
+    "PG": {
+      "iso": "PG",
+      "country": "Papua New Guinea",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Papua New Guinea currently requires AI disclosure for telemarketing calls that are quote requests, whether there are exceptions, or whether different rules apply to existing customers versus cold calls, because direct access to up-to-date official government or regulatory sources is not available in this environment. You should consult current Papua New Guinea legislation and regulations (for example, communications, consumer protection, privacy, and AI-related instruments published on official .gov.pg or sector regulator websites) or obtain local legal advice to confirm the applicable requirements.",
+      "sources": []
+    },
+    "PH": {
+      "iso": "PH",
+      "country": "Philippines",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote-request calls in the Philippines using only internal knowledge. A targeted review of up-to-date official Philippine government and regulatory websites (such as the National Privacy Commission and relevant telecommunications or consumer protection authorities) is needed to confirm whether AI disclosure is required, whether there are exceptions for quote requests, and whether rules differ for existing customers versus cold calls. No definitive conclusion can therefore be stated here.",
+      "sources": []
+    },
+    "PK": {
+      "iso": "PK",
+      "country": "Pakistan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine the current, specific AI disclosure requirements for telemarketing quote-request calls in Pakistan using only internal knowledge without consulting up-to-date official government or regulatory sources. No clear conclusion can be given on whether disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "PL": {
+      "iso": "PL",
+      "country": "Poland",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "There is currently no specific Polish law or official regulation mandating AI disclosure for telemarketing calls, including quote requests, nor are there explicit exceptions for such cases. The EU AI Act and GDPR require transparency for automated decision-making and high-risk AI systems, but do not specify disclosure requirements for telemarketing quote requests. Poland is in the process of drafting AI-specific legislation, but as of now, no official source confirms mandatory disclosure for this scenario.",
+      "sources": [
+        "https://www.globallegalinsights.com/practice-areas/ai-machine-learning-and-big-data-laws-and-regulations/poland/",
+        "https://www.dudkowiak.com/ai-law/",
+        "https://www.twobirds.com/en/insights/2025/poland-sets-out-digital-priorities-for-the-next-six-months"
+      ]
+    },
+    "PS": {
+      "iso": "PS",
+      "country": "Palestine",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "PT": {
+      "iso": "PT",
+      "country": "Portugal",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up‑to‑date internet search or access official Portuguese government or regulatory websites in this environment, so no specific current rules could be identified regarding AI disclosure requirements in Portugal for telemarketing calls where the purpose is a quote request. Because the relevant official legal texts and guidance could not be consulted, it is unclear whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "PW": {
+      "iso": "PW",
+      "country": "Palau",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current AI disclosure requirements for telemarketing quote-request calls in Palau (PW) using only built‑in knowledge, and external official government sources could not be consulted in this environment. No specific rules can therefore be reliably identified or described, including any differences between existing customers and cold calls.",
+      "sources": []
+    },
+    "PY": {
+      "iso": "PY",
+      "country": "Paraguay",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific Paraguayan rules on AI disclosure in telemarketing quote-request calls using only official government sources under the present constraints. No clear, authoritative regulation or guidance specific to AI disclosure in telemarketing, nor distinctions between existing customers and cold calls for quote requests, could be identified without the ability to consult and verify up-to-date Paraguayan government or regulatory websites.",
+      "sources": []
+    },
+    "QA": {
+      "iso": "QA",
+      "country": "Qatar",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "RO": {
+      "iso": "RO",
+      "country": "Romania",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date, source-specific internet research under the current constraints, so no reliable conclusion can be given on whether Romanian law currently requires AI disclosure for telemarketing quote‑request calls, nor on any exceptions or distinctions between existing customers and cold calls.",
+      "sources": []
+    },
+    "RS": {
+      "iso": "RS",
+      "country": "Serbia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Serbia does not currently have specific legislation mandating AI disclosure for telemarketing calls, including quote requests. The country is in the process of drafting an AI law, with full implementation expected by the end of 2027. Existing regulations focus on data protection and transparency for high-risk AI systems, but do not explicitly address telemarketing or quote requests. No official government sources specify exceptions for existing customers or cold calling in this context.",
+      "sources": [
+        "https://practiceguides.chambers.com/practice-guides/data-protection-privacy-2025/serbia",
+        "https://injac.rs/ai-regulations-in-serbia/",
+        "https://www.schoenherr.eu/content/ai-regulation-and-development-in-serbia"
+      ]
+    },
+    "RU": {
+      "iso": "RU",
+      "country": "Russia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested up‑to‑date, source‑linked internet research on Russian AI disclosure rules for telemarketing quote requests because external websites and official legal databases cannot be accessed in this environment. As a result, no reliable determination can be made as to whether AI disclosure is currently required, not required, or treated differently for existing customers versus cold calls under Russian law, and no official .gov or regulatory URLs can be confidently provided.",
+      "sources": []
+    },
+    "RW": {
+      "iso": "RW",
+      "country": "Rwanda",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote-request calls in Rwanda using only internal knowledge, and external official Rwandan government or regulatory sources cannot be consulted in this environment. No clear conclusion can therefore be drawn on whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls.",
+      "sources": []
+    },
+    "SA": {
+      "iso": "SA",
+      "country": "Saudi Arabia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific Saudi Arabian regulations on AI disclosure requirements for telemarketing quote-request calls using only internal knowledge. Access to up-to-date official Saudi government or regulatory websites would be required to reliably confirm whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls, and to provide precise URLs to those sources.",
+      "sources": []
+    },
+    "SB": {
+      "iso": "SB",
+      "country": "Solomon Islands",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No information from official Solomon Islands government or regulatory sources about AI-specific disclosure requirements in telemarketing, including for quote requests or inquiries, could be identified. Because no clear, authoritative rules were found, it is not possible to determine whether AI disclosure is required or exempted for quote-request telemarketing calls, nor whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "SC": {
+      "iso": "SC",
+      "country": "Seychelles",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official government or regulatory source in Seychelles was found that specifically addresses AI disclosure requirements for telemarketing calls, including quote requests. The Seychelles Data Protection Act (2023) requires transparency and consent for personal data processing but does not explicitly mention AI disclosure in telemarketing calls or quote requests. There is no clear exception or requirement documented for existing customers versus cold calling in this context.",
+      "sources": [
+        "https://www.applebyglobal.com/publications/data-protection-law-now-in-force-in-seychelles/",
+        "https://www.dlapiperdataprotection.com/index.html?t=law&c=SC"
+      ]
+    },
+    "SD": {
+      "iso": "SD",
+      "country": "Sudan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Sudan currently requires AI disclosure for telemarketing calls related to quote requests. No specific, up-to-date official Sudanese government or regulatory sources on AI disclosure in telemarketing, quote requests, or distinctions between existing customers and cold calls could be identified or verified in this environment. Therefore, no clear rule—either requiring or exempting AI disclosure for quote requests—can be reliably stated.",
+      "sources": []
+    },
+    "SE": {
+      "iso": "SE",
+      "country": "Sweden",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "SG": {
+      "iso": "SG",
+      "country": "Singapore",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, from only official Singapore government or regulatory sources, whether there are specific, current AI disclosure requirements for telemarketing calls used solely to handle quote requests, nor whether different rules apply to existing customers versus cold calls. No clear, authoritative rule could be identified that explicitly states AI disclosure is required or not required in this specific quote-request context, so the legal position remains unclear and should be confirmed with a qualified Singapore lawyer or directly with the relevant regulator.",
+      "sources": []
+    },
+    "SI": {
+      "iso": "SI",
+      "country": "Slovenia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific AI disclosure requirements for telemarketing quote‑request calls in Slovenia using only internal knowledge. Access to up‑to‑date official Slovenian government or regulatory websites is required to answer whether AI disclosure is required, not required, or differentiated for existing customers versus cold calls, and that access is not available in this environment. As a result, no clear statement can be made about whether AI use may be allowed without disclosure for quote requests.",
+      "sources": []
+    },
+    "SK": {
+      "iso": "SK",
+      "country": "Slovakia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested up‑to‑date, government‑source‑based internet research about AI disclosure requirements for telemarketing quote requests in Slovakia because external search and browsing are not available in this environment. As a result, no reliable conclusion can be drawn here about whether AI disclosure is required or not, whether there are specific exceptions for quote requests, or whether rules differ for existing customers versus cold calls.",
+      "sources": []
+    },
+    "SL": {
+      "iso": "SL",
+      "country": "Sierra Leone",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific regulations in Sierra Leone on AI disclosure requirements for telemarketing quote requests using only internal knowledge. No conclusion can be drawn about whether disclosure is required, not required, or treated differently for existing customers versus cold calls without consulting up-to-date official government or regulatory sources.",
+      "sources": []
+    },
+    "SM": {
+      "iso": "SM",
+      "country": "San Marino",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether San Marino has any current, specific AI disclosure rules for telemarketing calls (including quote requests) or any distinctions between existing customers and cold calls, because direct access to official San Marino government or regulatory sources could not be performed. You should consult San Marino’s official government, data protection authority, or telecommunications regulator websites (for example, government portals and official gazettes) or a qualified local lawyer to verify whether any AI-disclosure requirements or exceptions exist for quote-request telemarketing.",
+      "sources": []
+    },
+    "SN": {
+      "iso": "SN",
+      "country": "Senegal",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date internet search at this time, so no specific, official Senegalese regulations could be identified regarding AI disclosure requirements for telemarketing calls or quote requests. Consequently, no conclusion can be drawn on whether AI use must be disclosed for quote-request calls, whether any exceptions exist, or whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "SO": {
+      "iso": "SO",
+      "country": "Somalia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Somalia has any current, specific regulations requiring or exempting AI disclosure in telemarketing calls for quote requests, whether for existing customers or cold calls, using only official government or regulatory sources. No clear, accessible Somalia government or regulatory authority rules on AI disclosure in telemarketing for quote requests could be identified, so the legal situation remains unclear and should be confirmed with a qualified local lawyer or regulator.",
+      "sources": []
+    },
+    "SR": {
+      "iso": "SR",
+      "country": "Suriname",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "SS": {
+      "iso": "SS",
+      "country": "South Sudan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm, using only official South Sudanese government or regulatory sources, any current, specific legal requirement that a telemarketing caller must disclose the use of AI when the call’s purpose is a quote request, nor any explicit exception for such calls or distinctions between existing customers and cold calls. No directly applicable, authoritative regulations, statutes, or guidance on AI disclosure in telemarketing for quote requests in South Sudan could be identified, so it remains unclear whether such calls are allowed without AI disclosure.",
+      "sources": []
+    },
+    "ST": {
+      "iso": "ST",
+      "country": "Sao Tome and Principe",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm current, specific AI disclosure rules for telemarketing quote requests in São Tomé and Príncipe using only official sources because online access to those materials is unavailable in this environment. No clear distinction can be documented between existing customers and cold-called prospects, nor any explicit requirement or exemption regarding AI disclosure for quote-request telemarketing calls.",
+      "sources": []
+    },
+    "SV": {
+      "iso": "SV",
+      "country": "El Salvador",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether El Salvador currently requires AI disclosure in telemarketing calls for quote requests, or whether there are specific exceptions or distinctions between existing customers and cold calls, because direct access to up‑to‑date, official Salvadoran government sources (such as the Official Gazette, telecommunications/consumer protection regulators, or enacted AI/telemarketing regulations) is not available in this environment. Without being able to consult those primary legal texts or regulatory websites, no clear or specific rule on AI disclosure duties for quote‑request telemarketing calls in El Salvador can be stated.",
+      "sources": []
+    },
+    "SY": {
+      "iso": "SY",
+      "country": "Syria",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine from here whether Syria currently has any specific, binding AI disclosure requirements for telemarketing calls, including when the purpose is a quote request or inquiry, because up‑to‑date official Syrian government or regulatory sources cannot be accessed or verified. No clear rules differentiating existing customers from cold calls, nor any explicit exceptions for quote‑request telemarketing using AI, can be confirmed at this time. You should consult a local Syrian lawyer or directly review current Syrian telecommunications and consumer‑protection regulations via official government channels for an authoritative answer.",
+      "sources": []
+    },
+    "SZ": {
+      "iso": "SZ",
+      "country": "Eswatini",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It was not possible to confirm any current Eswatini (SZ) regulations that specifically address AI disclosure requirements in telemarketing calls for quote requests or inquiries, either for existing customers or cold calls; no official government or regulatory sources located provided explicit rules on this point, so the legal situation for AI disclosure in this context remains unclear based on the information available here.",
+      "sources": []
+    },
+    "TD": {
+      "iso": "TD",
+      "country": "Chad",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No access to current official Chadian government or regulatory sources was possible in this environment, so it is not possible to determine whether Chad requires AI disclosure for telemarketing quote requests, whether there are exceptions, or whether the rules differ for existing customers versus cold calls. No specific rules on AI disclosure for such calls in Chad can be confirmed or ruled out here; local legal counsel or direct review of up-to-date Chadian legislation and regulator guidance is necessary.",
+      "sources": []
+    },
+    "TG": {
+      "iso": "TG",
+      "country": "Togo",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official Togo (.tg government, regulatory authority, or official legal document) sources specifically addressing AI disclosure requirements for telemarketing calls, including quote requests (richiesta preventivo), could be identified. Because no clear, binding rule was found regarding whether AI use must be disclosed in this context, it is not possible to state that AI disclosure is either required or not required for quote-request telemarketing calls, nor to determine whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "TH": {
+      "iso": "TH",
+      "country": "Thailand",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm current, Thailand-specific rules on whether AI disclosure is required in telemarketing quote-request calls (including differences between existing customers and cold calls) using only officially published online government or regulatory sources, because real-time access to and verification of those sources is not available in this context. As a result, no clear statement can be made on whether AI disclosure is explicitly required or explicitly exempted for quote-request telemarketing in Thailand, and no reliable official exceptions can be identified.",
+      "sources": []
+    },
+    "TJ": {
+      "iso": "TJ",
+      "country": "Tajikistan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably determine, using only internal knowledge and without direct access to current official Tajik government or regulatory websites, whether Tajikistan presently requires AI disclosure for telemarketing calls when the purpose is a quote request, whether there are explicit exceptions for such quote requests, or whether rules differ for existing customers versus cold calls. No specific, up-to-date AI disclosure rule tailored to telemarketing quote requests in Tajikistan can be confirmed, so no clear statement about allowance or prohibition can be made.",
+      "sources": []
+    },
+    "TK": {
+      "iso": "TK",
+      "country": "Tokelau",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to reliably identify any current, Tokelau-specific regulations or official government guidance addressing AI disclosure requirements in telemarketing calls for quote requests, whether for existing customers or cold calls, using only official sources. No clear rules could be located specifying whether disclosure is required or exempt in this context, nor any distinction between existing customers and prospects. Given the lack of accessible, authoritative legal or regulatory material, it cannot be stated that AI disclosure is either required or not required for quote-request telemarketing in Tokelau.",
+      "sources": []
+    },
+    "TL": {
+      "iso": "TL",
+      "country": "Timor-Leste",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "TM": {
+      "iso": "TM",
+      "country": "Turkmenistan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Turkmenistan currently requires or exempts AI disclosure for telemarketing quote-request calls, including any distinctions between existing customers and cold calls, because access to up-to-date official Turkmen government or regulatory sources cannot be performed in this environment. No specific rules on AI disclosure in this narrow context can be confirmed or ruled out.",
+      "sources": []
+    },
+    "TN": {
+      "iso": "TN",
+      "country": "Tunisia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up-to-date search of official Tunisian government or regulatory sources, so no specific rule could be identified on whether AI disclosure is required or not required for telemarketing quote requests, nor whether different rules apply to existing customers versus cold calls.",
+      "sources": []
+    },
+    "TO": {
+      "iso": "TO",
+      "country": "Tonga",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No access to live official Tongan government or regulatory sources was available in this environment, so it is not possible to confirm whether Tonga currently requires explicit AI disclosure for telemarketing calls that are solely for quote requests, whether any specific exceptions apply, or whether different rules exist for existing customers versus cold calls. Because no authoritative .gov or equivalent official legal documents from Tonga could be verified, no conclusion can be drawn on whether AI use in quote‑request telemarketing is allowed without disclosure.",
+      "sources": []
+    },
+    "TR": {
+      "iso": "TR",
+      "country": "Türkiye",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested internet search using only official Turkish government or regulatory sources in the current environment. No definitive conclusion can be given on whether AI disclosure is required or not required for telemarketing quote requests in Türkiye, or whether rules differ for existing customers versus cold calls. A qualified Turkish lawyer or compliance professional should review up‑to‑date legislation, decisions, and guidance from Turkish authorities (such as the Ministry of Trade, the Turkish Data Protection Authority/KVKK, and the Information and Communication Technologies Authority/BTK) to determine current, binding requirements.",
+      "sources": []
+    },
+    "TT": {
+      "iso": "TT",
+      "country": "Trinidad and Tobago",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "TV": {
+      "iso": "TV",
+      "country": "Tuvalu",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "No official Tuvalu government or regulatory sources were found that specifically address AI disclosure requirements for telemarketing calls, including quote requests, nor any distinction between existing customers and cold calls. Because no targeted rules on AI use or disclosure in telemarketing or call centers could be identified in available official ICT policy or telecommunications documents, it is not possible to determine from official law whether AI disclosure is required or not for quote-request calls.",
+      "sources": [
+        "https://ict.gov.tv/wp-content/uploads/2024/11/Tuvalu-National-ICT-Policy_final-y.pdf",
+        "https://finance.gov.tv/wp-content/uploads/2022/08/National-ICT-Policy-2021.pdf"
+      ]
+    },
+    "TW": {
+      "iso": "TW",
+      "country": "Taiwan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "TZ": {
+      "iso": "TZ",
+      "country": "Tanzania",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "UA": {
+      "iso": "UA",
+      "country": "Ukraine",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "UG": {
+      "iso": "UG",
+      "country": "Uganda",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether Uganda currently requires AI disclosure for telemarketing quote requests, because direct access to up‑to‑date official Ugandan government or regulatory websites cannot be performed in this environment. No specific rules, distinctions between existing customers and cold calls, or explicit exceptions regarding AI disclosure in telemarketing quote requests can be confirmed without consulting current primary sources such as Uganda Communications Commission (UCC), Ministry of ICT and National Guidance, the Personal Data Protection Office/NITA‑U, or Ugandan legislation and regulations published on official government domains (e.g., gov.ug).",
+      "sources": []
+    },
+    "US": {
+      "iso": "US",
+      "country": "United States",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    },
+    "UY": {
+      "iso": "UY",
+      "country": "Uruguay",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to confirm current, specific Uruguayan rules on AI disclosure for telemarketing quote requests using only internal knowledge, and direct consultation of official government or regulatory sources is required to determine whether disclosure is required, not required, or differentiated for existing customers versus cold calls.",
+      "sources": []
+    },
+    "UZ": {
+      "iso": "UZ",
+      "country": "Uzbekistan",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific rules in Uzbekistan regarding AI disclosure requirements for telemarketing calls for quote requests using only internal knowledge. No official confirmation can be provided on whether AI disclosure is required or not, whether there are exceptions for quote requests, or whether rules differ between existing customers and cold calls. Direct consultation of up-to-date Uzbek government or regulatory authority sources (such as official legislation, regulatory guidelines, or decisions) is necessary to obtain an accurate answer.",
+      "sources": []
+    },
+    "VC": {
+      "iso": "VC",
+      "country": "St. Vincent and Grenadines",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to perform the requested up‑to‑date, government‑source‑only internet research in this environment because external search and browsing tools are unavailable for this turn. As a result, no specific, reliable official regulations or legal texts from St. Vincent and the Grenadines about AI disclosure requirements in telemarketing quote‑request calls (including any distinctions between existing customers and cold calls) can be confirmed. You should consult the official government and regulator websites of St. Vincent and the Grenadines directly (for example, the national government portal, the justice/attorney‑general or telecommunications regulator websites, and any official gazettes or consolidated laws) or obtain local legal counsel to determine whether AI disclosure is required, not required, or subject to specific exceptions for quote requests.",
+      "sources": []
+    },
+    "VE": {
+      "iso": "VE",
+      "country": "Venezuela",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, specific Venezuelan legal requirements on AI disclosure in telemarketing quote‑request calls using only official government or regulatory sources, because those sources cannot be accessed or verified in this environment. No clear rule can be confirmed regarding whether disclosure is required, not required, or differentiated between existing customers and cold calls.",
+      "sources": []
+    },
+    "VI": {
+      "iso": "VI",
+      "country": "U.S. Virgin Islands",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current, territory‑specific rules for AI disclosure in telemarketing quote‑request calls in the U.S. Virgin Islands using only built‑in knowledge. Territory telemarketing rules and any AI‑specific disclosure requirements must be confirmed directly from official U.S. Virgin Islands government or regulatory websites (for example, the Virgin Islands Code, the Office of the Attorney General, or any telecommunications/consumer protection regulator). Because those primary sources cannot be accessed or verified here, no clear statement can be made about whether AI disclosure is required, allowed without disclosure, or treated differently for existing customers versus cold calls, and no authoritative URLs can be reliably listed.",
+      "sources": []
+    },
+    "VN": {
+      "iso": "VN",
+      "country": "Vietnam",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested current, source‑specific internet research using only official Vietnamese government and regulatory websites in this environment, so no clear, authoritative rule specific to AI disclosure for telemarketing quote‑request calls in Vietnam can be confirmed or ruled out. As a result, whether AI disclosure is required, not required, or treated differently for existing customers versus cold calls when the purpose is a quote request remains unclear based on the information available here.",
+      "sources": []
+    },
+    "VU": {
+      "iso": "VU",
+      "country": "Vanuatu",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Unable to search official Vanuatu government or regulatory sources in this environment, so no specific current rules could be identified regarding AI disclosure requirements for telemarketing calls, including quote requests or distinctions between existing customers and cold calls.",
+      "sources": []
+    },
+    "WS": {
+      "iso": "WS",
+      "country": "Samoa",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to verify current Samoan (WS) regulations on AI disclosure in telemarketing quote-request calls using only official government or regulatory sources, because external legal and government databases cannot be accessed in this environment. No specific rules on whether AI disclosure is required, not required, or differs for existing customers versus cold calls can be reliably identified or confirmed, so the legal status remains unclear and professional local legal advice is recommended.",
+      "sources": []
+    },
+    "YE": {
+      "iso": "YE",
+      "country": "Yemen",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine the current AI disclosure requirements for telemarketing quote‑request calls in Yemen using only official online sources under the current constraints. No specific, authoritative Yemeni government regulations or official legal documents on AI disclosure in telemarketing for quote requests, including distinctions between existing customers and cold calls, could be identified here. A local Yemeni lawyer or direct contact with the relevant telecommunications or consumer‑protection authority is recommended for an up‑to‑date, authoritative answer.",
+      "sources": []
+    },
+    "ZA": {
+      "iso": "ZA",
+      "country": "South Africa",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to determine from here whether South African law currently requires explicit AI disclosure for telemarketing calls where the purpose is a quote request, nor whether there are specific exceptions or distinctions between existing customers and cold-called prospects, because access to up-to-date official government sources and regulatory materials is not available in this environment. You should consult the latest documents and guidance from the Information Regulator (South Africa), the Protection of Personal Information Act (POPIA) and its regulations, and any relevant directives or guidance notes on direct marketing and use of automated calling systems published on official .gov.za or regulator websites to confirm whether AI use in telemarketing must be disclosed, whether quote requests are treated differently, and whether there are different rules for existing customers.",
+      "sources": []
+    },
+    "ZM": {
+      "iso": "ZM",
+      "country": "Zambia",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "It is not possible to complete the requested up‑to‑date, source‑specific internet research because external browsing tools are currently unavailable. As a result, no clear, current, and official Zambian rules specific to AI disclosure for telemarketing quote requests, nor distinctions between existing customers and cold calls, can be confirmed or ruled out. You should consult an up‑to‑date Zambian government or regulatory website (for example communications, consumer protection, or data protection authorities) or a local lawyer to verify any AI disclosure obligations.",
+      "sources": []
+    },
+    "ZW": {
+      "iso": "ZW",
+      "country": "Zimbabwe",
+      "allowed_without_disclosure": null,
+      "exceptions": [],
+      "note": "Error parsing response: Expecting value: line 1 column 1 (char 0)",
+      "sources": []
+    }
+  }
+}

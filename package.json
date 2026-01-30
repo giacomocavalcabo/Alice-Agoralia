@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8080",
     "prebuild": "node scripts/i18n-sync.mjs || true",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8080",
     "lint": "next lint"
   },
   "dependencies": {
+    "pg": "^8.11.3",
     "@portabletext/react": "^3.2.1",
     "@prisma/client": "^6.18.0",
     "@react-three/drei": "^10.7.3",
@@ -44,6 +45,7 @@
     "world-atlas": "^2.0.2"
   },
   "devDependencies": {
+    "@types/pg": "^8.10.9",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/d3-geo": "^3.1.0",

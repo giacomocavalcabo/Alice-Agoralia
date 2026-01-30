@@ -1,0 +1,38 @@
+{
+  "campaign_started": {
+    "title": "🚀 Campagna Avviata",
+    "subject": "🚀 Campagna Avviata: {campaign_name}",
+    "message": "La campagna <strong>{campaign_name}</strong> (ID: {campaign_id}) è stata avviata con successo.",
+    "cta": "Vai alle Campagne",
+    "fallback": "Se il pulsante non funziona, copia e incolla questo link nel tuo browser:"
+  },
+  "campaign_paused": {
+    "title": "⏸️ Campagna in Pausa",
+    "subject": "⏸️ Campagna in Pausa: {campaign_name}",
+    "message": "La campagna <strong>{campaign_name}</strong> (ID: {campaign_id}) è stata messa in pausa.",
+    "cta": "Gestisci Campagna",
+    "fallback": "Se il pulsante non funziona, copia e incolla questo link nel tuo browser:"
+  },
+  "campaign_completed": {
+    "title": "✅ Campagna Completata",
+    "subject": "✅ Campagna Completata: {campaign_name}",
+    "message": "La campagna <strong>{campaign_name}</strong> (ID: {campaign_id}) è stata completata con successo.",
+    "cta": "Visualizza Risultati",
+    "fallback": "Se il pulsante non funziona, copia e incolla questo link nel tuo browser:"
+  },
+  "budget_warning": {
+    "title": "⚠️ Avviso Budget",
+    "subject": "⚠️ Avviso Budget: {budget_usage_percent}% utilizzato",
+    "message": "Il budget del workspace ha raggiunto <strong>{budget_usage_percent}%</strong>.",
+    "remaining": "Budget rimanente stimato: <strong>€{remaining_euros}</strong>",
+    "advice": "Considera di aumentare il budget o mettere in pausa le campagne.",
+    "cta": "Apri Fatturazione",
+    "fallback": "Se il pulsante non funziona, copia e incolla questo link nel tuo browser:"
+  },
+  "compliance_alert": {
+    "title": "⚠️ Avviso di Conformità",
+    "subject": "⚠️ Avviso di Conformità",
+    "cta": "Rivedi Impostazioni di Conformità",
+    "fallback": "Se il pulsante non funziona, copia e incolla questo link nel tuo browser:"
+  }
+}

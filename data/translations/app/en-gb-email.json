@@ -1,0 +1,39 @@
+{
+  "campaign_started": {
+    "title": "🚀 Campaign Started",
+    "subject": "🚀 Campaign Started: {campaign_name}",
+    "message": "The campaign <strong>{campaign_name}</strong> (ID: {campaign_id}) has been started successfully.",
+    "cta": "Go to Campaigns",
+    "fallback": "If the button doesn't work, copy and paste this link in your browser:"
+  },
+  "campaign_paused": {
+    "title": "⏸️ Campaign Paused",
+    "subject": "⏸️ Campaign Paused: {campaign_name}",
+    "message": "The campaign <strong>{campaign_name}</strong> (ID: {campaign_id}) has been paused.",
+    "cta": "Manage Campaign",
+    "fallback": "If the button doesn't work, copy and paste this link in your browser:"
+  },
+  "campaign_completed": {
+    "title": "✅ Campaign Completed",
+    "subject": "✅ Campaign Completed: {campaign_name}",
+    "message": "The campaign <strong>{campaign_name}</strong> (ID: {campaign_id}) has been completed successfully.",
+    "cta": "View Results",
+    "fallback": "If the button doesn't work, copy and paste this link in your browser:"
+  },
+  "budget_warning": {
+    "title": "⚠️ Budget Warning",
+    "subject": "⚠️ Budget Warning: {budget_usage_percent}% used",
+    "message": "The workspace budget has reached <strong>{budget_usage_percent}%</strong>.",
+    "remaining": "Estimated remaining budget: <strong>€{remaining_euros}</strong>",
+    "advice": "Consider increasing the budget or pausing campaigns.",
+    "cta": "Open Billing",
+    "fallback": "If the button doesn't work, copy and paste this link in your browser:"
+  },
+  "compliance_alert": {
+    "title": "⚠️ Compliance Alert",
+    "subject": "⚠️ Compliance Alert",
+    "cta": "Review Compliance Settings",
+    "fallback": "If the button doesn't work, copy and paste this link in your browser:"
+  }
+}
+

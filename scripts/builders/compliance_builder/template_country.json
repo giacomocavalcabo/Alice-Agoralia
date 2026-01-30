@@ -1,0 +1,179 @@
+{
+  "continent": null,
+  "country": null,
+  "iso": null,
+
+  "regime": {
+    "b2b": {
+      "description": null,
+      "type": null
+    },
+    "b2c": {
+      "description": null,
+      "type": null
+    }
+  },
+
+  "relationship_requirements": {
+    "b2b": {
+      "requires_existing_relationship": null,
+      "relationship_types_accepted": [],
+      "min_relationship_duration": null,
+      "requires_recent_interaction": null,
+      "recent_interaction_window": null,
+      "opt_in_always_required": null,
+      "soft_opt_in_allowed": null,
+      "soft_opt_in_expiry": null,
+      "relationship_proof_required": null,
+      "notes": null
+    },
+    "b2c": {
+      "requires_existing_relationship": null,
+      "relationship_types_accepted": [],
+      "min_relationship_duration": null,
+      "requires_recent_interaction": null,
+      "recent_interaction_window": null,
+      "opt_in_always_required": null,
+      "soft_opt_in_allowed": null,
+      "soft_opt_in_expiry": null,
+      "relationship_proof_required": null,
+      "notes": null
+    }
+  },
+
+  "existing_customer_exemption": {
+    "b2b": {
+      "exemption_applies": null,
+      "exemption_type": null,
+      "exemption_conditions": [],
+      "max_timeframe": null,
+      "product_limitation": null,
+      "opt_out_still_applies": null,
+      "notes": null
+    },
+    "b2c": {
+      "exemption_applies": null,
+      "exemption_type": null,
+      "exemption_conditions": [],
+      "max_timeframe": null,
+      "product_limitation": null,
+      "opt_out_still_applies": null,
+      "notes": null
+    }
+  },
+
+  "dnc": {
+    "api_available": null,
+    "check_required": null,
+    "existing_customer_exemption": null,
+    "has_registry": null,
+    "name": null,
+    "url": null
+  },
+
+  "recording": {
+    "allowed": null,
+    "basis": null,
+    "notification_timing": null,
+    "notification_text": null,
+    "notification_required": null,
+    "consent_required": null,
+    "exceptions": [],
+    "retention": {
+      "max_duration": null,
+      "notes": null
+    }
+  },
+
+  "ai_disclosure": {
+    "required": null,
+    "mandatory": null,
+    "timing": null,
+    "text_suggested": null,
+    "language_requirements": [],
+    "exceptions": [],
+    "note": null
+  },
+
+  "quiet_hours": {
+    "enabled": null,
+    "weekdays": {
+      "start": null,
+      "end": null,
+      "timezone": null
+    },
+    "saturday": null,
+    "sunday": null,
+    "holidays": null,
+    "timezone": null,
+    "exceptions": []
+  },
+
+  "caller_id_requirements": {
+    "mandatory": null,
+    "prefix_required": null,
+    "prefix_alternatives": [],
+    "company_name_required": null,
+    "spoofing_prohibited": null,
+    "anonymous_calls_prohibited": null,
+    "note": null
+  },
+
+  "frequency_limits": {
+    "max_calls_per_day": null,
+    "max_calls_per_week": null,
+    "max_calls_per_month": null,
+    "applies_to": null,
+    "note": null
+  },
+
+  "legal_restrictions": [
+    {
+      "type": null,
+      "description": null,
+      "value": null,
+      "applies_to": null,
+      "enforcement_level": null
+    }
+  ],
+
+  "special_requirements": [],
+
+  "rules": {
+    "caller_id": null,
+    "exceptions": null
+  },
+
+  "enforcement": {
+    "max_fine": {
+      "amount": null,
+      "currency": null,
+      "per_violation": null,
+      "notes": null
+    },
+    "regulator": {
+      "name": null,
+      "url": null,
+      "type": null
+    },
+    "risk_level": null
+  },
+
+  "sources": {
+    "primary": [],
+    "recent_changes": null,
+    "source_last_updated": null
+  },
+
+  "extra_unstructured_rules": [
+    {
+      "topic": null,
+      "text": null,
+      "reason_not_structured": null,
+      "source": null
+    }
+  ],
+
+  "last_verified": null,
+  "confidence": null
+}
