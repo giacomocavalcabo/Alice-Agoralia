@@ -16,6 +16,12 @@ import {
   getMarginStats,
   getCampaignMargins,
   getDailyMargins,
+  getCashFlowStats,
+  getMonthlyRevenue,
+  getSubscriptionBreakdown,
+  getRevenueByCountry,
+  getTopTenants,
+  getRecentTransactions,
 } from '@/lib/app-db';
 
 const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'dev-admin-key';
@@ -90,6 +96,26 @@ export async function GET(request: NextRequest) {
         margins: marginStats,
         by_campaign: campaignMargins,
         daily_trend: dailyMargins,
+      });
+    }
+
+    if (type === 'cashflow') {
+      const [cashFlow, monthlyRevenue, subscriptionBreakdown, revenueByCountry, topTenants, recentTransactions] = await Promise.all([
+        getCashFlowStats(),
+        getMonthlyRevenue(),
+        getSubscriptionBreakdown(),
+        getRevenueByCountry(),
+        getTopTenants(),
+        getRecentTransactions(20),
+      ]);
+      return NextResponse.json({
+        connected: true,
+        cashflow: cashFlow,
+        monthly_revenue: monthlyRevenue,
+        subscription_breakdown: subscriptionBreakdown,
+        revenue_by_country: revenueByCountry,
+        top_tenants: topTenants,
+        recent_transactions: recentTransactions,
       });
     }
 

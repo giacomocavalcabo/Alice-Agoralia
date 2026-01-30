@@ -333,7 +333,10 @@ export default function AdminDashboard() {
             📞 Monitoring
           </Link>
           <Link href="/admin/finance" style={styles.navItem}>
-            📈 Finance
+            📈 Margins
+          </Link>
+          <Link href="/admin/cashflow" style={styles.navItem}>
+            💵 Cash Flow
           </Link>
         </nav>
 
@@ -472,9 +475,19 @@ export default function AdminDashboard() {
             <Link href="/admin/finance" style={styles.actionCard}>
               <div style={{ ...styles.actionIcon, background: 'linear-gradient(135deg, #f43f5e, #ec4899)' }}>📈</div>
               <div style={styles.actionContent}>
-                <div style={styles.actionTitle}>Finance</div>
-                <div style={styles.actionDesc}>Revenue, costs and analytics</div>
-                <div style={styles.actionStat}>{formatEuro(stats.mrrCents)}</div>
+                <div style={styles.actionTitle}>Margins</div>
+                <div style={styles.actionDesc}>AI costs, revenue and profitability</div>
+                <div style={styles.actionStat}>Margin analysis</div>
+              </div>
+              <span style={{ color: '#666666' }}>→</span>
+            </Link>
+
+            <Link href="/admin/cashflow" style={styles.actionCard}>
+              <div style={{ ...styles.actionIcon, background: 'linear-gradient(135deg, #10b981, #059669)' }}>💵</div>
+              <div style={styles.actionContent}>
+                <div style={styles.actionTitle}>Cash Flow</div>
+                <div style={styles.actionDesc}>MRR, subscriptions, credits</div>
+                <div style={styles.actionStat}>{formatEuro(stats.mrrCents)} MRR</div>
               </div>
               <span style={{ color: '#666666' }}>→</span>
             </Link>

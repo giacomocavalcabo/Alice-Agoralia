@@ -438,3 +438,404 @@ export async function getDailyMargins(): Promise<DailyMargin[]> {
     return [];
   }
 }
+
+// ============================================
+// Cash Flow & Subscription Analytics
+// ============================================
+
+export interface CashFlowStats {
+  // Revenue
+  gross_revenue_cents: number;
+  subscription_revenue_cents: number;
+  topup_revenue_cents: number;
+  refunds_cents: number;
+  net_revenue_cents: number;
+  
+  // MRR/ARR
+  mrr_cents: number;
+  arr_cents: number;
+  
+  // Subscriptions
+  active_subscriptions: number;
+  trialing_subscriptions: number;
+  canceled_this_month: number;
+  new_this_month: number;
+  churn_rate_percent: number;
+  
+  // By Plan
+  core_subscriptions: number;
+  pro_subscriptions: number;
+  
+  // By Interval
+  monthly_subscriptions: number;
+  yearly_subscriptions: number;
+  
+  // Credits
+  total_credit_balance_cents: number;
+  total_consumption_this_month_cents: number;
+}
+
+/**
+ * Get comprehensive cash flow and subscription statistics
+ */
+export async function getCashFlowStats(): Promise<CashFlowStats> {
+  try {
+    const result = await query<CashFlowStats>(`
+      WITH revenue_data AS (
+        SELECT 
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose IN ('subscription_invoice', 'topup')) as gross_revenue,
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'subscription_invoice') as subscription_revenue,
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'topup') as topup_revenue,
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'refund') as refunds
+        FROM billing_transaction
+        WHERE created_at >= DATE_TRUNC('month', CURRENT_DATE)
+      ),
+      subscription_data AS (
+        SELECT 
+          COUNT(*) FILTER (WHERE status = 'active') as active_subs,
+          COUNT(*) FILTER (WHERE status = 'trialing') as trialing_subs,
+          COUNT(*) FILTER (WHERE status = 'canceled' AND updated_at >= DATE_TRUNC('month', CURRENT_DATE)) as canceled_this_month,
+          COUNT(*) FILTER (WHERE status = 'active' AND created_at >= DATE_TRUNC('month', CURRENT_DATE)) as new_this_month,
+          COUNT(*) FILTER (WHERE status = 'active' AND plan = 'core') as core_subs,
+          COUNT(*) FILTER (WHERE status = 'active' AND plan = 'pro') as pro_subs,
+          COUNT(*) FILTER (WHERE status = 'active' AND interval = 'month') as monthly_subs,
+          COUNT(*) FILTER (WHERE status = 'active' AND interval = 'year') as yearly_subs
+        FROM billing_subscription
+      ),
+      mrr_data AS (
+        SELECT COALESCE(SUM(
+          CASE 
+            WHEN bs.interval = 'year' THEN pc.base_amount_cents / 12
+            ELSE pc.base_amount_cents
+          END
+        ), 0) as mrr_cents
+        FROM billing_subscription bs
+        LEFT JOIN price_catalog pc ON pc.plan = bs.plan 
+                                   AND pc.tier = bs.tier 
+                                   AND pc.interval = bs.interval
+                                   AND pc.active = true
+        WHERE bs.status = 'active'
+      ),
+      credit_data AS (
+        SELECT 
+          COALESCE(-SUM(amount), 0) as total_balance,
+          COALESCE(SUM(amount) FILTER (WHERE amount > 0 AND ts >= DATE_TRUNC('month', CURRENT_DATE)), 0) as consumption_this_month
+        FROM cost_events
+      )
+      SELECT 
+        COALESCE(rd.gross_revenue, 0)::int as gross_revenue_cents,
+        COALESCE(rd.subscription_revenue, 0)::int as subscription_revenue_cents,
+        COALESCE(rd.topup_revenue, 0)::int as topup_revenue_cents,
+        COALESCE(rd.refunds, 0)::int as refunds_cents,
+        (COALESCE(rd.gross_revenue, 0) - COALESCE(rd.refunds, 0))::int as net_revenue_cents,
+        
+        md.mrr_cents::int as mrr_cents,
+        (md.mrr_cents * 12)::int as arr_cents,
+        
+        sd.active_subs::int as active_subscriptions,
+        sd.trialing_subs::int as trialing_subscriptions,
+        sd.canceled_this_month::int as canceled_this_month,
+        sd.new_this_month::int as new_this_month,
+        CASE 
+          WHEN sd.active_subs > 0 
+          THEN ROUND(sd.canceled_this_month::numeric / sd.active_subs * 100, 2)
+          ELSE 0 
+        END as churn_rate_percent,
+        
+        sd.core_subs::int as core_subscriptions,
+        sd.pro_subs::int as pro_subscriptions,
+        sd.monthly_subs::int as monthly_subscriptions,
+        sd.yearly_subs::int as yearly_subscriptions,
+        
+        cd.total_balance::int as total_credit_balance_cents,
+        cd.consumption_this_month::int as total_consumption_this_month_cents
+        
+      FROM revenue_data rd, subscription_data sd, mrr_data md, credit_data cd
+    `);
+    
+    return result.rows[0] || {
+      gross_revenue_cents: 0,
+      subscription_revenue_cents: 0,
+      topup_revenue_cents: 0,
+      refunds_cents: 0,
+      net_revenue_cents: 0,
+      mrr_cents: 0,
+      arr_cents: 0,
+      active_subscriptions: 0,
+      trialing_subscriptions: 0,
+      canceled_this_month: 0,
+      new_this_month: 0,
+      churn_rate_percent: 0,
+      core_subscriptions: 0,
+      pro_subscriptions: 0,
+      monthly_subscriptions: 0,
+      yearly_subscriptions: 0,
+      total_credit_balance_cents: 0,
+      total_consumption_this_month_cents: 0,
+    };
+  } catch (error) {
+    console.error('Error fetching cash flow stats:', error);
+    return {
+      gross_revenue_cents: 0,
+      subscription_revenue_cents: 0,
+      topup_revenue_cents: 0,
+      refunds_cents: 0,
+      net_revenue_cents: 0,
+      mrr_cents: 0,
+      arr_cents: 0,
+      active_subscriptions: 0,
+      trialing_subscriptions: 0,
+      canceled_this_month: 0,
+      new_this_month: 0,
+      churn_rate_percent: 0,
+      core_subscriptions: 0,
+      pro_subscriptions: 0,
+      monthly_subscriptions: 0,
+      yearly_subscriptions: 0,
+      total_credit_balance_cents: 0,
+      total_consumption_this_month_cents: 0,
+    };
+  }
+}
+
+export interface MonthlyRevenue {
+  month: string;
+  gross_revenue_cents: number;
+  subscription_revenue_cents: number;
+  topup_revenue_cents: number;
+  refunds_cents: number;
+  net_revenue_cents: number;
+  new_subscriptions: number;
+  canceled_subscriptions: number;
+}
+
+/**
+ * Get monthly revenue trend for the last 12 months
+ */
+export async function getMonthlyRevenue(): Promise<MonthlyRevenue[]> {
+  try {
+    const result = await query<MonthlyRevenue>(`
+      WITH months AS (
+        SELECT generate_series(
+          DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '11 months',
+          DATE_TRUNC('month', CURRENT_DATE),
+          '1 month'::interval
+        )::date as month
+      ),
+      revenue AS (
+        SELECT 
+          DATE_TRUNC('month', created_at)::date as month,
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose IN ('subscription_invoice', 'topup')) as gross,
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'subscription_invoice') as subscription,
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'topup') as topup,
+          SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'refund') as refunds
+        FROM billing_transaction
+        WHERE created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '11 months'
+        GROUP BY DATE_TRUNC('month', created_at)
+      ),
+      subs AS (
+        SELECT 
+          DATE_TRUNC('month', created_at)::date as month,
+          COUNT(*) FILTER (WHERE status = 'active') as new_subs
+        FROM billing_subscription
+        WHERE created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '11 months'
+        GROUP BY DATE_TRUNC('month', created_at)
+      ),
+      cancels AS (
+        SELECT 
+          DATE_TRUNC('month', updated_at)::date as month,
+          COUNT(*) as canceled
+        FROM billing_subscription
+        WHERE status = 'canceled'
+          AND updated_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '11 months'
+        GROUP BY DATE_TRUNC('month', updated_at)
+      )
+      SELECT 
+        TO_CHAR(m.month, 'YYYY-MM') as month,
+        COALESCE(r.gross, 0)::int as gross_revenue_cents,
+        COALESCE(r.subscription, 0)::int as subscription_revenue_cents,
+        COALESCE(r.topup, 0)::int as topup_revenue_cents,
+        COALESCE(r.refunds, 0)::int as refunds_cents,
+        (COALESCE(r.gross, 0) - COALESCE(r.refunds, 0))::int as net_revenue_cents,
+        COALESCE(s.new_subs, 0)::int as new_subscriptions,
+        COALESCE(c.canceled, 0)::int as canceled_subscriptions
+      FROM months m
+      LEFT JOIN revenue r ON r.month = m.month
+      LEFT JOIN subs s ON s.month = m.month
+      LEFT JOIN cancels c ON c.month = m.month
+      ORDER BY m.month DESC
+    `);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching monthly revenue:', error);
+    return [];
+  }
+}
+
+export interface SubscriptionByPlan {
+  plan: string;
+  tier: string;
+  interval: string;
+  count: number;
+  mrr_contribution_cents: number;
+}
+
+/**
+ * Get subscription breakdown by plan/tier/interval
+ */
+export async function getSubscriptionBreakdown(): Promise<SubscriptionByPlan[]> {
+  try {
+    const result = await query<SubscriptionByPlan>(`
+      SELECT 
+        bs.plan,
+        bs.tier,
+        bs.interval,
+        COUNT(*)::int as count,
+        COALESCE(SUM(
+          CASE 
+            WHEN bs.interval = 'year' THEN pc.base_amount_cents / 12
+            ELSE pc.base_amount_cents
+          END
+        ), 0)::int as mrr_contribution_cents
+      FROM billing_subscription bs
+      LEFT JOIN price_catalog pc ON pc.plan = bs.plan 
+                                 AND pc.tier = bs.tier 
+                                 AND pc.interval = bs.interval
+                                 AND pc.active = true
+      WHERE bs.status = 'active'
+      GROUP BY bs.plan, bs.tier, bs.interval
+      ORDER BY mrr_contribution_cents DESC
+    `);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching subscription breakdown:', error);
+    return [];
+  }
+}
+
+export interface RevenueByCountry {
+  country_code: string;
+  gross_revenue_cents: number;
+  subscription_count: number;
+  // VAT fields (may be null if not populated)
+  vat_collected_cents: number | null;
+}
+
+/**
+ * Get revenue breakdown by country
+ */
+export async function getRevenueByCountry(): Promise<RevenueByCountry[]> {
+  try {
+    const result = await query<RevenueByCountry>(`
+      SELECT 
+        COALESCE(bc.billing_country, 'UNKNOWN') as country_code,
+        COALESCE(SUM(bt.amount_cents) FILTER (WHERE bt.status = 'paid'), 0)::int as gross_revenue_cents,
+        COUNT(DISTINCT bs.id) FILTER (WHERE bs.status = 'active')::int as subscription_count,
+        SUM(bt.tax_amount_cents)::int as vat_collected_cents
+      FROM billing_customer bc
+      LEFT JOIN billing_transaction bt ON bt.tenant_id = bc.tenant_id
+      LEFT JOIN billing_subscription bs ON bs.tenant_id = bc.tenant_id
+      WHERE bt.created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months'
+      GROUP BY bc.billing_country
+      ORDER BY gross_revenue_cents DESC
+      LIMIT 20
+    `);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching revenue by country:', error);
+    return [];
+  }
+}
+
+export interface TopTenant {
+  tenant_id: string;
+  total_spent_cents: number;
+  subscription_plan: string | null;
+  credit_balance_cents: number;
+  calls_this_month: number;
+}
+
+/**
+ * Get top tenants by spend
+ */
+export async function getTopTenants(): Promise<TopTenant[]> {
+  try {
+    const result = await query<TopTenant>(`
+      WITH tenant_spend AS (
+        SELECT 
+          tenant_id,
+          SUM(amount_cents) FILTER (WHERE status = 'paid') as total_spent
+        FROM billing_transaction
+        WHERE created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months'
+        GROUP BY tenant_id
+      ),
+      tenant_credits AS (
+        SELECT tenant_id, -SUM(amount) as balance
+        FROM cost_events
+        GROUP BY tenant_id
+      ),
+      tenant_calls AS (
+        SELECT tenant_id, COUNT(*) as calls
+        FROM calls
+        WHERE created_at >= DATE_TRUNC('month', CURRENT_DATE)
+        GROUP BY tenant_id
+      )
+      SELECT 
+        ts.tenant_id,
+        COALESCE(ts.total_spent, 0)::int as total_spent_cents,
+        bs.plan as subscription_plan,
+        COALESCE(tc.balance, 0)::int as credit_balance_cents,
+        COALESCE(tcl.calls, 0)::int as calls_this_month
+      FROM tenant_spend ts
+      LEFT JOIN billing_subscription bs ON bs.tenant_id = ts.tenant_id AND bs.status = 'active'
+      LEFT JOIN tenant_credits tc ON tc.tenant_id = ts.tenant_id
+      LEFT JOIN tenant_calls tcl ON tcl.tenant_id = ts.tenant_id
+      ORDER BY ts.total_spent DESC
+      LIMIT 20
+    `);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching top tenants:', error);
+    return [];
+  }
+}
+
+export interface RecentTransaction {
+  id: number;
+  tenant_id: string;
+  purpose: string;
+  amount_cents: number;
+  currency: string;
+  status: string;
+  created_at: string;
+}
+
+/**
+ * Get recent transactions
+ */
+export async function getRecentTransactions(limit = 20): Promise<RecentTransaction[]> {
+  try {
+    const result = await query<RecentTransaction>(`
+      SELECT 
+        id,
+        tenant_id,
+        purpose,
+        amount_cents,
+        currency,
+        status,
+        created_at::text
+      FROM billing_transaction
+      ORDER BY created_at DESC
+      LIMIT $1
+    `, [limit]);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching recent transactions:', error);
+    return [];
+  }
+}
