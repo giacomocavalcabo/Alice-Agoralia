@@ -29,7 +29,7 @@ export const dynamic = 'force-dynamic';
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Alice-Token',
   // Cache for 5 minutes, serve stale while revalidating
   'Cache-Control': 's-maxage=300, stale-while-revalidate=300',
 };

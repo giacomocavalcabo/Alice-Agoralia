@@ -261,12 +261,41 @@ Lingue Vapi/Azure (150+ lingue): vedi `catalogues/voices/azure-vapi-voices.json`
 
 ---
 
-## API Alice - Endpoint Disponibili
+## API Alice - Autenticazione
 
-### 1. Pricing Plans (già esistente)
+**Tutte le chiamate API richiedono un token di autenticazione.**
+
+Il token va passato in uno di questi modi:
+1. Header `Authorization: Bearer <token>` (consigliato)
+2. Header `X-Alice-Token: <token>` (alternativa)
 
 ```typescript
-GET https://alice.agoralia.com/api/pricing?country=IT
+// Esempio con fetch
+const response = await fetch('https://alice-agoralia.vercel.app/api/pricing?country=IT', {
+  headers: {
+    'Authorization': `Bearer ${process.env.ALICE_API_TOKEN}`,
+  },
+});
+```
+
+**Configurazione nel Sito/App:**
+```bash
+# .env.local
+ALICE_API_URL=https://alice-agoralia.vercel.app
+ALICE_API_TOKEN=<token-fornito-da-admin>
+```
+
+> ⚠️ **Il token è lo stesso per Sito e App.** Non committarlo nel codice, usa sempre env variables.
+
+---
+
+## API Alice - Endpoint Disponibili
+
+### 1. Pricing Plans
+
+```typescript
+GET https://alice-agoralia.vercel.app/api/pricing?country=IT
+Headers: Authorization: Bearer <token>
 
 Response:
 {
@@ -278,12 +307,13 @@ Response:
 }
 ```
 
-### 2. Consumption Pricing (aggiornato)
+### 2. Consumption Pricing
 
 ```typescript
-GET https://alice.agoralia.com/api/pricing/consumption
-GET https://alice.agoralia.com/api/pricing/consumption?language=it-IT
-GET https://alice.agoralia.com/api/pricing/consumption?language=it-IT&llm=gpt-4o&tts=elevenlabs
+GET https://alice-agoralia.vercel.app/api/pricing/consumption
+Headers: Authorization: Bearer <token>
+GET https://alice-agoralia.vercel.app/api/pricing/consumption?language=it-IT
+GET https://alice-agoralia.vercel.app/api/pricing/consumption?language=it-IT&llm=gpt-4o&tts=elevenlabs
 
 Query Parameters:
 - language: ISO locale (es. it-IT) - determina se serve Retell o Vapi
@@ -312,7 +342,7 @@ Response:
 ### 3. Consumption Options (nuovo)
 
 ```typescript
-GET https://alice.agoralia.com/api/pricing/consumption/options
+GET https://alice-agoralia.vercel.app/api/pricing/consumption/options
 
 Response:
 {
@@ -367,7 +397,7 @@ Crea route Next.js che fanno da proxy ad Alice, così puoi:
 // src/app/api/pricing/route.ts (Sito Agoralia)
 import { NextRequest, NextResponse } from 'next/server';
 
-const ALICE_URL = process.env.ALICE_API_URL || 'https://alice.agoralia.com';
+const ALICE_URL = process.env.ALICE_API_URL || 'https://alice-agoralia.vercel.app';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -459,27 +489,39 @@ Prima di deployare, eseguire questi test per verificare che l'integrazione con A
 
 ### Test 1: Verifica endpoint Alice (manuale)
 
-Apri questi URL nel browser o con curl per verificare che Alice risponda:
+**Nota:** Tutte le chiamate richiedono il token. Sostituisci `$TOKEN` con il valore reale.
 
 ```bash
+# Esporta il token per comodità
+export TOKEN="il-tuo-alice-api-token"
+
 # 1. Pricing plans
-curl "https://alice.agoralia.com/api/pricing?country=IT"
+curl -H "Authorization: Bearer $TOKEN" \
+  "https://alice-agoralia.vercel.app/api/pricing?country=IT"
 # ✅ Deve ritornare: { plans: [...], currency: "EUR", tier: "tier2", ... }
 
 # 2. Consumption options
-curl "https://alice.agoralia.com/api/pricing/consumption/options"
+curl -H "Authorization: Bearer $TOKEN" \
+  "https://alice-agoralia.vercel.app/api/pricing/consumption/options"
 # ✅ Deve ritornare: { llms: [...], tts: [...] }
 
 # 3. Consumption pricing (default)
-curl "https://alice.agoralia.com/api/pricing/consumption"
-# ✅ Deve ritornare: { agoralia_cost_per_minute_cents: ~20, llm: "gpt-4o-mini", tts: "deepgram", ... }
+curl -H "Authorization: Bearer $TOKEN" \
+  "https://alice-agoralia.vercel.app/api/pricing/consumption"
+# ✅ Deve ritornare: { agoralia_cost_per_minute_cents: ~13, llm: "gpt-4o-mini", tts: "deepgram", ... }
 
 # 4. Consumption pricing (con parametri)
-curl "https://alice.agoralia.com/api/pricing/consumption?language=it-IT&llm=gpt-4o&tts=elevenlabs"
-# ✅ Deve ritornare: { agoralia_cost_per_minute_cents: ~38, llm: "gpt-4o", tts: "elevenlabs", ... }
+curl -H "Authorization: Bearer $TOKEN" \
+  "https://alice-agoralia.vercel.app/api/pricing/consumption?language=it-IT&llm=gpt-4o&tts=elevenlabs"
+# ✅ Deve ritornare: { agoralia_cost_per_minute_cents: ~27, llm: "gpt-4o", tts: "elevenlabs", ... }
 
-# 5. Test cache (esegui 2 volte, la seconda deve essere più veloce)
-time curl "https://alice.agoralia.com/api/pricing/consumption/options"
+# 5. Test SENZA token (deve fallire)
+curl "https://alice-agoralia.vercel.app/api/pricing/consumption/options"
+# ✅ Deve ritornare: { error: "Unauthorized", ... } con status 401
+
+# 6. Test cache (esegui 2 volte, la seconda deve essere più veloce)
+time curl -H "Authorization: Bearer $TOKEN" \
+  "https://alice-agoralia.vercel.app/api/pricing/consumption/options"
 # Prima: ~200-500ms
 # Seconda: ~10-50ms (servita da cache Vercel)
 ```
@@ -487,7 +529,8 @@ time curl "https://alice.agoralia.com/api/pricing/consumption/options"
 ### Test 2: Verifica header cache
 
 ```bash
-curl -I "https://alice.agoralia.com/api/pricing/consumption/options"
+curl -I -H "Authorization: Bearer $TOKEN" \
+  "https://alice-agoralia.vercel.app/api/pricing/consumption/options"
 # ✅ Deve includere: Cache-Control: s-maxage=300, stale-while-revalidate=300
 ```
 
@@ -514,7 +557,7 @@ Aggiungi questo test nel Sito per CI/CD:
 // __tests__/pricing-integration.test.ts
 import { describe, it, expect } from 'vitest';
 
-const ALICE_URL = process.env.ALICE_API_URL || 'https://alice.agoralia.com';
+const ALICE_URL = process.env.ALICE_API_URL || 'https://alice-agoralia.vercel.app';
 
 describe('Alice Pricing Integration', () => {
   
@@ -594,7 +637,7 @@ describe('Alice Pricing Integration', () => {
 # Misura latenza media (10 richieste)
 for i in {1..10}; do
   curl -s -o /dev/null -w "%{time_total}\n" \
-    "https://alice.agoralia.com/api/pricing/consumption/options"
+    "https://alice-agoralia.vercel.app/api/pricing/consumption/options"
 done | awk '{sum+=$1} END {print "Average: " sum/NR "s"}'
 
 # ✅ Atteso: <100ms (dopo prima richiesta)
