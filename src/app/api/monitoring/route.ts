@@ -22,6 +22,9 @@ import {
   getRevenueByCountry,
   getTopTenants,
   getRecentTransactions,
+  getVATReport,
+  getRefundStats,
+  getNetRevenueBreakdown,
 } from '@/lib/app-db';
 
 const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'dev-admin-key';
@@ -116,6 +119,20 @@ export async function GET(request: NextRequest) {
         revenue_by_country: revenueByCountry,
         top_tenants: topTenants,
         recent_transactions: recentTransactions,
+      });
+    }
+
+    if (type === 'vat') {
+      const [vatReport, refundStats, netBreakdown] = await Promise.all([
+        getVATReport(3), // Last 3 months
+        getRefundStats(),
+        getNetRevenueBreakdown(),
+      ]);
+      return NextResponse.json({
+        connected: true,
+        vat_report: vatReport,
+        refund_stats: refundStats,
+        net_breakdown: netBreakdown,
       });
     }
 

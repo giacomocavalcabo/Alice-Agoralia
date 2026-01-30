@@ -718,27 +718,32 @@ export async function getSubscriptionBreakdown(): Promise<SubscriptionByPlan[]> 
 export interface RevenueByCountry {
   country_code: string;
   gross_revenue_cents: number;
+  net_revenue_cents: number;
   subscription_count: number;
-  // VAT fields (may be null if not populated)
-  vat_collected_cents: number | null;
+  vat_collected_cents: number;
+  avg_tax_rate: number;
+  transaction_count: number;
 }
 
 /**
- * Get revenue breakdown by country
+ * Get revenue breakdown by country with VAT details
+ * Uses new billing_country field directly on billing_transaction (v1.1)
  */
 export async function getRevenueByCountry(): Promise<RevenueByCountry[]> {
   try {
     const result = await query<RevenueByCountry>(`
       SELECT 
-        COALESCE(bc.billing_country, 'UNKNOWN') as country_code,
-        COALESCE(SUM(bt.amount_cents) FILTER (WHERE bt.status = 'paid'), 0)::int as gross_revenue_cents,
+        COALESCE(bt.billing_country, 'UNKNOWN') as country_code,
+        COALESCE(SUM(bt.amount_cents) FILTER (WHERE bt.status = 'paid' AND bt.purpose != 'refund'), 0)::int as gross_revenue_cents,
+        COALESCE(SUM(bt.amount_cents - COALESCE(bt.tax_amount_cents, 0)) FILTER (WHERE bt.status = 'paid' AND bt.purpose != 'refund'), 0)::int as net_revenue_cents,
         COUNT(DISTINCT bs.id) FILTER (WHERE bs.status = 'active')::int as subscription_count,
-        SUM(bt.tax_amount_cents)::int as vat_collected_cents
-      FROM billing_customer bc
-      LEFT JOIN billing_transaction bt ON bt.tenant_id = bc.tenant_id
-      LEFT JOIN billing_subscription bs ON bs.tenant_id = bc.tenant_id
+        COALESCE(SUM(bt.tax_amount_cents) FILTER (WHERE bt.status = 'paid' AND bt.purpose != 'refund'), 0)::int as vat_collected_cents,
+        COALESCE(ROUND(AVG(bt.tax_rate_percent) FILTER (WHERE bt.tax_rate_percent IS NOT NULL), 2), 0) as avg_tax_rate,
+        COUNT(bt.id) FILTER (WHERE bt.status = 'paid')::int as transaction_count
+      FROM billing_transaction bt
+      LEFT JOIN billing_subscription bs ON bs.tenant_id = bt.tenant_id
       WHERE bt.created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months'
-      GROUP BY bc.billing_country
+      GROUP BY bt.billing_country
       ORDER BY gross_revenue_cents DESC
       LIMIT 20
     `);
@@ -811,11 +816,15 @@ export interface RecentTransaction {
   amount_cents: number;
   currency: string;
   status: string;
+  billing_country: string | null;
+  tax_amount_cents: number | null;
+  tax_rate_percent: number | null;
+  refund_of_transaction_id: number | null;
   created_at: string;
 }
 
 /**
- * Get recent transactions
+ * Get recent transactions with VAT and refund details (v1.1)
  */
 export async function getRecentTransactions(limit = 20): Promise<RecentTransaction[]> {
   try {
@@ -827,6 +836,10 @@ export async function getRecentTransactions(limit = 20): Promise<RecentTransacti
         amount_cents,
         currency,
         status,
+        billing_country,
+        tax_amount_cents,
+        tax_rate_percent,
+        refund_of_transaction_id,
         created_at::text
       FROM billing_transaction
       ORDER BY created_at DESC
@@ -837,5 +850,187 @@ export async function getRecentTransactions(limit = 20): Promise<RecentTransacti
   } catch (error) {
     console.error('Error fetching recent transactions:', error);
     return [];
+  }
+}
+
+// ============================================
+// VAT Report (v1.1)
+// ============================================
+
+export interface VATReport {
+  country_code: string;
+  country_name: string;
+  transaction_count: number;
+  gross_revenue_cents: number;
+  vat_collected_cents: number;
+  net_revenue_cents: number;
+  avg_tax_rate: number;
+  refund_count: number;
+  refund_vat_cents: number;
+}
+
+/**
+ * Get detailed VAT report by country for tax filing
+ * Uses new tax_amount_cents and billing_country fields (v1.1)
+ */
+export async function getVATReport(months = 1): Promise<VATReport[]> {
+  try {
+    const result = await query<VATReport>(`
+      WITH country_names AS (
+        SELECT country_code, country_name FROM country_tier
+      )
+      SELECT 
+        COALESCE(bt.billing_country, 'UNKNOWN') as country_code,
+        COALESCE(cn.country_name, bt.billing_country, 'Unknown') as country_name,
+        COUNT(*) FILTER (WHERE bt.status = 'paid' AND bt.purpose != 'refund')::int as transaction_count,
+        COALESCE(SUM(bt.amount_cents) FILTER (WHERE bt.status = 'paid' AND bt.purpose != 'refund'), 0)::int as gross_revenue_cents,
+        COALESCE(SUM(bt.tax_amount_cents) FILTER (WHERE bt.status = 'paid' AND bt.purpose != 'refund'), 0)::int as vat_collected_cents,
+        COALESCE(SUM(bt.amount_cents - COALESCE(bt.tax_amount_cents, 0)) FILTER (WHERE bt.status = 'paid' AND bt.purpose != 'refund'), 0)::int as net_revenue_cents,
+        COALESCE(ROUND(AVG(bt.tax_rate_percent) FILTER (WHERE bt.tax_rate_percent IS NOT NULL AND bt.purpose != 'refund'), 2), 0) as avg_tax_rate,
+        COUNT(*) FILTER (WHERE bt.purpose = 'refund')::int as refund_count,
+        COALESCE(SUM(bt.tax_amount_cents) FILTER (WHERE bt.purpose = 'refund'), 0)::int as refund_vat_cents
+      FROM billing_transaction bt
+      LEFT JOIN country_names cn ON cn.country_code = bt.billing_country
+      WHERE bt.created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '${months - 1} months'
+      GROUP BY bt.billing_country, cn.country_name
+      HAVING SUM(bt.amount_cents) FILTER (WHERE bt.status = 'paid') > 0
+      ORDER BY gross_revenue_cents DESC
+    `);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching VAT report:', error);
+    return [];
+  }
+}
+
+// ============================================
+// Refund Analytics (v1.1)
+// ============================================
+
+export interface RefundStats {
+  total_refunds_cents: number;
+  refund_count: number;
+  refund_rate_percent: number;
+  avg_refund_amount_cents: number;
+  refunds_by_reason: { reason: string; count: number; amount_cents: number }[];
+}
+
+/**
+ * Get refund statistics
+ * Uses new refund tracking fields (v1.1)
+ */
+export async function getRefundStats(): Promise<RefundStats> {
+  try {
+    const result = await query<{
+      total_refunds_cents: number;
+      refund_count: number;
+      total_revenue_cents: number;
+      avg_refund_amount_cents: number;
+    }>(`
+      SELECT 
+        COALESCE(SUM(amount_cents) FILTER (WHERE purpose = 'refund' AND status = 'paid'), 0)::int as total_refunds_cents,
+        COUNT(*) FILTER (WHERE purpose = 'refund' AND status = 'paid')::int as refund_count,
+        COALESCE(SUM(amount_cents) FILTER (WHERE purpose != 'refund' AND status = 'paid'), 0)::int as total_revenue_cents,
+        COALESCE(AVG(amount_cents) FILTER (WHERE purpose = 'refund' AND status = 'paid'), 0)::int as avg_refund_amount_cents
+      FROM billing_transaction
+      WHERE created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months'
+    `);
+    
+    const reasonsResult = await query<{ reason: string; count: number; amount_cents: number }>(`
+      SELECT 
+        COALESCE(refund_reason, 'Not specified') as reason,
+        COUNT(*)::int as count,
+        COALESCE(SUM(amount_cents), 0)::int as amount_cents
+      FROM billing_transaction
+      WHERE purpose = 'refund' 
+        AND status = 'paid'
+        AND created_at >= DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '2 months'
+      GROUP BY refund_reason
+      ORDER BY amount_cents DESC
+    `);
+    
+    const stats = result.rows[0];
+    const refundRate = stats.total_revenue_cents > 0 
+      ? (stats.total_refunds_cents / stats.total_revenue_cents) * 100 
+      : 0;
+    
+    return {
+      total_refunds_cents: stats.total_refunds_cents,
+      refund_count: stats.refund_count,
+      refund_rate_percent: Math.round(refundRate * 100) / 100,
+      avg_refund_amount_cents: stats.avg_refund_amount_cents,
+      refunds_by_reason: reasonsResult.rows,
+    };
+  } catch (error) {
+    console.error('Error fetching refund stats:', error);
+    return {
+      total_refunds_cents: 0,
+      refund_count: 0,
+      refund_rate_percent: 0,
+      avg_refund_amount_cents: 0,
+      refunds_by_reason: [],
+    };
+  }
+}
+
+// ============================================
+// Net Revenue with VAT breakdown (v1.1)
+// ============================================
+
+export interface NetRevenueBreakdown {
+  gross_revenue_cents: number;
+  vat_collected_cents: number;
+  refunds_cents: number;
+  refund_vat_cents: number;
+  net_revenue_cents: number;
+  net_after_vat_cents: number;
+}
+
+/**
+ * Get complete revenue breakdown with VAT
+ */
+export async function getNetRevenueBreakdown(): Promise<NetRevenueBreakdown> {
+  try {
+    const result = await query<NetRevenueBreakdown>(`
+      SELECT 
+        -- Gross (all paid non-refund)
+        COALESCE(SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose != 'refund'), 0)::int as gross_revenue_cents,
+        -- VAT on revenue
+        COALESCE(SUM(tax_amount_cents) FILTER (WHERE status = 'paid' AND purpose != 'refund'), 0)::int as vat_collected_cents,
+        -- Refunds
+        COALESCE(SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'refund'), 0)::int as refunds_cents,
+        -- VAT on refunds (to deduct)
+        COALESCE(SUM(tax_amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'refund'), 0)::int as refund_vat_cents,
+        -- Net = Gross - Refunds
+        (COALESCE(SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose != 'refund'), 0) 
+         - COALESCE(SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'refund'), 0))::int as net_revenue_cents,
+        -- Net after VAT = Net - VAT + Refund VAT
+        (COALESCE(SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose != 'refund'), 0) 
+         - COALESCE(SUM(amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'refund'), 0)
+         - COALESCE(SUM(tax_amount_cents) FILTER (WHERE status = 'paid' AND purpose != 'refund'), 0)
+         + COALESCE(SUM(tax_amount_cents) FILTER (WHERE status = 'paid' AND purpose = 'refund'), 0))::int as net_after_vat_cents
+      FROM billing_transaction
+      WHERE created_at >= DATE_TRUNC('month', CURRENT_DATE)
+    `);
+    
+    return result.rows[0] || {
+      gross_revenue_cents: 0,
+      vat_collected_cents: 0,
+      refunds_cents: 0,
+      refund_vat_cents: 0,
+      net_revenue_cents: 0,
+      net_after_vat_cents: 0,
+    };
+  } catch (error) {
+    console.error('Error fetching net revenue breakdown:', error);
+    return {
+      gross_revenue_cents: 0,
+      vat_collected_cents: 0,
+      refunds_cents: 0,
+      refund_vat_cents: 0,
+      net_revenue_cents: 0,
+      net_after_vat_cents: 0,
+    };
   }
 }

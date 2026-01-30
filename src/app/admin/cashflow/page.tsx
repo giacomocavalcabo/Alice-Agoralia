@@ -65,8 +65,11 @@ interface SubscriptionBreakdown {
 interface RevenueByCountry {
   country_code: string;
   gross_revenue_cents: number;
+  net_revenue_cents: number;
   subscription_count: number;
-  vat_collected_cents: number | null;
+  vat_collected_cents: number;
+  avg_tax_rate: number;
+  transaction_count: number;
 }
 
 interface RecentTransaction {
@@ -76,6 +79,10 @@ interface RecentTransaction {
   amount_cents: number;
   currency: string;
   status: string;
+  billing_country: string | null;
+  tax_amount_cents: number | null;
+  tax_rate_percent: number | null;
+  refund_of_transaction_id: number | null;
   created_at: string;
 }
 
@@ -498,9 +505,9 @@ export default function CashFlowDashboard() {
               )}
             </div>
 
-            {/* Revenue by Country */}
+            {/* Revenue by Country with VAT */}
             <div className="bg-[#111] border border-[#222] rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4">Revenue by Country</h3>
+              <h3 className="text-lg font-semibold mb-4">Revenue by Country (with VAT)</h3>
               {revenueByCountry.length === 0 ? (
                 <p className="text-gray-500 text-center py-8">No country data available</p>
               ) : (
@@ -509,9 +516,11 @@ export default function CashFlowDashboard() {
                     <thead>
                       <tr className="text-left text-gray-500 border-b border-[#222]">
                         <th className="pb-3 font-medium">Country</th>
-                        <th className="pb-3 font-medium text-right">Revenue</th>
-                        <th className="pb-3 font-medium text-right">Subscriptions</th>
-                        <th className="pb-3 font-medium text-right">VAT Collected</th>
+                        <th className="pb-3 font-medium text-right">Gross</th>
+                        <th className="pb-3 font-medium text-right">VAT</th>
+                        <th className="pb-3 font-medium text-right">Net</th>
+                        <th className="pb-3 font-medium text-right">Tax Rate</th>
+                        <th className="pb-3 font-medium text-right">Txns</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -523,15 +532,20 @@ export default function CashFlowDashboard() {
                               <span className="font-medium">{country.country_code}</span>
                             </div>
                           </td>
-                          <td className="py-3 text-right text-emerald-400">
+                          <td className="py-3 text-right">
                             {formatCurrency(country.gross_revenue_cents)}
                           </td>
-                          <td className="py-3 text-right">{country.subscription_count}</td>
+                          <td className="py-3 text-right text-amber-400">
+                            {formatCurrency(country.vat_collected_cents)}
+                          </td>
+                          <td className="py-3 text-right text-emerald-400">
+                            {formatCurrency(country.net_revenue_cents)}
+                          </td>
                           <td className="py-3 text-right text-gray-400">
-                            {country.vat_collected_cents 
-                              ? formatCurrency(country.vat_collected_cents)
-                              : '—'
-                            }
+                            {country.avg_tax_rate > 0 ? `${country.avg_tax_rate}%` : '—'}
+                          </td>
+                          <td className="py-3 text-right text-gray-500">
+                            {country.transaction_count}
                           </td>
                         </tr>
                       ))}
@@ -555,9 +569,10 @@ export default function CashFlowDashboard() {
                   <thead>
                     <tr className="text-left text-gray-500 border-b border-[#222]">
                       <th className="pb-3 font-medium">Date</th>
-                      <th className="pb-3 font-medium">Tenant</th>
+                      <th className="pb-3 font-medium">Country</th>
                       <th className="pb-3 font-medium">Purpose</th>
                       <th className="pb-3 font-medium text-right">Amount</th>
+                      <th className="pb-3 font-medium text-right">VAT</th>
                       <th className="pb-3 font-medium text-right">Status</th>
                     </tr>
                   </thead>
@@ -565,17 +580,30 @@ export default function CashFlowDashboard() {
                     {recentTransactions.map((tx) => (
                       <tr key={tx.id} className="border-b border-[#1a1a1a]">
                         <td className="py-3 text-gray-400">{formatDate(tx.created_at)}</td>
-                        <td className="py-3 font-mono text-xs">{tx.tenant_id.slice(0, 8)}...</td>
+                        <td className="py-3">
+                          <span className="text-xs font-medium px-2 py-1 bg-[#1a1a1a] rounded">
+                            {tx.billing_country || '—'}
+                          </span>
+                        </td>
                         <td className={`py-3 ${getPurposeColor(tx.purpose)}`}>
                           <div className="flex items-center gap-2">
                             {tx.purpose === 'subscription_invoice' && <Receipt className="w-4 h-4" />}
                             {tx.purpose === 'topup' && <DollarSign className="w-4 h-4" />}
                             {tx.purpose === 'refund' && <ArrowDownRight className="w-4 h-4" />}
                             <span className="capitalize">{tx.purpose.replace('_', ' ')}</span>
+                            {tx.refund_of_transaction_id && (
+                              <span className="text-xs text-gray-500">(of #{tx.refund_of_transaction_id})</span>
+                            )}
                           </div>
                         </td>
                         <td className="py-3 text-right font-medium">
                           {formatCurrency(tx.amount_cents, tx.currency)}
+                        </td>
+                        <td className="py-3 text-right text-amber-400 text-xs">
+                          {tx.tax_amount_cents 
+                            ? `${formatCurrency(tx.tax_amount_cents, tx.currency)} (${tx.tax_rate_percent}%)`
+                            : '—'
+                          }
                         </td>
                         <td className="py-3 text-right">
                           <span className={`px-2 py-1 rounded text-xs ${getStatusColor(tx.status)}`}>

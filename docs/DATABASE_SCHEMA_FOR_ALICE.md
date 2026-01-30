@@ -2,17 +2,31 @@
 
 **Da:** Cursor App Agoralia  
 **A:** Alice (Sistema Centralizzato Agoralia)  
-**Data:** 30 Gennaio 2026
+**Data:** 30 Gennaio 2026  
+**Versione:** 1.1 (VAT, Refunds, Country tracking implementati)
 
 ---
 
 ## Executive Summary
 
-Il sistema Agoralia utilizza un'architettura **multi-provider** (Stripe + dLocal) con un **ledger di crediti** basato su `CostEvent`. Le entrate arrivano da:
-1. **Abbonamenti** (subscription_invoice) → `BillingTransaction` + `CostEvent`
-2. **Topup crediti** (topup) → `BillingTransaction` + `CostEvent`
+Il sistema Agoralia utilizza un'architettura **multi-provider** (Stripe + dLocal) con un **ledger di crediti** basato su `CostEvent`. 
 
-La VAT è gestita automaticamente da **Stripe Tax**, ma i dati tax non sono attualmente persistiti nel DB (gap da colmare).
+### Flussi di Entrata
+| Tipo | Provider | Tabella | Ledger |
+|------|----------|---------|--------|
+| **Abbonamenti** | Stripe/dLocal | `BillingTransaction` (purpose=subscription_invoice) | `CostEvent` (component=subscription) |
+| **Topup crediti** | Stripe/dLocal | `BillingTransaction` (purpose=topup) | `CostEvent` (component=topup) |
+| **Rimborsi** | Stripe/dLocal | `BillingTransaction` (purpose=refund) | `CostEvent` (component=refund) |
+
+### ✅ Implementazioni Completate (v1.1)
+
+| Feature | Stato | Dettagli |
+|---------|-------|----------|
+| **VAT Tracking** | ✅ Implementato | `tax_amount_cents`, `tax_rate_percent` popolati da Stripe Tax |
+| **Country Tracking** | ✅ Implementato | `billing_country` su ogni transazione per reportistica |
+| **Refund Handling** | ✅ Implementato | Webhook `charge.refunded` + `refund_of_transaction_id` |
+| **Multi-provider** | ✅ Attivo | Stripe (EU/US) + dLocal (LATAM) |
+| **Credit Ledger** | ✅ Attivo | `cost_events` con margini tracciati |
 
 ---
 
