@@ -201,3 +201,240 @@ export async function getRevenueStats(): Promise<RevenueStats> {
     };
   }
 }
+
+// ============================================
+// Margin Calculations
+// ============================================
+
+export interface MarginStats {
+  // Totali
+  total_calls: number;
+  total_minutes: number;
+  
+  // Revenue (quanto l'utente paga)
+  user_paid_cents: number;
+  
+  // Costi provider AI (Retell/Vapi)
+  ai_provider_cost_cents: number;
+  
+  // Margine
+  margin_cents: number;
+  margin_percent: number;
+  
+  // Breakdown per provider
+  retell_calls: number;
+  retell_cost_cents: number;
+  vapi_calls: number;
+  vapi_cost_cents: number;
+  
+  // Costo medio per minuto
+  avg_cost_per_minute_cents: number;
+}
+
+/**
+ * Get margin statistics for the current month
+ * 
+ * Formula: Margine = Revenue (utente paga) - Costo AI Provider
+ * - Revenue = SUM(amount) from cost_events
+ * - Costo AI = SUM(call_cost_cents) from calls
+ */
+export async function getMarginStats(): Promise<MarginStats> {
+  try {
+    const result = await query<MarginStats>(`
+      WITH call_data AS (
+        SELECT 
+          COUNT(*) as total_calls,
+          SUM(duration_ms) / 60000.0 as total_minutes,
+          SUM(call_cost_cents) as ai_cost_cents,
+          COUNT(*) FILTER (WHERE provider = 'retell') as retell_calls,
+          SUM(call_cost_cents) FILTER (WHERE provider = 'retell') as retell_cost,
+          COUNT(*) FILTER (WHERE provider = 'vapi') as vapi_calls,
+          SUM(call_cost_cents) FILTER (WHERE provider = 'vapi') as vapi_cost
+        FROM calls
+        WHERE status = 'ended'
+          AND created_at >= CURRENT_DATE - INTERVAL '30 days'
+          AND call_cost_cents IS NOT NULL
+      ),
+      revenue_data AS (
+        SELECT 
+          SUM(amount) as user_paid
+        FROM cost_events
+        WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+      )
+      SELECT 
+        COALESCE(cd.total_calls, 0)::int as total_calls,
+        COALESCE(cd.total_minutes, 0)::numeric as total_minutes,
+        COALESCE(rd.user_paid, 0)::int as user_paid_cents,
+        COALESCE(cd.ai_cost_cents, 0)::int as ai_provider_cost_cents,
+        (COALESCE(rd.user_paid, 0) - COALESCE(cd.ai_cost_cents, 0))::int as margin_cents,
+        CASE 
+          WHEN COALESCE(rd.user_paid, 0) > 0 
+          THEN ROUND(100.0 * (COALESCE(rd.user_paid, 0) - COALESCE(cd.ai_cost_cents, 0)) / rd.user_paid, 2)
+          ELSE 0 
+        END as margin_percent,
+        COALESCE(cd.retell_calls, 0)::int as retell_calls,
+        COALESCE(cd.retell_cost, 0)::int as retell_cost_cents,
+        COALESCE(cd.vapi_calls, 0)::int as vapi_calls,
+        COALESCE(cd.vapi_cost, 0)::int as vapi_cost_cents,
+        CASE 
+          WHEN COALESCE(cd.total_minutes, 0) > 0 
+          THEN ROUND(COALESCE(cd.ai_cost_cents, 0) / cd.total_minutes, 2)
+          ELSE 0 
+        END as avg_cost_per_minute_cents
+      FROM call_data cd, revenue_data rd
+    `);
+    
+    return result.rows[0] || {
+      total_calls: 0,
+      total_minutes: 0,
+      user_paid_cents: 0,
+      ai_provider_cost_cents: 0,
+      margin_cents: 0,
+      margin_percent: 0,
+      retell_calls: 0,
+      retell_cost_cents: 0,
+      vapi_calls: 0,
+      vapi_cost_cents: 0,
+      avg_cost_per_minute_cents: 0,
+    };
+  } catch (error) {
+    console.error('Error fetching margin stats:', error);
+    return {
+      total_calls: 0,
+      total_minutes: 0,
+      user_paid_cents: 0,
+      ai_provider_cost_cents: 0,
+      margin_cents: 0,
+      margin_percent: 0,
+      retell_calls: 0,
+      retell_cost_cents: 0,
+      vapi_calls: 0,
+      vapi_cost_cents: 0,
+      avg_cost_per_minute_cents: 0,
+    };
+  }
+}
+
+export interface CampaignMargin {
+  campaign_id: number;
+  campaign_name: string;
+  locked_cost_per_minute_cents: number;
+  total_calls: number;
+  total_minutes: number;
+  revenue_cents: number;
+  ai_cost_cents: number;
+  margin_cents: number;
+  margin_percent: number;
+}
+
+/**
+ * Get margin breakdown by campaign
+ */
+export async function getCampaignMargins(): Promise<CampaignMargin[]> {
+  try {
+    const result = await query<CampaignMargin>(`
+      SELECT 
+        c.id as campaign_id,
+        c.name as campaign_name,
+        COALESCE(c.locked_cost_per_minute_cents, 0) as locked_cost_per_minute_cents,
+        COUNT(DISTINCT calls.id)::int as total_calls,
+        ROUND(SUM(calls.duration_ms) / 60000.0, 2) as total_minutes,
+        
+        -- Revenue: minuti × prezzo bloccato
+        ROUND(SUM(calls.duration_ms) / 60000.0 * COALESCE(c.locked_cost_per_minute_cents, 0))::int as revenue_cents,
+        
+        -- Costo AI
+        COALESCE(SUM(calls.call_cost_cents), 0)::int as ai_cost_cents,
+        
+        -- Margine
+        (ROUND(SUM(calls.duration_ms) / 60000.0 * COALESCE(c.locked_cost_per_minute_cents, 0)) - COALESCE(SUM(calls.call_cost_cents), 0))::int as margin_cents,
+        
+        -- Margine %
+        CASE 
+          WHEN SUM(calls.duration_ms) > 0 AND c.locked_cost_per_minute_cents > 0
+          THEN ROUND(
+            100.0 * (
+              SUM(calls.duration_ms) / 60000.0 * c.locked_cost_per_minute_cents - SUM(calls.call_cost_cents)
+            ) / (SUM(calls.duration_ms) / 60000.0 * c.locked_cost_per_minute_cents), 
+            2
+          )
+          ELSE 0 
+        END as margin_percent
+
+      FROM campaigns c
+      JOIN calls ON calls.campaign_id = c.id
+      WHERE calls.status = 'ended'
+        AND calls.created_at >= CURRENT_DATE - INTERVAL '30 days'
+      GROUP BY c.id, c.name, c.locked_cost_per_minute_cents
+      HAVING COUNT(calls.id) > 0
+      ORDER BY margin_cents DESC
+      LIMIT 20
+    `);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching campaign margins:', error);
+    return [];
+  }
+}
+
+export interface DailyMargin {
+  day: string;
+  calls: number;
+  minutes: number;
+  ai_cost_cents: number;
+  revenue_cents: number;
+  margin_cents: number;
+}
+
+/**
+ * Get daily margin trend for the last 30 days
+ */
+export async function getDailyMargins(): Promise<DailyMargin[]> {
+  try {
+    const result = await query<DailyMargin>(`
+      SELECT 
+        DATE(calls.created_at)::text as day,
+        COUNT(*)::int as calls,
+        ROUND(SUM(duration_ms) / 60000.0, 2) as minutes,
+        COALESCE(SUM(call_cost_cents), 0)::int as ai_cost_cents,
+        
+        -- Revenue stimato da campaign locked price
+        COALESCE(SUM(
+          CASE 
+            WHEN calls.campaign_id IS NOT NULL THEN 
+              (calls.duration_ms / 60000.0) * (
+                SELECT COALESCE(locked_cost_per_minute_cents, 0) 
+                FROM campaigns 
+                WHERE id = calls.campaign_id
+              )
+            ELSE 0
+          END
+        ), 0)::int as revenue_cents,
+        
+        -- Margine
+        (COALESCE(SUM(
+          CASE 
+            WHEN calls.campaign_id IS NOT NULL THEN 
+              (calls.duration_ms / 60000.0) * (
+                SELECT COALESCE(locked_cost_per_minute_cents, 0) 
+                FROM campaigns 
+                WHERE id = calls.campaign_id
+              )
+            ELSE 0
+          END
+        ), 0) - COALESCE(SUM(call_cost_cents), 0))::int as margin_cents
+
+      FROM calls
+      WHERE status = 'ended' 
+        AND created_at >= CURRENT_DATE - INTERVAL '30 days'
+      GROUP BY DATE(calls.created_at)
+      ORDER BY day DESC
+    `);
+    
+    return result.rows;
+  } catch (error) {
+    console.error('Error fetching daily margins:', error);
+    return [];
+  }
+}

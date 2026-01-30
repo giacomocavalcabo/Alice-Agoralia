@@ -12,7 +12,10 @@ import {
   checkConnection,
   getActiveCalls,
   getCallStats,
-  getRevenueStats 
+  getRevenueStats,
+  getMarginStats,
+  getCampaignMargins,
+  getDailyMargins,
 } from '@/lib/app-db';
 
 const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'dev-admin-key';
@@ -73,6 +76,20 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         connected: true,
         revenue: revenueStats,
+      });
+    }
+
+    if (type === 'margins') {
+      const [marginStats, campaignMargins, dailyMargins] = await Promise.all([
+        getMarginStats(),
+        getCampaignMargins(),
+        getDailyMargins(),
+      ]);
+      return NextResponse.json({
+        connected: true,
+        margins: marginStats,
+        by_campaign: campaignMargins,
+        daily_trend: dailyMargins,
       });
     }
 
